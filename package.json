@@ -1,0 +1,26 @@
+{
+  "name": "chatti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server/index.js",
+    "start:all": "NODE_ENV=production (cd server && node index.js) & (cd client && npm run start)",
+    "heroku-postbuild": "NODE_ENV=production cd client && npm i && npm run build && cd ../server && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac18/chatti.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac18/chatti/issues"
+  },
+  "homepage": "https://github.com/fac18/chatti#readme",
+  "cacheDirectories": [
+    "client/node_modules",
+    "server/node_modules"
+  ]
+}
