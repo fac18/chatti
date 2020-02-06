@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, "/../client/build")));
 
 // Put all API endpoints under '/api'
 app.get("/api/test", (req, res) => {
-  res.json("back end is sending some test data");
+  res.json("back end is sending some test data to front end");
 
   console.log(`the test data was sent`);
 });
@@ -23,3 +23,5 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Chatti server listening on ${port}`);
+
+module.exports = app;
