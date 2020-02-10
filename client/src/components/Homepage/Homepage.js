@@ -12,15 +12,17 @@ function Homepage() {
       <div className="container">
         {/* chatti title */}
         {/* graphic of child and adult */}
-        <LogoBig/>
-        <MainImage/>
-        <h3>
-          Interactive ideas to inspire special moments with your little one
-          everyday
-        </h3>
-        {/* sign up button */}
-        {/* login button */}
-    
+        <div className="center-flex">
+          <LogoBig/>
+          <MainImage/>
+          <h3>
+            Interactive ideas to inspire special moments with your  little one
+            everyday
+          </h3>
+
+          {/* sign up button */}
+          {/* login button */}
+        </div>
         <AboutUs />
     
         {/* sign up button */}

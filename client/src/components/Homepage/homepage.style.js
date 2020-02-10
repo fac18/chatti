@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Homepage = styled.section`
   background-color: #163c9b;
-  min-height: 100vh;
   padding: 1em 2em 0 2em;
   color: white;
  
@@ -11,7 +10,17 @@ const Homepage = styled.section`
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    min-height: 80vh;
+    min-height: 100vh;   
+  }
+
+  .center-flex {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    min-height: 40vh;   
+  }
   }
   
   h3 {

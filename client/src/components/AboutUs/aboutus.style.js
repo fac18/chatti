@@ -10,5 +10,6 @@ const AboutUs = styled.section`
   .aboutus-paragraph {
     margin-bottom: 4em;
   }
+  
 `
 export { AboutUs };
