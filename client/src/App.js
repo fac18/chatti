@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [data, setData] = React.useState(null);
 
+  //this is just to demonstrate that a back end call is working
   const makeBackendCall = () => {
     // Get the passwords and store them in state
     fetch("/api/test")
