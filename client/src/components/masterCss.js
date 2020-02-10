@@ -19,7 +19,7 @@ border-style: none;
 margin: 50px;
 `
 
-const Title = styled.h2 `
+const Heading = styled.h2 `
 font-family: Open Sans;
 font-style: normal;
 font-weight: 600;
@@ -29,9 +29,31 @@ text-align: center;
 color: #163C9B;
 `
 
+const SubHeading = styled.h4 `
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 27px;
+color: #FFFFF;
+`
+
+const GeneralText = styled.p`
+display: inline;
+font-family: font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 29px;
+text-align: center;
+color: #FFFFFF;
+`
+
 
 
 export {
 InputField,
-Title
+SubHeading,
+GeneralText,
+Heading
 }

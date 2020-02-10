@@ -1,5 +1,5 @@
 import React from "react";
-import {Title} from '../masterCss'
+import {Heading} from '../masterCss'
 import Button from '../button'
 import styled from "styled-components";
 
@@ -8,7 +8,7 @@ display: inline;
 font-family: font-family: Lato;
 font-style: normal;
 font-weight: normal;
-font-size: 30px;
+font-size: 22px;
 line-height: 29px;
 text-align: center;
 color: #FFFFFF;
@@ -17,8 +17,7 @@ color: #FFFFFF;
 function AboutUs() {
   return (
     <>
-      <Title>About Us</Title>
-      <Button></Button>
+      <Heading>About Us</Heading>
       <AboutText>
         At Chatti we know that early talk matters. By inspiring parents to build
         the habit of high quality interactions with their under 5s we will
