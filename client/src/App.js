@@ -1,13 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./Cssreset.css";
 import "./App.css";
+import Homepage from "./components/Homepage/Homepage";
 
 function App() {
   const [data, setData] = React.useState(null);
 
   const makeBackendCall = () => {
-    // Get the passwords and store them in state
+    // Get the test data string and store in state
     fetch("/api/test")
       .then(res => res.json())
       .then(newData => setData(newData));
@@ -18,23 +18,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>{data}</p>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>{data}</p>
+      <Homepage />
+    </>
   );
 }
 
