@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./Cssreset.css";
 import "./App.css";
+import { Button } from "./components/masterCss";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{data}</p>
+        <Button>Gunners</Button>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
