@@ -1,6 +1,8 @@
 import React from "react";
 import "./Cssreset.css";
 import "./App.css";
+import HomePage from './components/Homepage/Homepage'
+import About from './components/AboutUs/AboutUs'
 
 
 function App() {
@@ -22,7 +24,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{data}</p>
-     <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -34,7 +35,9 @@ function App() {
         >
           Learn React
         </a>
+        <About></About>
       </header>
+      
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-const Button = styled.button `
-background: #FFC000;
+
+
+const InputField = styled.input `
+background: #FFFFF;
 box-shadow: 3px 6px 2px rgba(0, 0, 0, 0.25), inset -10px -10px 4px #FF8E00,
 inset 10px 10px 4px #FFC00;
 width: 270px;
@@ -15,18 +17,21 @@ text-align: center;
 cursor: pointer;
 border-style: none;
 margin: 50px;
-
-
 `
 
-const WhiteText = styled.p`
-  color: #FFFFFF
-  display: inline;
-`;
+const Title = styled.h2 `
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 29px;
+line-height: 39px;
+text-align: center;
+color: #163C9B;
+`
+
+
 
 export {
-Button,
-WhiteText
-
-
+InputField,
+Title
 }

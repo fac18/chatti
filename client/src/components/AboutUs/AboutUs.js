@@ -1,14 +1,29 @@
 import React from "react";
+import {Title} from '../masterCss'
+import Button from '../button'
+import styled from "styled-components";
+
+const AboutText = styled.p`
+display: inline;
+font-family: font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 29px;
+text-align: center;
+color: #FFFFFF;
+`
 
 function AboutUs() {
   return (
     <>
-      <h4>About Us</h4>
-      <p>
+      <Title>About Us</Title>
+      <Button></Button>
+      <AboutText>
         At Chatti we know that early talk matters. By inspiring parents to build
         the habit of high quality interactions with their under 5s we will
         ensure every child starts life with an equal chance of success.
-      </p>
+      </AboutText>
       {/* playing image */}
       <h4>Personalised learning</h4>
       <p>
