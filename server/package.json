@@ -21,7 +21,6 @@
     "start": "node index.js",
     "test": "NODE_ENV=test jest --forceExit",
     "db_build": "node database/run_build.js"
-    
   },
   "jest": {
     "coverageDirectory": "./coverage/",
