@@ -10,15 +10,15 @@ function AboutUs() {
     <SC.AboutUs>
       <h4 className="aboutus_heading">About Us</h4>
       <p className="aboutus-paragraph">
-      
         At Chatti we know that early talk matters. By inspiring parents to build
         the habit of high quality interactions with their under 5s we will
-        ensure every child starts life with an equal chance of success.
-      </p>
+        ensure every child starts life with an equal chance of success. </p>
       {/* playing image */}
+
       <MainImage2/>
       <h4 className="aboutus_heading">Personalised learning</h4>
       <p className="aboutus-paragraph">
+
         Fits into your busy life so Chatti never feels like a chore. Starts with
         your child’s age and interests. Then grows with them.
       </p>
