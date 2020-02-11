@@ -1,17 +1,16 @@
 import React from "react";
-import {Heading} from '../masterCss'
+import {Heading,ActivitySubHeading} from '../masterCss'
 import Button from '../button'
+
 import styled from "styled-components";
 
 const AboutText = styled.p`
-display: inline;
-font-family: font-family: Lato;
+font-family: Lato;
 font-style: normal;
 font-weight: normal;
-font-size: 22px;
-line-height: 29px;
+font-size: 16px;
+line-height: 26px;
 text-align: center;
-color: #FFFFFF;
 `
 
 function AboutUs() {
@@ -24,7 +23,7 @@ function AboutUs() {
         ensure every child starts life with an equal chance of success.
       </AboutText>
       {/* playing image */}
-      <h4>Personalised learning</h4>
+      <ActivitySubHeading>Personalised learning</ActivitySubHeading>
       <p>
         Fits into your busy life so Chatti never feels like a chore. Starts with
         your child’s age and interests. Then grows with them.

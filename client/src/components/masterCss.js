@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import React from 'react'
+import styled,{css} from "styled-components";
 
 
 
@@ -19,7 +20,7 @@ border-style: none;
 margin: 50px;
 `
 
-const Heading = styled.h2 `
+const Heading = styled.h1 `
 font-family: Open Sans;
 font-style: normal;
 font-weight: 600;
@@ -29,7 +30,7 @@ text-align: center;
 color: #163C9B;
 `
 
-const SubHeading = styled.h4 `
+const ActivityTitle = styled.h2 `
 font-family: Open Sans;
 font-style: normal;
 font-weight: 600;
@@ -50,10 +51,36 @@ color: #FFFFFF;
 `
 
 
+const InputSubHeading = styled.h4 `
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+color: #FFFFF;
+padding: 20px;
+`
+
+const ActivitySubHeading = styled.h4 `
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 19px;
+text-align: center;
+color: #163C9B;
+padding: 20px;
+`
+
+ 
+
 
 export {
 InputField,
-SubHeading,
+ActivityTitle,
 GeneralText,
-Heading
+Heading,
+InputSubHeading,
+ActivitySubHeading,
 }

@@ -30,7 +30,7 @@ ${props => {
 const Button = props => {
     return (
       <GenericButton
-      primary = {props.primary}
+      primary={props.primary}
       >
 
       </GenericButton>
