@@ -1,7 +1,9 @@
 import React from "react";
 import "./Cssreset.css";
 import "./App.css";
+
 import Homepage from "./components/Homepage/Homepage";
+
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -19,10 +21,12 @@ function App() {
   }, []);
 
   return (
+
     <>
       <p>{data}</p>
       <Homepage />
     </>
+
   );
 }
 

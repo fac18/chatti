@@ -1,16 +1,29 @@
 import React from "react";
+import {Heading,ActivitySubHeading} from '../masterCss'
+import Button from '../button'
+
+import styled from "styled-components";
+
+const AboutText = styled.p`
+font-family: Lato;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 26px;
+text-align: center;
+`
 
 function AboutUs() {
   return (
     <>
-      <h4>About Us</h4>
-      <p>
+      <Heading>About Us</Heading>
+      <AboutText>
         At Chatti we know that early talk matters. By inspiring parents to build
         the habit of high quality interactions with their under 5s we will
         ensure every child starts life with an equal chance of success.
-      </p>
+      </AboutText>
       {/* playing image */}
-      <h4>Personalised learning</h4>
+      <ActivitySubHeading>Personalised learning</ActivitySubHeading>
       <p>
         Fits into your busy life so Chatti never feels like a chore. Starts with
         your child’s age and interests. Then grows with them.
