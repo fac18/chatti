@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Header/Header";
 import {Formik,Form,Field,ErrorMessage} from 'formik'
-import {InputField,Heading,InputSubHeading} from '../masterCss'
+import {InputField,Heading,InputSubHeading,FormBox} from '../masterCss'
 import Button from '../button'
 
 
@@ -23,23 +23,27 @@ import Button from '../button'
           errors.email = "Invalid Email"
         }
         return errors;
+      }}
+      onSubmit={(values, {setSubmitting}) =>{
+        console.log(values)
       }
-      
-
-      }
-      // onSubmit={(values, {setSubmitting}) =>{
-
-      // }
-      
+    }
       >
         {({isSubmitting}) => (
-          <Form>
-            <Field type='email' name='email' />
-            <ErrorMessage name='email' component='div'/>
-            <Field type='password' name='password'/>
-            <ErrorMessage name='password' component='div'/>
+          <FormBox>
+            <InputSubHeading>
+              Email
+              <InputField type='email' name='email'/>
+              <ErrorMessage name='email' component='div'/>
+            </InputSubHeading>
+            <InputSubHeading>
+              Password
+              <InputField type='password' name='password'/>
+              <ErrorMessage name='password' component='div'/>
+            </InputSubHeading>
             <Button type='submit' disabled={isSubmitting}> Log In </Button>
-          </Form>
+          
+          </FormBox>
 
         )}
 

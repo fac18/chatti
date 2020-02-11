@@ -1,14 +1,15 @@
 import React from 'react'
 import styled,{css} from "styled-components";
+import {Field,Form} from "formik"
 
 
 
-const InputField = styled.input `
-background: #FFFFF;
-box-shadow: 3px 6px 2px rgba(0, 0, 0, 0.25), inset -10px -10px 4px #FF8E00,
-inset 10px 10px 4px #FFC00;
+const InputField = styled(Field) `
+background-color: #00000;
+box-shadow: inset 0px 4px 0px rgba(22, 60, 155, 0.71);
+border: 1px solid #163C9B;
 width: 270px;
-border-radius: 15px;
+border-radius: 12px;
 min-height: 40px;
 font-family: Lato;
 font-weight: normal;
@@ -16,7 +17,6 @@ font-size: 19px;
 color: #0E2869;
 text-align: center;
 cursor: pointer;
-border-style: none;
 margin: 50px;
 `
 
@@ -51,7 +51,9 @@ color: #FFFFFF;
 `
 
 
-const InputSubHeading = styled.h4 `
+const InputSubHeading = styled.label `
+display: flex;
+flex-direction: column;
 font-family: Lato;
 font-style: normal;
 font-weight: bold;
@@ -73,6 +75,15 @@ color: #163C9B;
 padding: 20px;
 `
 
+const FormBox = styled(Form) `
+display: flex;
+flex-direction: column;
+
+
+
+
+`
+
  
 
 
@@ -83,4 +94,5 @@ GeneralText,
 Heading,
 InputSubHeading,
 ActivitySubHeading,
+FormBox
 }

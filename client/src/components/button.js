@@ -11,7 +11,7 @@ min-height: 40px;
 font-family: Lato;
 font-weight: normal;
 font-size: 19px;
-color: #0E2869;
+color: #00000;
 text-align: center;
 cursor: pointer;
 border-style: none;
