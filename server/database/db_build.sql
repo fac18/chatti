@@ -32,16 +32,18 @@ CREATE TABLE "content" (
   "image_url" VARCHAR(100) NOT NULL,
   "instructions" VARCHAR(1000) NOT NULL,
   "duration" SMALLINT NOT NULL,
-  "type" VARCHAR(25) NOT NULL,
   "lower_age_range" SMALLINT NOT NULL,
-  "upper_age_range" SMALLINT NOT NULL
+  "upper_age_range" SMALLINT NOT NULL,
+  "listening_attention" BOOLEAN,
+  "understanding" BOOLEAN,
+  "speaking" BOOLEAN,
+  "social_interaction" BOOLEAN
 );
 
 CREATE TABLE "reviews" (
   "id" SERIAL PRIMARY KEY,
   "user_id" INTEGER,
   "content_id" INTEGER,
-  "review_text" VARCHAR(1000),
   "stars" SMALLINT
 );
 
@@ -74,17 +76,19 @@ ALTER TABLE "user_libraries" ADD FOREIGN KEY ("content_id") REFERENCES "content"
 INSERT INTO users (name, email, password , child_name, child_birthday, child_gender, mon, tue, wed ,thu ,fri ,sat, sun, notification_time, weekly_goal) VALUES
 ('Georgia Allister', 'Georgia1@hotmail.com', 'arsenal123', 'Freddie', '2016/04/16', 'male', 'true', 'true', 'true', 'false', 'false', 'true', 'true', '17:00:00', 80 );
 
-INSERT INTO content (title, video_url, image_url, instructions, duration, type, lower_age_range, upper_age_range) VALUES 
-('Clapperoo', 'https://www.youtube.com/embed/62QEl385HBQ','../../assets/images/clapperoo.jpg','Sit down so you are on the same level as Freddie. Clap your hands together and encourage him to do the same.  Reach forward and clap your hands against Freddie''s. Clap your hands together again, and repeat! For an extra challenge, try counting numbers or saying the alphabet at the same time', 10, 'clapping game', 3,5 );
+INSERT INTO content (title, video_url, image_url, instructions, duration, lower_age_range, upper_age_range, listening_attention, understanding, speaking, social_interaction) VALUES 
+('Clapperoo', 'https://www.youtube.com/embed/62QEl385HBQ','../../assets/images/clapperoo.jpg','Sit down so you are on the same level as Freddie. Clap your hands together and encourage him to do the same.  Reach forward and clap your hands against Freddie''s. Clap your hands together again, and repeat! For an extra challenge, try counting numbers or saying the alphabet at the same time', 10, 3,5,'true','false','false','true'),
+('Clapperoo2', 'https://www.youtube.com/embed/62QEl385HBQ','../../assets/images/clapperoo.jpg','Sit down so you are on the same level as Freddie. Clap your hands together and encourage him to do the same.  Reach forward and clap your hands against Freddie''s. Clap your hands together again, and repeat! For an extra challenge, try counting numbers or saying the alphabet at the same time', 10, 3,5,'false','true','false','false');
 
-INSERT INTO reviews (user_id, content_id, review_text, stars) VALUES 
-(1, 1, 'It was great!', 3);
+INSERT INTO reviews (user_id, content_id, stars) VALUES 
+(1, 1, 3);
 
 INSERT INTO favourites (user_id, content_id) VALUES
 (1, 1);
 
 INSERT INTO user_libraries (user_id, content_id) VALUES 
-(1, 1);
+(1, 1),
+(1, 2);
 
 
 COMMIT;

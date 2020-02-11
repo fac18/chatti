@@ -1,8 +1,8 @@
 import React from "react";
 import "./Cssreset.css";
 import "./App.css";
-import HomePage from './components/Homepage/Homepage'
-import About from './components/AboutUs/AboutUs'
+
+import Homepage from "./components/Homepage/Homepage";
 
 
 function App() {
@@ -21,24 +21,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>{data}</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <About></About>
-      </header>
-      
-    </div>
+
+    <>
+      <p>{data}</p>
+      <Homepage />
+    </>
+
   );
 }
 
