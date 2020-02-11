@@ -1,3 +1,12 @@
+:root {
+  --bg-blue: #f7f7f7;
+  --main-yellow: #740499;
+  --secondary-orange: #9d81a7;
+  --secondary-turquoise: #c8bdcb;
+  --transition: 0.2s all ease-in-out;
+}
+
+
 .App {
   text-align: center;
 }
@@ -32,6 +41,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
