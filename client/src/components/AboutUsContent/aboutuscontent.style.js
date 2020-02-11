@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const AboutUs = styled.section`
+const AboutUsContent = styled.section`
   text-align: center;
   margin: 0;
   background-color: white;
@@ -16,13 +16,12 @@ const AboutUs = styled.section`
 
   .aboutus_heading {
     margin-top: 3em 5em 1em 5em;
-    color: #0E2869;
+    color: #0e2869;
   }
 
   .aboutus-paragraph {
     margin-bottom: 4em;
     color: black;
   }
-  
-`
-export { AboutUs };
+`;
+export { AboutUsContent };
