@@ -1,6 +1,7 @@
 import React from "react";
 import "./Cssreset.css";
 import "./App.css";
+import Login  from "./components/Login/Login"
 
 import Homepage from "./components/Homepage/Homepage";
 
@@ -24,7 +25,10 @@ function App() {
 
     <>
       <p>{data}</p>
-      <Homepage />
+      {/* <Homepage /> */}
+      <Login />
+
+
     </>
 
   );
