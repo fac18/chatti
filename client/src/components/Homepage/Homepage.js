@@ -9,25 +9,23 @@ import * as SC from './homepage.style';
 function Homepage() {
   return (
     <SC.Homepage>
-      <div className="container">
+      <div className="container-flex">
         {/* chatti title */}
         {/* graphic of child and adult */}
-        <div className="center-flex">
           <LogoBig/>
           <MainImage/>
-          <h3>
+          <h3 className="header-text">
             Interactive ideas to inspire special moments with your  little one
             everyday
           </h3>
 
           {/* sign up button */}
           {/* login button */}
-        </div>
-        <AboutUs />
-    
+        
         {/* sign up button */}
         {/* footer */}
       </div>
+      <AboutUs />
     </SC.Homepage>
   );
 }

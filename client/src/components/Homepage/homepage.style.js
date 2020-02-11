@@ -2,30 +2,19 @@ import styled from 'styled-components';
 
 const Homepage = styled.section`
   background-color: #163c9b;
-  padding: 1em 2em 0 2em;
   color: white;
- 
-  .container {
+  
+  .container-flex {
+    padding-top: 2em;  
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    min-height: 100vh;   
-  }
-
-  .center-flex {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    min-height: 40vh;   
-  }
+    align-items: center;
+    height: 70vh;
   }
   
-  h3 {
+  h3.header-text {
     text-align: center;
+    padding: 2em;
   }
-
 `
 export { Homepage };
