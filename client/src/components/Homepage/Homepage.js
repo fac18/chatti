@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUs from "../AboutUs/AboutUs";
+import AboutUsContent from "../AboutUsContent/AboutUsContent";
 
 function Homepage() {
   return (
@@ -13,7 +13,7 @@ function Homepage() {
       {/* sign up button */}
       {/* login button */}
 
-      <AboutUs />
+      <AboutUsContent />
 
       {/* sign up button */}
       {/* footer */}
