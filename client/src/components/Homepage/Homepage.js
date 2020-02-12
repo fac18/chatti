@@ -18,7 +18,7 @@ function Homepage() {
           everyday
         </h3>
 
-        <Link>Sign up{/* sign up button */}</Link>
+        <Link to='/signup'>Sign up{/* sign up button */}</Link>
         <Link to="/login">Login{/* login button */}</Link>
 
         {/* footer */}

@@ -25,13 +25,11 @@ const Login = ({ setUsername }) => {
           }
           return errors;
         }}
-        
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
           postLogIn(values).then(result => {
             if(result=== "cookie exists") {
-    
-              history.push('/home')
+              history.push('/login')
             }
           });
           

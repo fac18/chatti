@@ -5,10 +5,20 @@ import Register3 from "../Register3/Register3";
 import Register4 from "../Register4/Register4";
 
 function RegisterContainer() {
+  const [reg1, setReg1] = React.useState(null)
+  const [reg2, setReg2] = React.useState(null)
+  const [reg3, setReg3] = React.useState(null)
+  console.log(reg1)
+  console.log(reg2)
+
+
+
+
   return (
     <>
-      {/* some logic to decide whether to show Register1/2/3/4 */}
-      <Register1 />
+      
+      
+      {reg3 ? <Register4 /> : reg2 ? <Register3 setReg3={setReg3} /> : reg1 ? <Register2 setReg2={setReg2}/> : <Register1 setReg1={setReg1}/>}
     </>
   );
 }
