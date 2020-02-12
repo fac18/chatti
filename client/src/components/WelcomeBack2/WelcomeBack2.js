@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 
 function WelcomeBack2() {
   // need to know user achievements and last activity name
+  const lastActivityName = 'Claparoo';
 
   return (
     <>

@@ -3,7 +3,8 @@ import Header from "../Header/Header";
 
 function Register4() {
   //need to know userName and childName
-
+  const userName = "Victoria";
+  const childName = "Freddie";
   return (
     <>
       <Header />
