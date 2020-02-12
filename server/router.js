@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const secret = process.env.SECRET
 
+
 // Put all API endpoints under '/api'
 // test to demonstrate back end is connected
 router.get("/api/test", (req, res) => {
@@ -24,7 +25,7 @@ router.post("/api/login", (req, res) => {
         const token = jwt.sign(email, secret)
         res.status(201)
         .cookie('user',token, {maxAge:3600})
-        .end()
+        .send("cookie exists");
       } else {
         res.status(401).end()
       }

@@ -7,7 +7,7 @@
     },
     body:JSON.stringify(userdata)
 })
-// return await response.json()
+return await response.text()
 }
 
 export default postLogIn;

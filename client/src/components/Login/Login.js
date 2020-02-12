@@ -5,8 +5,10 @@ import { InputField, Heading, InputSubHeading, FormBox } from "../masterCss";
 import Button from "../button";
 import postLogin from '../../utils/postData'
 import postLogIn from "../../utils/postData";
+import {Redirect, useHistory} from 'react-router-dom'
 
 const Login = ({ setUsername }) => {
+  const history = useHistory()
   return (
     <div>
       <Heading>Log In</Heading>
@@ -23,9 +25,16 @@ const Login = ({ setUsername }) => {
           }
           return errors;
         }}
+        
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          postLogIn(values);
+          postLogIn(values).then(result => {
+            if(result=== "cookie exists") {
+    
+              history.push('/home')
+            }
+          });
+          
         }}
       >
         {({ isSubmitting }) => (
