@@ -18,8 +18,8 @@ function Homepage() {
           everyday
         </h3>
 
-        <Link>Sign up{/* sign up button */}</Link>
-        <Link to="/login">Login{/* login button */}</Link>
+        <Link to="/signup">Get started{/* sign up button */}</Link>
+        <Link to="/login">I already have an account{/* login button */}</Link>
 
         {/* footer */}
       </div>
