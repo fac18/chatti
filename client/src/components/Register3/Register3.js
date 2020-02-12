@@ -7,27 +7,27 @@ function Register3() {
       <Header />
       {/* progress graphic thing */}
       <h3>
-        We recommend that you aim for 10 minutes of chatti activity everyday
+        We recommend that you aim htmlFor 10 minutes of chatti activity everyday
       </h3>
       {/* accept recommended settings button */}
       {/* video and caption */}
       {/* scroll down arrow */}
 
-      <label for="notificationsFrequency">
+      <label htmlFor="notificationsFrequency">
         How often do you want to get new ideas?
       </label>
       <select id="notificationsFrequency">
         <option value="daily">Daily</option>
       </select>
 
-      <label for="notificationsTime">
+      <label htmlFor="notificationsTime">
         What time do you want to get new ideas at?
       </label>
       <select id="notificationsTime">
         <option value="20:00:00">8:00pm</option>
       </select>
 
-      <label for="weeklyGoal">Your weekly goal:</label>
+      <label htmlFor="weeklyGoal">Your weekly goal:</label>
       <select id="weeklyGoal">
         <option value="70">70 minutes</option>
       </select>

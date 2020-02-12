@@ -3,12 +3,12 @@ import React from "react";
 function Navbar() {
   return (
     <nav>
-      <ol>
+      <ul>
         <li>{/* about us */}</li>
         <li>{/* favourite */}</li>
         <li>{/* community */}</li>
         <li>{/* progress */}</li>
-      </ol>
+      </ul>
     </nav>
   );
 }
