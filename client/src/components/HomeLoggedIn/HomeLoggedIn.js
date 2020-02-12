@@ -16,6 +16,7 @@ color: #163C9B;
 
 function HomeLoggedIn() {
   //need to know userName and their activities
+  const userName = "Ayub";
 
   return (
     <>
