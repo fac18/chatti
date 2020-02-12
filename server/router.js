@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { getUserLogin, getUserLibrary } = require("./database/queries/getData");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const secret = process.env.SECRET
 
 // Put all API endpoints under '/api'
 // test to demonstrate back end is connected
@@ -12,9 +15,23 @@ router.get("/api/test", (req, res) => {
 //find user by email and get hashed pw from db
 router.post("/api/login", (req, res) => {
   //check naming conventions, i've guessed
+  console.log(req.body)
   const email = req.body.email;
   const password = req.body.password;
-  getUserLogin(email);
+  getUserLogin(email).then(result => {
+    bcrypt.compare(password , result[0].password).then(result => {
+      if(result === true) {
+        const token = jwt.sign(email, secret)
+        res.status(201)
+        .cookie('user',token, {maxAge:3600})
+        .end()
+      } else {
+        res.status(401).end()
+      }
+    }).catch(console.log);
+  }).catch(console.log);
+
+  
   //getUserLogin will return a promise resolving to the password
   //run bcrypt.compare to check they are the same
   //if true: use jwt.sign to create token, and use it to set cookie in res headers

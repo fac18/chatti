@@ -3,6 +3,8 @@ import Header from "../Header/Header";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { InputField, Heading, InputSubHeading, FormBox } from "../masterCss";
 import Button from "../button";
+import postLogin from '../../utils/postData'
+import postLogIn from "../../utils/postData";
 
 const Login = ({ setUsername }) => {
   return (
@@ -23,8 +25,7 @@ const Login = ({ setUsername }) => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          //make backend call (use a util?)
-          //setUsername (maybe inside util?)
+          postLogIn(values);
         }}
       >
         {({ isSubmitting }) => (
