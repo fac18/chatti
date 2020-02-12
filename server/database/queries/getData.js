@@ -1,8 +1,15 @@
 const dbConnection = require("../db_connection.js");
 
-//will return a promise
+//dbConnection.query will return a promise
 //second parameter needs to be an array which will be used for the $1,$2 etc (protects from injection)
 //see documentation: https://node-postgres.com/features/queries
+
+const getUserLogin = userEmail => {
+  return dbConnection
+    .query("SELECT password FROM users WHERE email = $1", [userEmail])
+    .then(result => result.rows);
+};
+
 const getUserLibrary = userEmail => {
   return dbConnection
     .query(
@@ -12,4 +19,4 @@ const getUserLibrary = userEmail => {
     .then(result => result.rows);
 };
 
-module.exports = { getUserLibrary };
+module.exports = { getUserLogin, getUserLibrary };
