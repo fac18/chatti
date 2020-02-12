@@ -3,8 +3,12 @@ import Header from "../Header/Header";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { InputField, Heading, InputSubHeading, FormBox } from "../masterCss";
 import Button from "../button";
+import postLogin from '../../utils/postData'
+import postLogIn from "../../utils/postData";
+import {Redirect, useHistory} from 'react-router-dom'
 
 const Login = ({ setUsername }) => {
+  const history = useHistory()
   return (
     <div>
       <Heading>Log In</Heading>
@@ -23,8 +27,12 @@ const Login = ({ setUsername }) => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          //make backend call (use a util?)
-          //setUsername (maybe inside util?)
+          postLogIn(values).then(result => {
+            if(result=== "cookie exists") {
+              history.push('/login')
+            }
+          });
+          
         }}
       >
         {({ isSubmitting }) => (
