@@ -5,7 +5,7 @@ import App from "./App";
 test("renders home page text", () => {
   const { getByText } = render(<App />);
   const linkElement = getByText(
-    /Log in/i
+    /Interactive ideas to inspire special moments/i
   );
   expect(linkElement).toBeInTheDocument();
 });
