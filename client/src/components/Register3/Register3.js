@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import {InputField,GeneralText,InputSubHeading,FormBox} from '../masterCss'
 import Button from '../button'
-import { Formik, ErrorMessage } from "formik";
+import { Formik, ErrorMessage, Field } from "formik";
 
 function Register3({setReg3}) {
   return (
@@ -16,7 +16,7 @@ function Register3({setReg3}) {
       {/* video and caption */}
       {/* scroll down arrow */}
       <Formik
-      initialValues={{ how_often: "daily", new_ideas_time: "8pm", weekly_goal: 80}}
+      initialValues={{ how_often: "", new_ideas_time: " " , weekly_goal: " "}}
       validate={values => {
         const errors={}
         if(!values.how_often) {
@@ -37,37 +37,41 @@ function Register3({setReg3}) {
        {({isSubmitting}) =>(
          <FormBox>
            <InputSubHeading>How often do you want to get new ideas?
-           <select>
-             <option name="how_often" type="text">daily</option>
-             <option name="how_often" type="text">weekly</option>
-             <option name="how_often" type="text">fortnightly</option>
-             <option name="how_often" type="text">monthly</option>
-           </select>
+           
+             <Field as="select" name="how_often">
+               <option name="how_often" type="text">weekly</option>
+               <option name="how_often" type="text">fortnightly</option>
+               <option name="how_often" type="text">monthly</option>
+
+             </Field>
+             
+             
+           
            <ErrorMessage name="how_often" component="div"></ErrorMessage>
            </InputSubHeading>
            
           <InputSubHeading>What time do you want to get new ideas?
-           <select>
+          <Field as="select" name="new_ideas_time">
+               <option name="new_ideas_time" type="text">7pm</option>
+               <option name="new_ideas_time" type="text">6pm</option>
+               <option name="new_ideas_time" type="text">5pm</option>
+               <option name="new_ideas_time" type="text">4pm</option>
+               <option name="new_ideas_time" type="text">3pm</option>
+               <option name="new_ideas_time" type="text">2pm</option>
+               <option name="new_ideas_time" type="text">1pm</option>
 
-             <option name="new_ideas_time" type="number">8pm</option>
-             <option name="new_ideas_time" type="number">7pm</option>
-             <option name="new_ideas_time" type="number">6pm</option>
-             <option name="new_ideas_time" type="number">5pm</option>
-             <option name="new_ideas_time" type="number">4pm</option>
-             <option name="new_ideas_time" type="number">3pm</option>
-             <option name="new_ideas_time" type="number">2pm</option>
-             <option name="new_ideas_time" type="number">1pm</option>
-          </select> 
+             </Field>
            <ErrorMessage name="new_ideas_time" component="div"></ErrorMessage>
            </InputSubHeading>
 
            <InputSubHeading>What is your weekly goal?
-           <select>
-             <option name="weekly_goal" type="number">30</option>
-             <option name="weekly_goal" type="number">60</option>
-             <option name="weekly_goal" type="number">80</option>
-             <option name="weekly_goal" type="number">100</option>
-          </select> 
+           <Field as="select" name="weekly_goal">
+               <option name="weekly_goal" type="text">30</option>
+               <option name="weekly_goal" type="text">60</option>
+               <option name="weekly_goal" type="text">100</option>
+
+             </Field>
+           
            <ErrorMessage name="weekly_goal" component="div"></ErrorMessage>
            </InputSubHeading>
 
@@ -76,6 +80,12 @@ function Register3({setReg3}) {
 
          </FormBox>
        )}
+
+
+
+
+
+
 
       </Formik>
       
