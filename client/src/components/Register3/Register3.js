@@ -1,42 +1,48 @@
 import React from "react";
 import Header from "../Header/Header";
-import {InputField,GeneralText,InputSubHeading,FormBox} from '../masterCss'
-import Button from '../button'
-import { Formik, ErrorMessage, Field,Form } from "formik";
-import InsertUserData from '../../utils/postFormData'
+import {
+  InputField,
+  GeneralText,
+  InputSubHeading,
+  FormBox
+} from "../masterCss";
+import Button from "../button";
+import { Formik, ErrorMessage, Field, Form } from "formik";
+import InsertUserData from "../../utils/postFormData";
 import postFormData from "../../utils/postFormData";
 
-function Register3({setReg3}) {
+function Register3({ setReg3 }) {
   return (
     <>
-      <Header />
       {/* progress graphic thing */}
-      <p>
+      <GeneralText>
         We recommend that you aim For 10 minutes of chatti activity everyday
-        </p>
-       <Button />
+      </GeneralText>
+      <Button buttonText="Continue with recommended settings" />
       {/* video and caption */}
       {/* scroll down arrow */}
       <Formik
-      initialValues={{ how_often: "daily", new_ideas_time: '20:00:00' , weekly_goal: 80}}
-      // validate={values => {
-      //   const errors={}
-      //   if(!values.how_often) {
-      //     errors.how_often = "select an option"
-      //   } else if (!values.new_ideas_time){
-      //     errors.new_ideas_time = "select an option"
-      //   } else if (!values.weekly_goal) {
-      //     errors.weekly_goal = "select an option"
-      //   }
-      //   return errors
+        initialValues={{
+          how_often: "daily",
+          new_ideas_time: "20:00:00",
+          weekly_goal: 80
+        }}
+        // validate={values => {
+        //   const errors={}
+        //   if(!values.how_often) {
+        //     errors.how_often = "select an option"
+        //   } else if (!values.new_ideas_time){
+        //     errors.new_ideas_time = "select an option"
+        //   } else if (!values.weekly_goal) {
+        //     errors.weekly_goal = "select an option"
+        //   }
+        //   return errors
 
-      // }}
-      onSubmit={(values, {setSubmitting})=>{
-        console.log(values)
-        setReg3(values)
-        
-
-      }}
+        // }}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log(values);
+          setReg3(values);
+        }}
       >
        {({isSubmitting}) =>(
          <Form>
@@ -82,7 +88,7 @@ function Register3({setReg3}) {
            <ErrorMessage name="weekly_goal" component="div"></ErrorMessage>
            </InputSubHeading>
 
-           <Button type='submit' type="button" disabled={isSubmitting}></Button>
+           <Button disabled={isSubmitting} buttonText="Continue"></Button>
 
 
          </Form>
@@ -95,11 +101,6 @@ function Register3({setReg3}) {
 
 
       </Formik>
-      
-
-
-      
-      
     </>
   );
 }
