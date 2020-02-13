@@ -13,14 +13,8 @@ CREATE TABLE "users" (
   "password" VARCHAR(100) NOT NULL,
   "child_name" VARCHAR(100) NOT NULL,
   "child_birthday" DATE NOT NULL,
-  "child_gender" VARCHAR(20) NOT NULL,
-  "mon" BOOLEAN,
-  "tue" BOOLEAN,
-  "wed" BOOLEAN,
-  "thu" BOOLEAN,
-  "fri" BOOLEAN,
-  "sat" BOOLEAN,
-  "sun" BOOLEAN,
+  "child_gender" VARCHAR(20),
+  "notification_frequency" VARCHAR(20) NOT NULL,
   "notification_time" TIME,
   "weekly_goal" SMALLINT
 );
@@ -73,9 +67,9 @@ ALTER TABLE "user_libraries" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id
 ALTER TABLE "user_libraries" ADD FOREIGN KEY ("content_id") REFERENCES "content" ("id");
 
 
-INSERT INTO users (name, email, password , child_name, child_birthday, child_gender, mon, tue, wed ,thu ,fri ,sat, sun, notification_time, weekly_goal) VALUES
-('Georgia Allister', 'Georgia1@hotmail.com', '$2y$12$9EMXzDShXSL1Qn4SyFkpdeIE7Loigvl5EgxwNkuSDU/uIbS6m5nky', 'Freddie', '2016/04/16', 'male', 'true', 'true', 'true', 'false', 'false', 'true', 'true', '17:00:00', 80 ),
-('Tina Turner', 'tina@simplythebest.com', '$2y$12$vTtU4NZgi/XBRYBi64cm6OQpw2PNnfdxpCf7OEeZrNxF3WevD576q', 'Tinetta', '2017/11/01', 'female', 'true', 'false', 'true', 'false', 'false', 'false', 'true', '09:00:00', 70 );
+INSERT INTO users (name, email, password , child_name, child_birthday, child_gender, notification_frequency, notification_time, weekly_goal) VALUES
+('Georgia Allister', 'Georgia1@hotmail.com', '$2y$12$9EMXzDShXSL1Qn4SyFkpdeIE7Loigvl5EgxwNkuSDU/uIbS6m5nky', 'Freddie', '2016/04/16', 'male','daily' ,'17:00:00', 80 ),
+('Tina Turner', 'tina@simplythebest.com', '$2y$12$vTtU4NZgi/XBRYBi64cm6OQpw2PNnfdxpCf7OEeZrNxF3WevD576q', 'Tinetta', '2017/11/01', 'female', 'daily', '09:00:00', 70 );
 
 INSERT INTO content (title, video_url, image_url, instructions, duration, lower_age_range, upper_age_range, listening_attention, understanding, speaking, social_interaction) VALUES 
 ('Clapperoo', 'https://www.youtube.com/embed/62QEl385HBQ','../../assets/images/clapperoo.jpg','Sit down so you are on the same level as Freddie. Clap your hands together and encourage him to do the same.  Reach forward and clap your hands against Freddie''s. Clap your hands together again, and repeat! For an extra challenge, try counting numbers or saying the alphabet at the same time', 10, 3,5,'true','false','false','true'),
