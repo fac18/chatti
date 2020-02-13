@@ -27,6 +27,11 @@ const Heading = styled.h1`
   text-align: center;
   color: #ffffff;
   margin-top: 2rem;
+  ${props =>
+    props.whiteBg &&
+    css`
+      color: #163c9b;
+    `}
 `;
 
 const ActivityTitle = styled.h2`
@@ -35,7 +40,8 @@ const ActivityTitle = styled.h2`
   font-weight: 600;
   font-size: 20px;
   line-height: 27px;
-  color: #FFFFF;
+  color: #163c9b;
+  padding: 1rem;
 `;
 
 const GeneralText = styled.p`
@@ -67,9 +73,9 @@ const ActivitySubHeading = styled.h4`
   font-weight: bold;
   font-size: 14px;
   line-height: 19px;
-  text-align: center;
+  text-align: left;
   color: #163c9b;
-  padding: 20px;
+  padding: 1rem;
 `;
 
 const FormBox = styled(Form)`

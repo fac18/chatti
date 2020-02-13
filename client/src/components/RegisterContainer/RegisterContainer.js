@@ -8,13 +8,27 @@ import * as SC from "./RegisterContainer.style";
 import ProgressBar1 from "../ProgressBar/ProgressBar1";
 import ProgressBar2 from "../ProgressBar/ProgressBar2";
 import ProgressBar3 from "../ProgressBar/ProgressBar3";
+import PostFormData from "../../utils/postFormData"
+import postFormData from "../../utils/postFormData";
 
 function RegisterContainer() {
-  const [reg1, setReg1] = React.useState(null);
-  const [reg2, setReg2] = React.useState(null);
-  const [reg3, setReg3] = React.useState(null);
-  console.log(reg1);
-  console.log(reg2);
+  const [reg1, setReg1] = React.useState(null)
+  const [reg2, setReg2] = React.useState(null)
+  const [reg3, setReg3] = React.useState(null)
+  console.log(reg1)
+  console.log(reg2)
+  console.log(reg3)
+  
+  React.useEffect(()=>{
+    if(reg1&&reg2&&reg3)
+      postFormData({...reg1, ...reg2, ...reg3})
+    
+  },[reg3])
+
+ 
+
+
+
 
   return (
     <SC.RegisterContainer>

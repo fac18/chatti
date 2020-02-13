@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getUserLogin, getUserLibrary } = require("./database/queries/getData");
+const { getUserLogin, getUserLibrary, InsertUserData } = require("./database/queries/getData");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const secret = process.env.SECRET
@@ -31,13 +31,28 @@ router.post("/api/login", (req, res) => {
       }
     }).catch(console.log);
   }).catch(console.log);
+})
+
+  router.post("/api/signup", (req,res) => {
+    
+    let allData = req.body
+    const passwordtobehashed = req.body.password
+    
+    bcrypt.hash(passwordtobehashed , 12).then(result => {
+      allData.password = result
+      InsertUserData(allData).then(console.log)
+      
+      
+    }).catch(console.log)
+  })
+  
 
   
   //getUserLogin will return a promise resolving to the password
   //run bcrypt.compare to check they are the same
   //if true: use jwt.sign to create token, and use it to set cookie in res headers
   //if false: ?send specific error message for front end to give feedback
-});
+// });
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
