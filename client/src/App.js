@@ -6,6 +6,8 @@ import Login from "./components/Login/Login";
 import Homepage from "./components/Homepage/Homepage";
 import HomeLoggedIn from "./components/HomeLoggedIn/HomeLoggedIn";
 import RegisterContainer from "./components/RegisterContainer/RegisterContainer";
+import ActivityPage from "./components/ActivityPage/ActivityPage";
+import Favourites from "./components/FavouritesContainer/FavouritesContainer";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -39,6 +41,8 @@ function App() {
         path="/home"
         render={() => <HomeLoggedIn username={username} />}
       />
+      <Route exact path="/activity" render={() => <ActivityPage />} />
+      <Route exact path="/favourites" render={() => <Favourites />} />
     </Router>
   );
 }

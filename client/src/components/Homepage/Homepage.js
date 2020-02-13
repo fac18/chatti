@@ -23,8 +23,6 @@ function Homepage() {
         <Link to="/login">
           <Button buttonText="I already have an account" secondary></Button>
         </Link>
-
-        {/* footer */}
       </div>
       <AboutUsContent />
       <Link to="/signup">

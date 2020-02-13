@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
+import { Heading, ActivitySubHeading } from "../masterCss";
+import ActivitySummary from "../ActivitySummary/ActivitySummary";
 
 const LoggedInActivity = styled.h3`
   font-family: Open Sans;
@@ -19,10 +21,11 @@ function HomeLoggedIn({ username }) {
   return (
     <>
       <Header />
-      <h1>Welcome {username}</h1>
-      <h4>Your next activity:</h4>
+      <Heading whiteBg>Welcome {username}</Heading>
+      <ActivitySubHeading>Your next activity:</ActivitySubHeading>
+      <ActivitySummary />
       {/* activity summary component */}
-      <h4>More activities:</h4>
+      <ActivitySubHeading>More activities:</ActivitySubHeading>
       {/* ?? collapsible lists with activity summaries inside ?? */}
 
       <Navbar />
