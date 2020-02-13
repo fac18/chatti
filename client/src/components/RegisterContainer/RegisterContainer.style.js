@@ -5,6 +5,8 @@ const RegisterContainer = styled.body`
 `;
 
 const Divider = styled.hr`
+  display: flex;
+  flex-direction: row;
   border: 0.4px solid #ffffff;
   opacity: 0.2;
 `;
