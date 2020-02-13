@@ -10,6 +10,7 @@ function RegisterContainer() {
   const [reg3, setReg3] = React.useState(null)
   console.log(reg1)
   console.log(reg2)
+  console.log(reg3)
 
 
 
