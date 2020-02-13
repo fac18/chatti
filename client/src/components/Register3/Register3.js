@@ -44,77 +44,62 @@ function Register3({ setReg3 }) {
           setReg3(values);
         }}
       >
-        {({ isSubmitting }) => (
-          <Form>
-            <InputSubHeading>
-              How often do you want to get new ideas?
-              <Field as="select" name="how_often">
-                {/* <option name="how_often" type="text">daily</option> */}
-                <option name="how_often" type="text">
-                  weekly
-                </option>
-                <option name="how_often" type="text">
-                  fortnightly
-                </option>
-                <option name="how_often" type="text">
-                  monthly
-                </option>
-              </Field>
-              <ErrorMessage name="how_often" component="div"></ErrorMessage>
-            </InputSubHeading>
+       {({isSubmitting}) =>(
+         <Form>
+           <InputSubHeading>How often do you want to get new ideas?
+           
+             <Field as="select" name="how_often">
+               {/* <option name="how_often" type="text">daily</option> */}
+               <option name="how_often" type="text">weekly</option>
+               <option name="how_often" type="text">fortnightly</option>
+               <option name="how_often" type="text">monthly</option>
 
-            <InputSubHeading>
-              What time do you want to get new ideas?
-              <Field as="select" name="new_ideas_time">
-                {/* <option name="new_ideas_time" type="text">8pm</option> */}
-                <option name="new_ideas_time" type="text">
-                  7pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  6pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  5pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  4pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  3pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  2pm
-                </option>
-                <option name="new_ideas_time" type="text">
-                  1pm
-                </option>
-              </Field>
-              <ErrorMessage
-                name="new_ideas_time"
-                component="div"
-              ></ErrorMessage>
-            </InputSubHeading>
+             </Field>
+             
+             
+           
+           <ErrorMessage name="how_often" component="div"></ErrorMessage>
+           </InputSubHeading>
+           
+          <InputSubHeading>What time do you want to get new ideas?
+          <Field as="select" name="new_ideas_time">
+               {/* <option name="new_ideas_time" type="text">8pm</option> */}
+               <option name="new_ideas_time" type="text">19:00:00</option>
+               <option name="new_ideas_time" type="text">18:00:00</option>
+               <option name="new_ideas_time" type="text">17:00:00</option>
+               <option name="new_ideas_time" type="text">16:00:00</option>
+               <option name="new_ideas_time" type="text">15:00:00</option>
+               <option name="new_ideas_time" type="text">14:00:00</option>
+               <option name="new_ideas_time" type="text">13:00:00</option>
 
-            <InputSubHeading>
-              What is your weekly goal?
-              <Field as="select" name="weekly_goal">
-                {/* <option name="weekly_goal" type="text">80</option> */}
-                <option name="weekly_goal" type="text">
-                  30
-                </option>
-                <option name="weekly_goal" type="text">
-                  60
-                </option>
-                <option name="weekly_goal" type="text">
-                  100
-                </option>
-              </Field>
-              <ErrorMessage name="weekly_goal" component="div"></ErrorMessage>
-            </InputSubHeading>
+             </Field>
+           <ErrorMessage name="new_ideas_time" component="div"></ErrorMessage>
+           </InputSubHeading>
 
-            <Button disabled={isSubmitting} buttonText="Continue"></Button>
-          </Form>
-        )}
+           <InputSubHeading>What is your weekly goal?
+           <Field as="select" name="weekly_goal">
+               {/* <option name="weekly_goal" type="text">80</option> */}
+               <option name="weekly_goal" type="text">30</option>
+               <option name="weekly_goal" type="text">60</option>
+               <option name="weekly_goal" type="text">100</option>
+
+             </Field>
+           
+           <ErrorMessage name="weekly_goal" component="div"></ErrorMessage>
+           </InputSubHeading>
+
+           <Button disabled={isSubmitting} buttonText="Continue"></Button>
+
+
+         </Form>
+       )}
+
+
+
+
+
+
+
       </Formik>
     </>
   );
