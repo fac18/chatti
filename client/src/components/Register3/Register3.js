@@ -6,7 +6,7 @@ import { Formik, ErrorMessage, Field,Form } from "formik";
 import InsertUserData from '../../utils/postFormData'
 import postFormData from "../../utils/postFormData";
 
-function Register3({setReg3}) {
+function Register3({ setReg3 }) {
   return (
     <FormContainer>
       <RecommendationParagraph >
@@ -18,25 +18,27 @@ function Register3({setReg3}) {
       ></Button>
 
       <Formik
-      initialValues={{ how_often: "daily", new_ideas_time: '20:00:00' , weekly_goal: 80}}
-      // validate={values => {
-      //   const errors={}
-      //   if(!values.how_often) {
-      //     errors.how_often = "select an option"
-      //   } else if (!values.new_ideas_time){
-      //     errors.new_ideas_time = "select an option"
-      //   } else if (!values.weekly_goal) {
-      //     errors.weekly_goal = "select an option"
-      //   }
-      //   return errors
+        initialValues={{
+          how_often: "daily",
+          new_ideas_time: "20:00:00",
+          weekly_goal: 80
+        }}
+        // validate={values => {
+        //   const errors={}
+        //   if(!values.how_often) {
+        //     errors.how_often = "select an option"
+        //   } else if (!values.new_ideas_time){
+        //     errors.new_ideas_time = "select an option"
+        //   } else if (!values.weekly_goal) {
+        //     errors.weekly_goal = "select an option"
+        //   }
+        //   return errors
 
-      // }}
-      onSubmit={(values, {setSubmitting})=>{
-        console.log(values)
-        setReg3(values)
-        
-
-      }}
+        // }}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log(values);
+          setReg3(values);
+        }}
       >
         {({isSubmitting}) =>(
           <Form>
