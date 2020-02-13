@@ -18,7 +18,7 @@ function Register3({setReg3}) {
       {/* video and caption */}
       {/* scroll down arrow */}
       <Formik
-      initialValues={{ how_often: "daily", new_ideas_time: "8pm" , weekly_goal: 80}}
+      initialValues={{ how_often: "daily", new_ideas_time: '20:00:00' , weekly_goal: 80}}
       // validate={values => {
       //   const errors={}
       //   if(!values.how_often) {
@@ -34,7 +34,7 @@ function Register3({setReg3}) {
       onSubmit={(values, {setSubmitting})=>{
         console.log(values)
         setReg3(values)
-        postFormData(values)
+        
 
       }}
       >

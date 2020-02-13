@@ -34,13 +34,16 @@ router.post("/api/login", (req, res) => {
 })
 
   router.post("/api/signup", (req,res) => {
+    
+    let allData = req.body
     const passwordtobehashed = req.body.password
-    console.log(passwordtobehashed)
+    
     bcrypt.hash(passwordtobehashed , 12).then(result => {
-      InsertUserData(result)
+      allData.password = result
+      InsertUserData(allData).then(console.log)
       
-      console.log(result)
-    }).catch(res => console.log(res))
+      
+    }).catch(console.log)
   })
   
 

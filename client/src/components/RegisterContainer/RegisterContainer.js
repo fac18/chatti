@@ -3,6 +3,8 @@ import Register1 from "../Register1/Register1";
 import Register2 from "../Register2/Register2";
 import Register3 from "../Register3/Register3";
 import Register4 from "../Register4/Register4";
+import PostFormData from "../../utils/postFormData"
+import postFormData from "../../utils/postFormData";
 
 function RegisterContainer() {
   const [reg1, setReg1] = React.useState(null)
@@ -11,6 +13,14 @@ function RegisterContainer() {
   console.log(reg1)
   console.log(reg2)
   console.log(reg3)
+  
+  React.useEffect(()=>{
+    if(reg1&&reg2&&reg3)
+      postFormData({...reg1, ...reg2, ...reg3})
+    
+  },[reg3])
+
+ 
 
 
 
