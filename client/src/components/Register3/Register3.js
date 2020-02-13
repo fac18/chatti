@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header/Header";
-import {InputField,GeneralText,InputSubHeading,FormBox} from '../masterCss'
+import {InputField,GeneralText,InputSubHeading,FormBox, Error} from '../masterCss'
 import Button from '../button'
 import { Formik, ErrorMessage, Field,Form } from "formik";
 import InsertUserData from '../../utils/postFormData'
@@ -52,7 +52,7 @@ function Register3({setReg3}) {
              
              
            
-           <ErrorMessage name="how_often" component="div"></ErrorMessage>
+           <Error name="how_often" component="div"></Error>
            </InputSubHeading>
            
           <InputSubHeading>What time do you want to get new ideas?
@@ -67,7 +67,7 @@ function Register3({setReg3}) {
                <option name="new_ideas_time" type="text">1pm</option>
 
              </Field>
-           <ErrorMessage name="new_ideas_time" component="div"></ErrorMessage>
+           <Error name="new_ideas_time" component="div">Please select time</Error>
            </InputSubHeading>
 
            <InputSubHeading>What is your weekly goal?
@@ -79,7 +79,7 @@ function Register3({setReg3}) {
 
              </Field>
            
-           <ErrorMessage name="weekly_goal" component="div"></ErrorMessage>
+           <Error name="weekly_goal" component="div">Please select weekly goal</Error>
            </InputSubHeading>
 
            <Button type='submit' type="button" disabled={isSubmitting}></Button>

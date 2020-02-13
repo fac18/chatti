@@ -1,6 +1,6 @@
 import React from "react";
-import { FormBox, InputField, InputSubHeading } from "../masterCss";
-import { ErrorMessage, Formik } from "formik";
+import { FormBox, InputField, InputSubHeading, Error } from "../masterCss";
+import { Formik } from "formik";
 import Button from "../button";
 
 function Register2({ setReg2 }) {
@@ -30,7 +30,7 @@ function Register2({ setReg2 }) {
             <InputSubHeading>
               What is your Child's name?
               <InputField type="text" name="child_name" />
-              <ErrorMessage name="child_name" component="div" />
+              <Error name="child_name" component="div" />
             </InputSubHeading>
 
             <InputSubHeading>
@@ -40,7 +40,7 @@ function Register2({ setReg2 }) {
                 name="child_birth"
                 placeholder="e.g. 20/12/2016"
               />
-              <ErrorMessage name="child_birth" component="div" />
+              <Error name="child_birth" component="div" />
             </InputSubHeading>
 
             <Button

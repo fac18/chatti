@@ -1,5 +1,5 @@
 import React from "react";
-import { InputField, Heading, InputSubHeading, FormBox } from "../masterCss";
+import { InputField, Heading, InputSubHeading, FormBox , Error} from "../masterCss";
 import { ErrorMessage, Formik } from "formik";
 import Button from "../button";
 
@@ -40,19 +40,19 @@ function Register1({ setReg1 }) {
               {" "}
               Your name:
               <InputField type="text" name="name" />
-              <ErrorMessage name="name" component="div" />
+              <Error name="name" component="div" />
             </InputSubHeading>
             <InputSubHeading>
               {" "}
               Your email:
               <InputField type="email" name="email" />
-              <ErrorMessage name="email" component="div" />
+              <Error name="email" component="div" />
             </InputSubHeading>
             <InputSubHeading>
               {" "}
               Your password:
               <InputField type="password" name="password" />
-              <ErrorMessage name="password" component="div" />
+              <Error name="password" component="div" />
             </InputSubHeading>
             <Button
               type="submit"

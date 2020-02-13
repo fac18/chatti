@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Field, Form } from "formik";
+import { Field, Form, ErrorMessage } from "formik";
 
 const InputField = styled(Field)`
   background-color: #00000;
@@ -42,6 +42,11 @@ const ActivityTitle = styled.h2`
   line-height: 27px;
   color: #163c9b;
   padding: 1rem;
+`;
+
+const Error = styled(ErrorMessage)`
+  color: red;
+  padding: 0 5em 2em 5em;
 `;
 
 const GeneralText = styled.p`
@@ -90,5 +95,6 @@ export {
   Heading,
   InputSubHeading,
   ActivitySubHeading,
-  FormBox
+  FormBox,
+  Error
 };
