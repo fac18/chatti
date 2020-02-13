@@ -5,6 +5,9 @@ import Register3 from "../Register3/Register3";
 import Register4 from "../Register4/Register4";
 import Header from "../Header/Header";
 import * as SC from "./RegisterContainer.style";
+import ProgressBar1 from "../ProgressBar/ProgressBar1";
+import ProgressBar2 from "../ProgressBar/ProgressBar2";
+import ProgressBar3 from "../ProgressBar/ProgressBar3";
 
 function RegisterContainer() {
   const [reg1, setReg1] = React.useState(null);
@@ -17,7 +20,13 @@ function RegisterContainer() {
     <SC.RegisterContainer>
       <Header />
       <SC.Divider />
-      PROGRESSION GRAPHIC
+        {reg2 ? (
+          <ProgressBar3 />
+        ) : reg1 ? (
+          <ProgressBar2/>
+        ) : (
+          <ProgressBar1 />
+        )}      
       <SC.Divider />
       {reg3 ? (
         <Register4 />
