@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import {InputField,GeneralText,InputSubHeading,FormBox} from '../masterCss'
 import Button from '../button'
-import { Formik, ErrorMessage, Field } from "formik";
+import { Formik, ErrorMessage, Field,Form } from "formik";
 
 function Register3({setReg3}) {
   return (
@@ -10,35 +10,36 @@ function Register3({setReg3}) {
       <Header />
       {/* progress graphic thing */}
       <p>
-        We recommend that you aim htmlFor 10 minutes of chatti activity everyday
+        We recommend that you aim For 10 minutes of chatti activity everyday
         </p>
        <Button />
       {/* video and caption */}
       {/* scroll down arrow */}
       <Formik
-      initialValues={{ how_often: "", new_ideas_time: " " , weekly_goal: " "}}
-      validate={values => {
-        const errors={}
-        if(!values.how_often) {
-          errors.how_often = "select an option"
-        } else if (!values.new_ideas_time){
-          errors.new_ideas_time = "select an option"
-        } else if (!values.weekly_goal) {
-          errors.weekly_goal = "select an option"
-        }
-        return errors
+      initialValues={{ how_often: "daily", new_ideas_time: "8pm" , weekly_goal: 80}}
+      // validate={values => {
+      //   const errors={}
+      //   if(!values.how_often) {
+      //     errors.how_often = "select an option"
+      //   } else if (!values.new_ideas_time){
+      //     errors.new_ideas_time = "select an option"
+      //   } else if (!values.weekly_goal) {
+      //     errors.weekly_goal = "select an option"
+      //   }
+      //   return errors
 
-      }}
+      // }}
       onSubmit={(values, {setSubmitting})=>{
         console.log(values)
         setReg3(values)
       }}
       >
        {({isSubmitting}) =>(
-         <FormBox>
+         <Form>
            <InputSubHeading>How often do you want to get new ideas?
            
              <Field as="select" name="how_often">
+               {/* <option name="how_often" type="text">daily</option> */}
                <option name="how_often" type="text">weekly</option>
                <option name="how_often" type="text">fortnightly</option>
                <option name="how_often" type="text">monthly</option>
@@ -52,6 +53,7 @@ function Register3({setReg3}) {
            
           <InputSubHeading>What time do you want to get new ideas?
           <Field as="select" name="new_ideas_time">
+               {/* <option name="new_ideas_time" type="text">8pm</option> */}
                <option name="new_ideas_time" type="text">7pm</option>
                <option name="new_ideas_time" type="text">6pm</option>
                <option name="new_ideas_time" type="text">5pm</option>
@@ -66,6 +68,7 @@ function Register3({setReg3}) {
 
            <InputSubHeading>What is your weekly goal?
            <Field as="select" name="weekly_goal">
+               {/* <option name="weekly_goal" type="text">80</option> */}
                <option name="weekly_goal" type="text">30</option>
                <option name="weekly_goal" type="text">60</option>
                <option name="weekly_goal" type="text">100</option>
@@ -78,7 +81,7 @@ function Register3({setReg3}) {
            <Button type='submit' type="button" disabled={isSubmitting}></Button>
 
 
-         </FormBox>
+         </Form>
        )}
 
 
