@@ -86,7 +86,21 @@ const ActivitySubHeading = styled.h4`
 const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
+
 `;
+
+const RecommendationParagraph = styled.p`
+  font-size: 1.4em;
+  text-align: center;
+  color: white;
+  padding: 2em;
+  background-color: #3B60BD;
+`;
+
+const FormContainer = styled.div`
+ display: flex;
+ flex-direction: column;
+`
 
 export {
   InputField,
@@ -96,5 +110,7 @@ export {
   InputSubHeading,
   ActivitySubHeading,
   FormBox,
-  Error
+  Error,
+  RecommendationParagraph,
+  FormContainer
 };
