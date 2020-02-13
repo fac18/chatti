@@ -58,13 +58,13 @@ function Register3({setReg3}) {
           <InputSubHeading>What time do you want to get new ideas?
           <Field as="select" name="new_ideas_time">
                {/* <option name="new_ideas_time" type="text">8pm</option> */}
-               <option name="new_ideas_time" type="text">7pm</option>
-               <option name="new_ideas_time" type="text">6pm</option>
-               <option name="new_ideas_time" type="text">5pm</option>
-               <option name="new_ideas_time" type="text">4pm</option>
-               <option name="new_ideas_time" type="text">3pm</option>
-               <option name="new_ideas_time" type="text">2pm</option>
-               <option name="new_ideas_time" type="text">1pm</option>
+               <option name="new_ideas_time" type="text">19:00:00</option>
+               <option name="new_ideas_time" type="text">18:00:00</option>
+               <option name="new_ideas_time" type="text">17:00:00</option>
+               <option name="new_ideas_time" type="text">16:00:00</option>
+               <option name="new_ideas_time" type="text">15:00:00</option>
+               <option name="new_ideas_time" type="text">14:00:00</option>
+               <option name="new_ideas_time" type="text">13:00:00</option>
 
              </Field>
            <ErrorMessage name="new_ideas_time" component="div"></ErrorMessage>
