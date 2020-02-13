@@ -15,6 +15,17 @@ const GenericButton = styled.button`
   cursor: pointer;
   border-style: none;
   margin: 1rem auto;
+  opacity: 85%;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    opacity: 100%;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+  
 
   ${props =>
     props.secondary &&
