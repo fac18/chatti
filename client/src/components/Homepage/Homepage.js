@@ -3,14 +3,13 @@ import AboutUsContent from "../AboutUsContent/AboutUsContent";
 import { ReactComponent as MainImage } from "../../assets/svgs/image_hp1.svg";
 import { ReactComponent as LogoBig } from "../../assets/svgs/logo_big.svg";
 import * as SC from "./homepage.style";
-
+import Button from "../button";
 import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
     <SC.Homepage>
       <div className="container-flex">
-        {/* chatti title */}
         <LogoBig />
         <MainImage />
         <h3 className="header-text">
@@ -18,12 +17,22 @@ function Homepage() {
           everyday
         </h3>
 
-        <Link to="/signup">Get started{/* sign up button */}</Link>
-        <Link to="/login">I already have an account{/* login button */}</Link>
+        <Link to="/signup">
+          <Button buttonText="Get started"></Button>
+        </Link>
+        <Link to="/login">
+          <Button buttonText="I already have an account" secondary></Button>
+        </Link>
 
         {/* footer */}
       </div>
       <AboutUsContent />
+      <Link to="/signup">
+        <Button buttonText="Get started"></Button>
+      </Link>
+      <footer>
+        <p>Chatti © 2020</p>
+      </footer>
     </SC.Homepage>
   );
 }
