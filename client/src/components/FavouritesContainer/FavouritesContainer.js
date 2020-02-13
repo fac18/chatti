@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import Favourite from "../Favourite/Favourite";
+import { Heading } from "../masterCss";
 
 function FavouritesContainer() {
   //need to know list of user favourites
@@ -10,7 +11,8 @@ function FavouritesContainer() {
   return (
     <>
       <Header />
-      <h1>Your Favourites</h1>
+      <Heading whiteBg>Your Favourites</Heading>
+      <Favourite />
       {/* map over list from db and render <Favourite /> */}
       <Navbar />
     </>

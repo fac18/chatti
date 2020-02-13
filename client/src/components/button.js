@@ -30,22 +30,23 @@ const GenericButton = styled.button`
       left: 50%;
       margin-left: -135px;
     `}
+      ${props =>
+        props.narrow &&
+        css`
+          width: 144px;
+        `}
 `;
 
 const Button = props => {
   return (
-    <GenericButton secondary={props.secondary} bottom={props.bottom}>
+    <GenericButton
+      secondary={props.secondary}
+      bottom={props.bottom}
+      narrow={props.narrow}
+    >
       {props.buttonText}
     </GenericButton>
   );
 };
 
 export default Button;
-
-// props.bottom &&
-//   css`
-//         position: fixed;
-//         bottom: 2rem;
-//         left: 50%;
-//         margin-left: -135px;
-//       `;
