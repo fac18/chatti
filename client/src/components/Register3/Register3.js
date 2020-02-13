@@ -3,6 +3,8 @@ import Header from "../Header/Header";
 import {InputField,GeneralText,InputSubHeading,FormBox} from '../masterCss'
 import Button from '../button'
 import { Formik, ErrorMessage, Field,Form } from "formik";
+import InsertUserData from '../../utils/postFormData'
+import postFormData from "../../utils/postFormData";
 
 function Register3({setReg3}) {
   return (
@@ -32,6 +34,8 @@ function Register3({setReg3}) {
       onSubmit={(values, {setSubmitting})=>{
         console.log(values)
         setReg3(values)
+        postFormData(values)
+
       }}
       >
        {({isSubmitting}) =>(

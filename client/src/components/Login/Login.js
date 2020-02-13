@@ -28,7 +28,7 @@ const Login = ({ setUsername }) => {
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
           postLogIn(values).then(result => {
-            if(result=== "cookie exists") {
+            if(result === "cookie exists") {
               history.push('/login')
             }
           });

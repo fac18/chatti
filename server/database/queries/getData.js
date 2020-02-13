@@ -19,4 +19,11 @@ const getUserLibrary = userEmail => {
     .then(result => result.rows);
 };
 
-module.exports = { getUserLogin, getUserLibrary };
+const InsertUserData = userData => {
+  return dbConnection
+  .query("INSERT INTO USERS (name,email,password,child_name,child_birthday,weekly_goal VALUES $1, $2, $3, $4, $5 )", [userData]
+  ).then(result => result.rows)
+
+}
+
+module.exports = { getUserLogin, getUserLibrary,InsertUserData };
