@@ -26,11 +26,21 @@ function RegisterContainer() {
 
 
   return (
-    <>
-      
-      
-      {reg3 ? <Register4 /> : reg2 ? <Register3 setReg3={setReg3} /> : reg1 ? <Register2 setReg2={setReg2}/> : <Register1 setReg1={setReg1}/>}
-    </>
+    <SC.RegisterContainer>
+      <Header />
+      <SC.Divider />
+      PROGRESSION GRAPHIC
+      <SC.Divider />
+      {reg3 ? (
+        <Register4 />
+      ) : reg2 ? (
+        <Register3 setReg3={setReg3} />
+      ) : reg1 ? (
+        <Register2 setReg2={setReg2} />
+      ) : (
+        <Register1 setReg1={setReg1} />
+      )}
+    </SC.RegisterContainer>
   );
 }
 
