@@ -6,8 +6,9 @@ import Button from "../button";
 import postLogIn from "../../utils/postData";
 import { Redirect, useHistory } from "react-router-dom";
 import * as SC from "./Login.style";
+import getUserData from "../../utils/getUserData";
 
-const Login = ({ setUsername }) => {
+const Login = ({ setUserData }) => {
   const history = useHistory();
   return (
     <SC.Login>
@@ -30,10 +31,17 @@ const Login = ({ setUsername }) => {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            console.log(values);
             postLogIn(values).then(result => {
               if (result === "cookie exists") {
-                history.push("/login");
+                getUserData(values.email).then(result =>
+                  setUserData({
+                    userName: result.name,
+                    childName: result.child_name,
+                    childBirthday: result.child_birthday,
+                    childGender: result.child_gender
+                  })
+                );
+                history.push("/home");
               }
             });
           }}
