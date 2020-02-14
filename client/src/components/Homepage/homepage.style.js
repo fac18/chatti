@@ -9,12 +9,20 @@ const Homepage = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
   }
 
   h3.header-text {
     text-align: center;
     padding: 2em;
+  }
+
+  footer {
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+    height: 150px;
   }
 
   footer p {

@@ -25,10 +25,10 @@ function Homepage() {
         </Link>
       </div>
       <AboutUsContent />
-      <Link to="/signup">
-        <Button buttonText="Get started"></Button>
-      </Link>
       <footer>
+        <Link to="/signup">
+          <Button buttonText="Get started"></Button>
+        </Link>
         <p>Chatti © 2020</p>
       </footer>
     </SC.Homepage>

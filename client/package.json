@@ -46,7 +46,4 @@
     "jest": "^24.9.0",
     "react-test-renderer": "^16.12.0"
   }
-
-
-
 }
