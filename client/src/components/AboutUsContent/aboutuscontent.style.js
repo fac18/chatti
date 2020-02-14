@@ -5,6 +5,7 @@ const AboutUsContent = styled.section`
   margin: 0;
   background-color: white;
   padding: 2em 4em 0 4em;
+  margin-bottom: 5em;
 
   font-family: Lato;
   font-style: normal;
@@ -22,6 +23,10 @@ const AboutUsContent = styled.section`
   .aboutus-paragraph {
     margin-bottom: 4em;
     color: black;
+  }
+
+  .last-paragraph{
+    padding-bottom: 5em;
   }
 `;
 export { AboutUsContent };

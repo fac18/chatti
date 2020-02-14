@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const Homepage = styled.section`
   background-color: #163c9b;
   color: white;
@@ -9,7 +10,7 @@ const Homepage = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 85vh;
   }
 
   h3.header-text {
@@ -22,7 +23,7 @@ const Homepage = styled.section`
     flex-direction: column;  
     justify-content: center; 
     align-items: center;     
-    height: 150px;
+    height: 100px;
   }
 
   footer p {

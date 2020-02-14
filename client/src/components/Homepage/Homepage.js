@@ -16,7 +16,6 @@ function Homepage() {
           Interactive ideas to inspire special moments with your little one
           everyday
         </h3>
-
         <Link to="/signup">
           <Button buttonText="Get started"></Button>
         </Link>
