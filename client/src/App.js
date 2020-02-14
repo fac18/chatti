@@ -10,22 +10,11 @@ import ActivityPage from "./components/ActivityPage/ActivityPage";
 import Favourites from "./components/FavouritesContainer/FavouritesContainer";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  // when user is logged in, keep details that are used throughout app here
+  // to include: username, childs name, childs bday, childs gender, ?email
+  const [userData, setUserData] = React.useState(null);
 
-  //this is just to demonstrate that a back end call is working
-  const makeBackendCall = () => {
-    // Get the passwords and store them in state
-    fetch("/api/test")
-      .then(res => res.json())
-      .then(newData => setData(newData));
-  };
-
-  React.useEffect(() => {
-    makeBackendCall();
-  }, []);
-
-  // app state: replace with objects?
-  const [username, setUsername] = React.useState(null);
+  console.log(userData);
 
   return (
     <Router>
@@ -33,15 +22,23 @@ function App() {
       <Route
         exact
         path="/login"
-        render={() => <Login setUsername={setUsername} />}
+        render={() => <Login setUserData={setUserData} />}
       />
-      <Route exact path="/signup" render={() => <RegisterContainer />} />
+      <Route
+        exact
+        path="/signup"
+        render={() => <RegisterContainer setUserData={setUserData} />}
+      />
       <Route
         exact
         path="/home"
-        render={() => <HomeLoggedIn username={username} />}
+        render={() => <HomeLoggedIn userData={userData} />}
       />
-      <Route exact path="/activity" render={() => <ActivityPage />} />
+      <Route
+        exact
+        path="/activity"
+        render={() => <ActivityPage userData={userData} />}
+      />
       <Route exact path="/favourites" render={() => <Favourites />} />
     </Router>
   );

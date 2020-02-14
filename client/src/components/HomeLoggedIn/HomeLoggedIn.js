@@ -14,22 +14,21 @@ const LoggedInActivity = styled.h3`
   color: #163c9b;
 `;
 
-function HomeLoggedIn({ username }) {
-  //need to know userName and their activities
-  const userName = "Ayub";
-
+function HomeLoggedIn({ userData }) {
   return (
-    <>
-      <Header />
-      <Heading whiteBg>Welcome {username}</Heading>
-      <ActivitySubHeading>Your next activity:</ActivitySubHeading>
-      <ActivitySummary />
-      {/* activity summary component */}
-      <ActivitySubHeading>More activities:</ActivitySubHeading>
-      {/* ?? collapsible lists with activity summaries inside ?? */}
+    userData && (
+      <>
+        <Header />
+        <Heading whiteBg>Welcome {userData.userName}</Heading>
+        <ActivitySubHeading>Your next activity:</ActivitySubHeading>
+        <ActivitySummary />
+        {/* activity summary component */}
+        <ActivitySubHeading>More activities:</ActivitySubHeading>
+        {/* ?? collapsible lists with activity summaries inside ?? */}
 
-      <Navbar />
-    </>
+        <Navbar />
+      </>
+    )
   );
 }
 

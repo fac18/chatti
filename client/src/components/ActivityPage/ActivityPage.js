@@ -9,7 +9,7 @@ import { ReactComponent as AgesIcon } from "../../assets/svgs/activity_ages.svg"
 import { ReactComponent as ListeningIcon } from "../../assets/svgs/activity_listening.svg";
 import { ReactComponent as UnderstandingIcon } from "../../assets/svgs/activity_understanding.svg";
 
-function ActivityPage() {
+function ActivityPage({ userData }) {
   //need to know the activity details
 
   return (
@@ -40,11 +40,11 @@ function ActivityPage() {
       {/* activity age range */}
       {/* activity skills */}
       <p className="activity-description">
-        Sit down so you are on the same level as Freddie. Clap your hands
-        together and encourage him to do the same. Reach forward and clap your
-        hands against Freddie’s. Clap your hands together again, and repeat! For
-        an extra challenge, try counting numbers or saying the alphabet at the
-        same time
+        Sit down so you are on the same level as {userData.childName}. Clap your
+        hands together and encourage him to do the same. Reach forward and clap
+        your hands against Freddie’s. Clap your hands together again, and
+        repeat! For an extra challenge, try counting numbers or saying the
+        alphabet at the same time
       </p>
 
       {/* watch video button */}

@@ -21,9 +21,20 @@ const getUserLibrary = userEmail => {
 
 const InsertUserData = userData => {
   return dbConnection
-  .query("INSERT INTO USERS (name,email,password,child_name,child_birthday,child_gender,notification_frequency, notification_time, weekly_goal) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);", Object.values(userData)
-  ).then(result => result)
+    .query(
+      "INSERT INTO USERS (name,email,password,child_name,child_birthday,child_gender,notification_frequency, notification_time, weekly_goal) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+      Object.values(userData)
+    )
+    .then(result => result);
+};
 
-}
+const getUserData = userEmail => {
+  return dbConnection
+    .query(
+      "SELECT name, child_name, child_birthday, child_gender FROM users WHERE email = $1",
+      [userEmail]
+    )
+    .then(result => result.rows[0]);
+};
 
-module.exports = { getUserLogin, getUserLibrary,InsertUserData };
+module.exports = { getUserLogin, getUserLibrary, InsertUserData, getUserData };
