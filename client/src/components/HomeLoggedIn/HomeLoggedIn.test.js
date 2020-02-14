@@ -6,9 +6,18 @@ import { createMemoryHistory } from "history";
 
 test("includes Your next activity header", () => {
   const history = createMemoryHistory();
+
   const { getByText } = render(
     <Router history={history}>
-      <HomeLoggedIn />
+      <HomeLoggedIn
+        userData={{
+          userName: "Georgia",
+          userEmail: "Georgia1@hotmail.com",
+          childName: "Freddie",
+          childBirthday: "1/1/2020",
+          childGender: "male"
+        }}
+      />
     </Router>
   );
   const headerElement = getByText(/Your next activity:/i);

@@ -24,6 +24,8 @@ function HomeLoggedIn({ userData }) {
     }
   }, [userData]);
 
+  console.log(userLibrary);
+
   return (
     userData &&
     userLibrary && (
