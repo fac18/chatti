@@ -8,38 +8,45 @@ import { ReactComponent as ListeningIcon } from "../../assets/svgs/activity_list
 import { ReactComponent as UnderstandingIcon } from "../../assets/svgs/activity_understanding.svg";
 import { Link } from "react-router-dom";
 
-function ActivitySummary() {
-  //need to know the activity details
+function ActivitySummary({ data }) {
+  //data is all the fields from the db:
+  //id, title, video_url, image_url, instructions, duration, lower_age_range, upper_age_range, listening_attention, understanding, speaking, social_interaction
 
   return (
     <SC.ActivitySummary>
       <div className="top-container">
-        <ActivityTitle>Claparoo</ActivityTitle>
+        <ActivityTitle>{data.title}</ActivityTitle>
         <p>**** 5.0</p>
       </div>
       <div className="centre-container">
         <div className="details-container">
           <div className="row-container">
             <TimeIcon />
-            <p>10 mins</p>
+            <p>{data.duration} mins</p>
           </div>
           <div className="row-container">
             <AgesIcon />
-            <p>Ages 3-5</p>
+            <p>
+              Ages {data.lower_age_range}-{data.upper_age_range}
+            </p>
           </div>
           <div className="row-container">Skills</div>
-          <div className="row-container">
-            <ListeningIcon />
-            <p>Listening/Attention</p>
-          </div>
-          <div className="row-container">
-            <UnderstandingIcon />
-            <p>Understanding</p>
-          </div>
+          {data.listening_attention && (
+            <div className="row-container">
+              <ListeningIcon />
+              <p>Listening/Attention</p>
+            </div>
+          )}
+          {data.understanding && (
+            <div className="row-container">
+              <UnderstandingIcon />
+              <p>Understanding</p>
+            </div>
+          )}
         </div>
         <img
-          src="https://cdn.cdnparenting.com/articles/2018/07/1097354639-H.jpg"
-          alt="activity preview image"
+          src={data.image_url}
+          alt="activity preview"
           className="activity-preview"
         ></img>
       </div>

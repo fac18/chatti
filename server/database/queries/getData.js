@@ -13,7 +13,7 @@ const getUserLogin = userEmail => {
 const getUserLibrary = userEmail => {
   return dbConnection
     .query(
-      "SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1));",
+      "SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1 LIMIT 1));",
       [userEmail]
     )
     .then(result => result.rows);
@@ -31,7 +31,7 @@ const InsertUserData = userData => {
 const getUserData = userEmail => {
   return dbConnection
     .query(
-      "SELECT name, child_name, child_birthday, child_gender FROM users WHERE email = $1",
+      "SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE email = $1",
       [userEmail]
     )
     .then(result => result.rows[0]);

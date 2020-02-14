@@ -36,6 +36,7 @@ const Login = ({ setUserData }) => {
                 getUserData(values.email).then(result =>
                   setUserData({
                     userName: result.name,
+                    userEmail: result.email,
                     childName: result.child_name,
                     childBirthday: result.child_birthday,
                     childGender: result.child_gender

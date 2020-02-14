@@ -64,6 +64,13 @@ router.post("/api/userdata", (req, res) => {
     .catch(console.log);
 });
 
+router.post("/api/userlibrary", (req, res) => {
+  const email = req.body.email;
+  getUserLibrary(email)
+    .then(result => res.json(result))
+    .catch(console.log);
+});
+
 //getUserLogin will return a promise resolving to the password
 //run bcrypt.compare to check they are the same
 //if true: use jwt.sign to create token, and use it to set cookie in res headers
