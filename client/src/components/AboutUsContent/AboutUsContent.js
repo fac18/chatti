@@ -35,7 +35,7 @@ function AboutUsContent() {
       {/* playing image */}
       <MainImage4 />
       <h4 className="aboutus_heading">Stay motivated with rewards</h4>
-      <p className="aboutus-paragraph">
+      <p className="aboutus-paragraph last-paragraph">
         Celebrate the time together with your child and track progress so you
         can be confident you are giving them the brain boosting language
         goodness they need to thrive.
