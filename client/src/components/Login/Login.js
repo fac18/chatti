@@ -33,7 +33,7 @@ const Login = ({ setUsername }) => {
             console.log(values);
             postLogIn(values).then(result => {
               if (result === "cookie exists") {
-                history.push("/login");
+                history.push("/home");
               }
             });
           }}
