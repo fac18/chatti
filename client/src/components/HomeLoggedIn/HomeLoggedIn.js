@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
 import { Heading, ActivitySubHeading } from "../masterCss";
 import ActivitySummary from "../ActivitySummary/ActivitySummary";
+import getUserLibrary from "../../utils/getUserLibrary";
 
 const LoggedInActivity = styled.h3`
   font-family: Open Sans;
@@ -15,16 +16,34 @@ const LoggedInActivity = styled.h3`
 `;
 
 function HomeLoggedIn({ userData }) {
+  const [userLibrary, setUserLibrary] = React.useState(null);
+
+  React.useEffect(() => {
+    if (userData) {
+      getUserLibrary(userData.userEmail).then(result => setUserLibrary(result));
+    }
+  }, [userData]);
+
   return (
-    userData && (
+    userData &&
+    userLibrary && (
       <>
         <Header />
         <Heading whiteBg>Welcome {userData.userName}</Heading>
         <ActivitySubHeading>Your next activity:</ActivitySubHeading>
-        <ActivitySummary />
-        {/* activity summary component */}
+        {/* show the last activity in the array: is the most recent so should be last in array (??) */}
+        <ActivitySummary
+          key={userLibrary[userLibrary.length - 1].id}
+          data={userLibrary[userLibrary.length - 1]}
+        />
         <ActivitySubHeading>More activities:</ActivitySubHeading>
         {/* ?? collapsible lists with activity summaries inside ?? */}
+        {userLibrary &&
+          userLibrary
+            .slice(0, -1)
+            .map(activity => (
+              <ActivitySummary key={activity.id} data={activity} />
+            ))}
 
         <Navbar />
       </>

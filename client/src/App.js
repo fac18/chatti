@@ -11,7 +11,7 @@ import Favourites from "./components/FavouritesContainer/FavouritesContainer";
 
 function App() {
   // when user is logged in, keep details that are used throughout app here
-  // to include: username, childs name, childs bday, childs gender, ?email
+  // to include: username, childs name, childs bday, childs gender
   const [userData, setUserData] = React.useState(null);
 
   console.log(userData);
