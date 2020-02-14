@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Field, Form } from "formik";
+import { Field, Form, ErrorMessage } from "formik";
 
 const InputField = styled(Field)`
   background-color: #00000;
@@ -44,6 +44,11 @@ const ActivityTitle = styled.h2`
   padding: 1rem;
 `;
 
+const Error = styled(ErrorMessage)`
+  color: red;
+  padding: 0 5em 2em 5em;
+`;
+
 const GeneralText = styled.p`
 display: inline;
 font-family: font-family: Lato;
@@ -81,7 +86,21 @@ const ActivitySubHeading = styled.h4`
 const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
+
 `;
+
+const RecommendationParagraph = styled.p`
+  font-size: 1.4em;
+  text-align: center;
+  color: white;
+  padding: 2em;
+  background-color: #3B60BD;
+`;
+
+const FormContainer = styled.div`
+ display: flex;
+ flex-direction: column;
+`
 
 export {
   InputField,
@@ -90,5 +109,8 @@ export {
   Heading,
   InputSubHeading,
   ActivitySubHeading,
-  FormBox
+  FormBox,
+  Error,
+  RecommendationParagraph,
+  FormContainer
 };
