@@ -45,6 +45,7 @@ router.post("/api/login", (req, res) => {
 router.post("/api/signup", (req, res) => {
   let allData = req.body;
   const passwordtobehashed = req.body.password;
+  const newUserEmail = req.body.email;
 
   bcrypt
     .hash(passwordtobehashed, 12)
