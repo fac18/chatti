@@ -8,6 +8,9 @@ import HomeLoggedIn from "./components/HomeLoggedIn/HomeLoggedIn";
 import RegisterContainer from "./components/RegisterContainer/RegisterContainer";
 import ActivityPage from "./components/ActivityPage/ActivityPage";
 import Favourites from "./components/FavouritesContainer/FavouritesContainer";
+import Progress from "./components/Progress/Progress";
+import AboutUs from "./components/AboutUs/AboutUs";
+import Settings from "./components/Settings/Settings";
 
 function App() {
   // when user is logged in, keep details that are used throughout app here
@@ -19,6 +22,7 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Homepage} />
+      <Route exact path="/aboutus" component={AboutUs} />
       <Route
         exact
         path="/login"
@@ -40,6 +44,12 @@ function App() {
         render={() => <ActivityPage userData={userData} />}
       />
       <Route exact path="/favourites" render={() => <Favourites />} />
+      <Route exact path="/progress" render={() => <Progress />} />
+      <Route
+        exact
+        path="/settings"
+        render={() => <Settings userData={userData} />}
+      />
     </Router>
   );
 }
