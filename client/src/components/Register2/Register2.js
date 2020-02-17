@@ -51,10 +51,10 @@ function Register2({ setReg2 }) {
                 <option name="gender" type="text">
                   Male
                 </option>
-                <option name="radio" type="text">
+                <option name="gender" type="text">
                   Female
                 </option>
-                <option name="radio" type="text">
+                <option name="gender" type="text">
                   Prefer not to say
                 </option>
               </InputField>
