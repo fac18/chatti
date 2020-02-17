@@ -43,6 +43,29 @@ function Register2({ setReg2 }) {
               <Error name="child_birth" component="div" />
             </InputSubHeading>
 
+
+            <InputSubHeading>
+              What is your child's gender?
+              <InputField component="select" name="gender">
+                
+                <option name="gender" type="text">
+                  Male
+                </option>
+                <option name="radio" type="text">
+                  Female
+                </option>
+                <option name="radio" type="text">
+                  Prefer not to say
+                </option>
+              </InputField>
+              <Error name="gender" component="div"></Error>
+            </InputSubHeading>
+            
+
+            
+
+            
+
             <Button
               type="submit"
               disabled={isSubmitting}
