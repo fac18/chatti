@@ -38,11 +38,7 @@ function App() {
         path="/home"
         render={() => <HomeLoggedIn userData={userData} />}
       />
-      <Route
-        exact
-        path="/activity"
-        render={() => <ActivityPage userData={userData} />}
-      />
+      <Route exact path="/activity" component={ActivityPage} />
       <Route exact path="/favourites" render={() => <Favourites />} />
       <Route exact path="/progress" render={() => <Progress />} />
       <Route

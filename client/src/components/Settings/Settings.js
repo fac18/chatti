@@ -9,7 +9,7 @@ function Settings({ userData }) {
   return (
     userData && (
       <React.Fragmenta>
-        <Header />
+        <Header buttons />
         <h2>{userData.userName}</h2>
         <h3>Your profile settings:</h3>
         <table>

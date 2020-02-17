@@ -10,7 +10,7 @@ function FavouritesContainer() {
 
   return (
     <>
-      <Header />
+      <Header buttons />
       <Heading whiteBg>Your Favourites</Heading>
       <Favourite />
       {/* map over list from db and render <Favourite /> */}
