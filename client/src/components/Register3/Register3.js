@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../Header/Header";
+import {Link} from 'react-router-dom'
 import {
   InputField,
   GeneralText,
@@ -15,14 +16,17 @@ import { Formik, ErrorMessage, Field, Form } from "formik";
 import InsertUserData from "../../utils/postFormData";
 import postFormData from "../../utils/postFormData";
 
+
+
 function Register3({ setReg3 }) {
   return (
     <FormContainer>
       <RecommendationParagraph>
         We recommend that you aim For 10 minutes of chatti activity everyday
       </RecommendationParagraph>
-      <Button type="submit" buttonText={"Accept recommended settings"}></Button>
+      
 
+      
       <Formik
         initialValues={{
           how_often: 'daily',
@@ -125,6 +129,9 @@ function Register3({ setReg3 }) {
             </InputSubHeading>
 
             <Button type="submit" type="button" buttonText="Continue"></Button>
+            
+            <Button type="submit" type="button" buttonText="accept recommended settings" disabled={isSubmitting}></Button>
+           
           </Form>
         )}
       </Formik>
