@@ -4,7 +4,7 @@ import Homepage from "./Homepage";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
-test("includes introductory paragraph", () => {
+test("Home page includes introductory paragraph", () => {
   const history = createMemoryHistory();
   const { getByText } = render(
     <Router history={history}>
