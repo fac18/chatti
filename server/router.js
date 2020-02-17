@@ -18,8 +18,10 @@ router.get("/api/test", (req, res) => {
 });
 
 //find user by email and get hashed pw from db
+//sets cookie which expires in 24h (express cookies use milliseconds)
+//consider no expiration?
+//successful password check sends confirmation to FE allowing redirect
 router.post("/api/login", (req, res) => {
-  //check naming conventions, i've guessed
   const email = req.body.email;
   const password = req.body.password;
   getUserLogin(email)
@@ -31,7 +33,7 @@ router.post("/api/login", (req, res) => {
             const token = jwt.sign(email, secret);
             res
               .status(201)
-              .cookie("user", token, { maxAge: 3600 })
+              .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
               .send("cookie exists");
           } else {
             res.status(401).end();
@@ -51,7 +53,14 @@ router.post("/api/signup", (req, res) => {
     .hash(passwordtobehashed, 12)
     .then(result => {
       allData.password = result;
-      InsertUserData(allData).then(console.log);
+      InsertUserData(allData).then(result => {
+        console.log(result);
+        const token = jwt.sign(newUserEmail, secret);
+        res
+          .status(201)
+          .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
+          .send("cookie exists");
+      });
     })
     .catch(console.log);
 });
@@ -70,12 +79,6 @@ router.post("/api/userlibrary", (req, res) => {
     .then(result => res.json(result))
     .catch(console.log);
 });
-
-//getUserLogin will return a promise resolving to the password
-//run bcrypt.compare to check they are the same
-//if true: use jwt.sign to create token, and use it to set cookie in res headers
-//if false: ?send specific error message for front end to give feedback
-// });
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.

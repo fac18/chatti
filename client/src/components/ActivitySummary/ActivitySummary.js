@@ -50,7 +50,12 @@ function ActivitySummary({ data }) {
           className="activity-preview"
         ></img>
       </div>
-      <Link to="activity">
+      <Link
+        to={{
+          pathname: "/activity",
+          data
+        }}
+      >
         <Button buttonText="Let's go" />
       </Link>
     </SC.ActivitySummary>

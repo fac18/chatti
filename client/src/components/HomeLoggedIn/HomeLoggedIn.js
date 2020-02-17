@@ -27,29 +27,31 @@ function HomeLoggedIn({ userData }) {
   console.log(userLibrary);
 
   return (
-    userData &&
-    userLibrary && (
-      <>
-        <Header />
+    <>
+      <Header buttons />
+      {userData && userLibrary && (
         <Heading whiteBg>Welcome {userData.userName}</Heading>
-        <ActivitySubHeading>Your next activity:</ActivitySubHeading>
-        {/* show the last activity in the array: is the most recent so should be last in array (??) */}
+      )}
+      <ActivitySubHeading>Your next activity:</ActivitySubHeading>
+      {/* show the last activity in the array: is the most recent so should be last in array (??) */}
+      {userData && userLibrary && (
         <ActivitySummary
           key={userLibrary[userLibrary.length - 1].id}
           data={userLibrary[userLibrary.length - 1]}
         />
-        <ActivitySubHeading>More activities:</ActivitySubHeading>
-        {/* ?? collapsible lists with activity summaries inside ?? */}
-        {userLibrary &&
-          userLibrary
-            .slice(0, -1)
-            .map(activity => (
-              <ActivitySummary key={activity.id} data={activity} />
-            ))}
+      )}
+      <ActivitySubHeading>More activities:</ActivitySubHeading>
+      {/* ?? collapsible lists with activity summaries inside ?? */}
+      {userData &&
+        userLibrary &&
+        userLibrary
+          .slice(0, -1)
+          .map(activity => (
+            <ActivitySummary key={activity.id} data={activity} />
+          ))}
 
-        <Navbar />
-      </>
-    )
+      <Navbar />
+    </>
   );
 }
 
