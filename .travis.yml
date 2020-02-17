@@ -8,3 +8,5 @@ cache:
     - client/node_modules
 script:
   - cd client && npm i && npm run test -- --coverage --watchAll=false && codecov && cd ../server && npm i && npm run test  -- --coverage --watchAll=false && codecov
+ignore:
+  - "./client/src/serviceWorker.js" 
