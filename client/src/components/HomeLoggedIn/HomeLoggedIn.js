@@ -24,7 +24,9 @@ function HomeLoggedIn({ userData }) {
     }
   }, [userData]);
 
-  console.log(userLibrary);
+  React.useEffect(() => {
+    console.log(userLibrary);
+  }, [userLibrary]);
 
   return (
     <>

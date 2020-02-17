@@ -4,10 +4,18 @@ const dbConnection = require("../db_connection.js");
 //second parameter needs to be an array which will be used for the $1,$2 etc (protects from injection)
 //see documentation: https://node-postgres.com/features/queries
 
-const getUserLogin = userEmail => {
-  return dbConnection
+const getUserLogin = async userEmail => {
+  const response = await dbConnection
     .query("SELECT password FROM users WHERE email = $1", [userEmail])
     .then(result => result.rows);
+  return response;
+};
+
+const getUserId = async userEmail => {
+  const response = await dbConnection
+    .query("SELECT id FROM users WHERE email = $1", [userEmail])
+    .then(result => result.rows[0].id);
+  return response;
 };
 
 const getUserLibrary = userEmail => {
@@ -33,7 +41,9 @@ const InsertUserData = async userData => {
 
   const userId = await dbConnection
     .query("SELECT id FROM users WHERE email = $1 LIMIT 1;", [userData.email])
-    .then(result => result.rows[0].id)
+    .then(result => {
+      result.rows[0].id;
+    })
     .catch(console.log);
 
   dbConnection
@@ -47,13 +57,19 @@ const InsertUserData = async userData => {
   return await response;
 };
 
-const getUserData = userEmail => {
+const getUserData = id => {
   return dbConnection
     .query(
-      "SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE email = $1",
-      [userEmail]
+      "SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE id = $1",
+      [id]
     )
     .then(result => result.rows[0]);
 };
 
-module.exports = { getUserLogin, getUserLibrary, InsertUserData, getUserData };
+module.exports = {
+  getUserLogin,
+  getUserLibrary,
+  InsertUserData,
+  getUserData,
+  getUserId
+};
