@@ -7,7 +7,8 @@ import {
   FormBox,
   Error,
   RecommendationParagraph,
-  FormContainer
+  FormContainer,
+  
 } from "../masterCss";
 import Button from "../button";
 import { Formik, ErrorMessage, Field, Form } from "formik";
@@ -26,7 +27,7 @@ function Register3({ setReg3 }) {
         initialValues={{
           how_often: 'daily',
           new_ideas_time: '6pm',
-          weekly_goal: '80'
+          weekly_goal: '80 minutes'
         }}
         // validate={values => {
         //   const errors={}

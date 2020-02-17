@@ -102,6 +102,8 @@ const FormContainer = styled.div`
  flex-direction: column;
 `
 
+
+
 export {
   InputField,
   ActivityTitle,
@@ -112,5 +114,7 @@ export {
   FormBox,
   Error,
   RecommendationParagraph,
-  FormContainer
+  FormContainer,
+  
+
 };
