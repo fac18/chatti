@@ -6,7 +6,7 @@ import AboutUsContent from "../AboutUsContent/AboutUsContent";
 function AboutUs() {
   return (
     <>
-      <Header />
+      <Header buttons />
       <AboutUsContent />
       <Navbar />
     </>

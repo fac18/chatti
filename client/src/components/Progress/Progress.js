@@ -7,7 +7,7 @@ function Progress() {
 
   return (
     <>
-      <Header />
+      <Header buttons />
       <h1>Your Progress</h1>
       <h3>Total Chatti time:</h3>
       <h2>{/* total completed activities time */}</h2>

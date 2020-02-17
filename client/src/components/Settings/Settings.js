@@ -8,8 +8,8 @@ function Settings({ userData }) {
 
   return (
     userData && (
-      <>
-        <Header />
+      <React.Fragmenta>
+        <Header buttons />
         <h2>{userData.userName}</h2>
         <h3>Your profile settings:</h3>
         <table>
@@ -53,7 +53,7 @@ function Settings({ userData }) {
         </select>
         <Button buttonText="Log out" secondary />
         <Navbar />
-      </>
+      </React.Fragmenta>
     )
   );
 }

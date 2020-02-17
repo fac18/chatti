@@ -14,8 +14,15 @@ function Header({ buttons }) {
             <BackButton />
           </Link>
         )}
-        <Logo className="svgTitle" />
-        {buttons && <SettingsButton />}
+        <Link to="/home">
+          <Logo className="svgTitle" />
+        </Link>
+
+        {buttons && (
+          <Link to="/settings">
+            <SettingsButton />
+          </Link>
+        )}
       </div>
     </SC.Header>
   );
