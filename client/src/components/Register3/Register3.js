@@ -7,7 +7,8 @@ import {
   FormBox,
   Error,
   RecommendationParagraph,
-  FormContainer
+  FormContainer,
+  
 } from "../masterCss";
 import Button from "../button";
 import { Formik, ErrorMessage, Field, Form } from "formik";
@@ -24,9 +25,9 @@ function Register3({ setReg3 }) {
 
       <Formik
         initialValues={{
-          how_often: "daily",
-          new_ideas_time: "8pm",
-          weekly_goal: "80 mins"
+          how_often: 'daily',
+          new_ideas_time: '6pm',
+          weekly_goal: '80 minutes'
         }}
         // validate={values => {
         //   const errors={}
@@ -49,8 +50,12 @@ function Register3({ setReg3 }) {
           <Form>
             <InputSubHeading>
               How often do you want to get new ideas?
-              <InputField as="select" name="how_often">
-                {/* <option name="how_often" type="text">daily</option> */}
+              <InputField component="select" name="how_often">
+               
+                <option name="how_often" type="text">
+                  daily
+                </option>
+                
                 <option name="how_often" type="text">
                   weekly
                 </option>
@@ -66,8 +71,10 @@ function Register3({ setReg3 }) {
 
             <InputSubHeading>
               What time do you want to get new ideas?
-              <InputField as="select" name="new_ideas_time">
-                {/* <option name="new_ideas_time" type="text">8pm</option> */}
+              <InputField component="select" name="new_ideas_time">
+              <option name="new_ideas_time" type="text">
+                  8pm
+                </option>
                 <option name="new_ideas_time" type="text">
                   7pm
                 </option>
@@ -97,8 +104,11 @@ function Register3({ setReg3 }) {
 
             <InputSubHeading>
               What is your weekly goal?
-              <InputField as="select" name="weekly_goal">
-                {/* <option name="weekly_goal" type="text">80</option> */}
+              <InputField component="select" name="weekly_goal">
+                <option name="weekly_goal" type="text">
+                  80 minutes
+                </option>
+                
                 <option name="weekly_goal" type="text">
                   30 minutes
                 </option>
