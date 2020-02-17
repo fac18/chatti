@@ -13,7 +13,7 @@ import postFormData from "../../utils/postFormData";
 import getUserData from "../../utils/getUserData";
 import changeToDbFormat from "../../utils/changeToDbFormat";
 
-function RegisterContainer({ setUserData }) {
+function RegisterContainer({ userData, setUserData }) {
   const [reg1, setReg1] = React.useState(null);
   const [reg2, setReg2] = React.useState(null);
   const [reg3, setReg3] = React.useState(null);
@@ -46,7 +46,7 @@ function RegisterContainer({ setUserData }) {
       {reg2 ? <ProgressBar3 /> : reg1 ? <ProgressBar2 /> : <ProgressBar1 />}
       <SC.Divider />
       {reg3 ? (
-        <Register4 />
+        <Register4 userData={userData} />
       ) : reg2 ? (
         <Register3 setReg3={setReg3} />
       ) : reg1 ? (

@@ -48,7 +48,9 @@ function App() {
       <Route
         exact
         path="/signup"
-        render={() => <RegisterContainer setUserData={setUserData} />}
+        render={() => (
+          <RegisterContainer userData={userData} setUserData={setUserData} />
+        )}
       />
       <Route
         exact

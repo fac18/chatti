@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useDebugValue } from "react";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
@@ -18,41 +18,41 @@ const LoggedInActivity = styled.h3`
 function HomeLoggedIn({ userData }) {
   const [userLibrary, setUserLibrary] = React.useState(null);
 
+  console.log(userData);
+  console.log(userLibrary);
+
   React.useEffect(() => {
     if (userData) {
       getUserLibrary(userData.userEmail).then(result => setUserLibrary(result));
     }
   }, [userData]);
 
-  React.useEffect(() => {
-    console.log(userLibrary);
-  }, [userLibrary]);
-
   return (
     <>
-      <Header buttons />
-      {userData && userLibrary && (
-        <Heading whiteBg>Welcome {userData.userName}</Heading>
-      )}
-      <ActivitySubHeading>Your next activity:</ActivitySubHeading>
-      {/* show the last activity in the array: is the most recent so should be last in array (??) */}
-      {userData && userLibrary && (
-        <ActivitySummary
-          key={userLibrary[userLibrary.length - 1].id}
-          data={userLibrary[userLibrary.length - 1]}
-        />
-      )}
-      <ActivitySubHeading>More activities:</ActivitySubHeading>
-      {/* ?? collapsible lists with activity summaries inside ?? */}
-      {userData &&
-        userLibrary &&
-        userLibrary
-          .slice(0, -1)
-          .map(activity => (
+      {userLibrary && (
+        <>
+          <Header buttons />
+
+          <Heading whiteBg>Welcome {userData.userName}</Heading>
+
+          <ActivitySubHeading>Your next activity:</ActivitySubHeading>
+          {/* show the last activity in the array: is the most recent so should be last in array (??) */}
+
+          <ActivitySummary
+            key={userLibrary[userLibrary.length - 1].id}
+            data={userLibrary[userLibrary.length - 1]}
+          />
+
+          <ActivitySubHeading>More activities:</ActivitySubHeading>
+          {/* ?? collapsible lists with activity summaries inside ?? */}
+
+          {userLibrary.slice(0, -1).map(activity => (
             <ActivitySummary key={activity.id} data={activity} />
           ))}
 
-      <Navbar />
+          <Navbar />
+        </>
+      )}
     </>
   );
 }
