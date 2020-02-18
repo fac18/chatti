@@ -72,6 +72,13 @@ router.post('/api/signup', (req, res) => {
     .catch(console.log)
 })
 
+router.get('/api/settings', (req, res) => {
+  res
+    .status(201)
+    .cookie('user', 'ayuboo', { maxAge: 0 })
+    .send('cookie deleted')
+})
+
 router.get('/api/userdata', (req, res) => {
   const codedCookie = req.cookies.user
   const decodedCookie = jwt.verify(codedCookie, secret)

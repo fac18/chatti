@@ -25,21 +25,25 @@ function App() {
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
   React.useEffect(() => {
-    getUserData().then(result =>
-      setUserData({
-        userName: result.name,
-        userEmail: result.email,
-        childName: result.child_name,
-        childBirthday: result.child_birthday,
-        childGender: result.child_gender,
-      })
-    )
+    getUserData()
+      .then(result =>
+        setUserData({
+          userName: result.name,
+          userEmail: result.email,
+          childName: result.child_name,
+          childBirthday: result.child_birthday,
+          childGender: result.child_gender,
+        })
+      )
+      .catch(console.log)
   }, [])
 
   React.useEffect(() => {
     console.log(userData)
     if (userData) {
-      getUserLibrary(userData.userEmail).then(result => setUserLibrary(result))
+      getUserLibrary(userData.userEmail)
+        .then(result => setUserLibrary(result))
+        .catch(console.log)
     }
   }, [userData])
 
