@@ -1,12 +1,17 @@
-import React, {Component} from 'react';
-import ReactPlayer from 'react-player';
-import PlayerContainer from './player.style';
+import React, { Component } from 'react'
+import ReactPlayer from 'react-player'
+import PlayerContainer from './player.style'
 
-
-export default function Player() {
+export default function Player({ videoUrl }) {
   return (
     <div className="player_container">
-      <ReactPlayer className="video-player" width='100%' height='auto' url='https://www.youtube.com/watch?v=AjrtRgZdzgU' playing />
+      <ReactPlayer
+        className="video-player"
+        width="100%"
+        height="auto"
+        url={videoUrl}
+        playing
+      />
     </div>
-  );
-};
+  )
+}

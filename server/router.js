@@ -8,6 +8,7 @@ const {
   getUserId,
   getUser,
 } = require('./database/queries/getData')
+const { insertContent } = require('./database/queries/postData')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const secret = process.env.SECRET
@@ -81,12 +82,14 @@ router.get('/api/settings', (req, res) => {
 
 router.get('/api/userdata', (req, res) => {
   const codedCookie = req.cookies.user
-  const decodedCookie = jwt.verify(codedCookie, secret)
-  getUserData(decodedCookie)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(console.log)
+  if (codedCookie) {
+    const decodedCookie = jwt.verify(codedCookie, secret)
+    getUserData(decodedCookie)
+      .then(result => {
+        res.json(result)
+      })
+      .catch(console.log)
+  }
 })
 
 router.post('/api/checkuser', (req, res) => {
@@ -102,6 +105,12 @@ router.post('/api/userlibrary', (req, res) => {
   const email = req.body.email
   getUserLibrary(email)
     .then(result => res.json(result))
+    .catch(console.log)
+})
+
+router.post('/api/addcontent', (req, res) => {
+  insertContent(req.body)
+    .then(console.log)
     .catch(console.log)
 })
 
