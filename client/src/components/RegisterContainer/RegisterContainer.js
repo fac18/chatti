@@ -10,9 +10,10 @@ import ProgressBar1 from "../ProgressBar/ProgressBar1";
 import ProgressBar2 from "../ProgressBar/ProgressBar2";
 import ProgressBar3 from "../ProgressBar/ProgressBar3";
 import postFormData from "../../utils/postFormData";
+import getUserData from "../../utils/getUserData";
 import changeToDbFormat from "../../utils/changeToDbFormat";
 
-function RegisterContainer() {
+function RegisterContainer({ userData, setUserData }) {
   const [reg1, setReg1] = React.useState(null);
   const [reg2, setReg2] = React.useState(null);
   const [reg3, setReg3] = React.useState(null);
@@ -22,7 +23,19 @@ function RegisterContainer() {
   React.useEffect(() => {
     if (reg1 && reg2 && reg3) {
       const modifiedFormatReg3 = changeToDbFormat(reg3);
-      postFormData({ ...reg1, ...reg2, ...modifiedFormatReg3 });
+      postFormData({ ...reg1, ...reg2, ...modifiedFormatReg3 }).then(result => {
+        if (result === "cookie exists") {
+          getUserData().then(result =>
+            setUserData({
+              userName: result.name,
+              userEmail: result.email,
+              childName: result.child_name,
+              childBirthday: result.child_birthday,
+              childGender: result.child_gender
+            })
+          );
+        }
+      });
     }
   }, [reg3]);
 
@@ -33,7 +46,7 @@ function RegisterContainer() {
       {reg2 ? <ProgressBar3 /> : reg1 ? <ProgressBar2 /> : <ProgressBar1 />}
       <SC.Divider />
       {reg3 ? (
-        <Register4 />
+        <Register4 userData={userData} />
       ) : reg2 ? (
         <Register3 setReg3={setReg3} />
       ) : reg1 ? (

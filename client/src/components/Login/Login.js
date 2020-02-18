@@ -33,7 +33,7 @@ const Login = ({ setUserData }) => {
           onSubmit={(values, { setSubmitting }) => {
             postLogIn(values).then(result => {
               if (result === "cookie exists") {
-                getUserData(values.email).then(result =>
+                getUserData().then(result =>
                   setUserData({
                     userName: result.name,
                     userEmail: result.email,

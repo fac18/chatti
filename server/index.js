@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const router = require("./router");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -9,6 +10,9 @@ app.use(express.static(path.join(__dirname, "/../client/build")));
 
 //for parsing json data in requests
 app.use(express.json());
+
+//for ability to parse cookies
+app.use(cookieParser());
 
 // request handling is in router file
 app.use(router);

@@ -4,10 +4,18 @@ const dbConnection = require("../db_connection.js");
 //second parameter needs to be an array which will be used for the $1,$2 etc (protects from injection)
 //see documentation: https://node-postgres.com/features/queries
 
-const getUserLogin = userEmail => {
-  return dbConnection
+const getUserLogin = async userEmail => {
+  const response = await dbConnection
     .query("SELECT password FROM users WHERE email = $1", [userEmail])
     .then(result => result.rows);
+  return response;
+};
+
+const getUserId = async userEmail => {
+  const response = await dbConnection
+    .query("SELECT id FROM users WHERE email = $1", [userEmail])
+    .then(result => result.rows[0].id);
+  return response;
 };
 
 const getUserLibrary = userEmail => {
@@ -28,32 +36,38 @@ const InsertUserData = async userData => {
       "INSERT INTO USERS (name,email,password,child_name,child_birthday,child_gender,notification_frequency, notification_time, weekly_goal) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
       Object.values(userData)
     )
-    .then(result => result)
-    .catch(console.log);
-
-  const userId = await dbConnection
-    .query("SELECT id FROM users WHERE email = $1 LIMIT 1;", [userData.email])
-    .then(result => result.rows[0].id)
-    .catch(console.log);
-
-  dbConnection
-    .query(
-      "INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3);",
-      [userId, 1, 2]
-    )
-    .then(console.log)
+    .then(result => {
+      console.log("insert user feedback ", result);
+      dbConnection
+        .query("SELECT id FROM users WHERE email = $1 LIMIT 1;", [
+          userData.email
+        ])
+        .then(result => result.rows[0].id)
+        .then(userId => {
+          dbConnection.query(
+            "INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3);",
+            [userId, 1, 2]
+          );
+        });
+    })
     .catch(console.log);
 
   return await response;
 };
 
-const getUserData = userEmail => {
+const getUserData = id => {
   return dbConnection
     .query(
-      "SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE email = $1",
-      [userEmail]
+      "SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE id = $1",
+      [id]
     )
     .then(result => result.rows[0]);
 };
 
-module.exports = { getUserLogin, getUserLibrary, InsertUserData, getUserData };
+module.exports = {
+  getUserLogin,
+  getUserLibrary,
+  InsertUserData,
+  getUserData,
+  getUserId
+};

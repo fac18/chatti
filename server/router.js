@@ -4,18 +4,12 @@ const {
   getUserLogin,
   getUserLibrary,
   InsertUserData,
-  getUserData
+  getUserData,
+  getUserId
 } = require("./database/queries/getData");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET;
-
-// Put all API endpoints under '/api'
-// test to demonstrate back end is connected
-router.get("/api/test", (req, res) => {
-  res.json("back end is sending some test data to front end");
-  console.log(`the test data was sent`);
-});
 
 //find user by email and get hashed pw from db
 //sets cookie which expires in 24h (express cookies use milliseconds)
@@ -24,17 +18,22 @@ router.get("/api/test", (req, res) => {
 router.post("/api/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+
   getUserLogin(email)
     .then(result => {
       bcrypt
         .compare(password, result[0].password)
         .then(result => {
           if (result === true) {
-            const token = jwt.sign(email, secret);
-            res
-              .status(201)
-              .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
-              .send("cookie exists");
+            getUserId(email)
+              .then(result => {
+                const token = jwt.sign(result, secret);
+                res
+                  .status(201)
+                  .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
+                  .send("cookie exists");
+              })
+              .catch(console.log);
           } else {
             res.status(401).end();
           }
@@ -53,23 +52,48 @@ router.post("/api/signup", (req, res) => {
     .hash(passwordtobehashed, 12)
     .then(result => {
       allData.password = result;
-      InsertUserData(allData).then(result => {
-        console.log(result);
-        const token = jwt.sign(newUserEmail, secret);
-        res
-          .status(201)
-          .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
-          .send("cookie exists");
-      });
+      InsertUserData(allData)
+        .then(result => {
+          console.log(result);
+          //should add some handling here to check insert was successful
+          getUserId(newUserEmail)
+            .then(result => {
+              const token = jwt.sign(result, secret);
+              res
+                .status(201)
+                .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
+                .send("cookie exists");
+            })
+            .catch(console.log);
+        })
+        .catch(console.log);
     })
     .catch(console.log);
 });
 
 //add JWT verification to this step for extra security
-router.post("/api/userdata", (req, res) => {
-  const email = req.body.email;
-  getUserData(email)
-    .then(result => res.json(result))
+// router.post("/api/userdata", (req, res) => {
+//   const email = req.body.email;
+//   getUserData(email)
+//     .then(result => res.json(result))
+//     .catch(console.log);
+// });
+
+router.get("/api/temp", (req, res) => {
+  const token = jwt.sign(1, secret);
+  res
+    .status(201)
+    .cookie("user", token, { maxAge: 1000 * 60 * 60 * 24 })
+    .send("cookie exists");
+});
+
+router.get("/api/userdata", (req, res) => {
+  const codedCookie = req.cookies.user;
+  const decodedCookie = jwt.verify(codedCookie, secret);
+  getUserData(decodedCookie)
+    .then(result => {
+      res.json(result);
+    })
     .catch(console.log);
 });
 
