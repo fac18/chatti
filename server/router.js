@@ -8,7 +8,7 @@ const {
   getUserId,
   getUser,
 } = require('./database/queries/getData')
-const {insertFavActivity} = require('./database/queries/insertData')
+const { insertFavActivityData } = require('./database/queries/insertData')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const secret = process.env.SECRET
@@ -107,9 +107,9 @@ router.post('/api/userlibrary', (req, res) => {
 })
 
 router.post('/api/activity', (req, res) => {
-  const nameId = req.body.id_name;
-  const activityId = req.body.id_activity;
-  insertFavActivity(nameId, activityId).catch(console.log);
+  const nameId = req.body.id_name
+  const activityId = req.body.id_activity
+  insertFavActivityData(nameId, activityId).catch(console.log)
 })
 
 // The "catchall" handler: for any request that doesn't

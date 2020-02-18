@@ -101,8 +101,11 @@ function App() {
         path="/activity"
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
-          return cookie ? (
-            <ActivityPage currentActivity={currentActivity} userData= {userData}/>
+          return cookie && currentActivity ? (
+            <ActivityPage
+              currentActivity={currentActivity}
+              userData={userData}
+            />
           ) : (
             <Redirect to="/" />
           )
