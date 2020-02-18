@@ -2,13 +2,20 @@ import React, { useReducer } from "react";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import Button from "../button";
+import getSettingData from '../../utils/getSettingsData';
+import {useHistory,Link} from "react-router-dom";
+
 
 function Settings({ userData }) {
   //need to know userName, email, childs name, childs age, password length
+  const history = useHistory();
+  
+
+
 
   return (
     userData && (
-      <React.Fragmenta>
+      <React.Fragment>
         <Header buttons />
         <h2>{userData.userName}</h2>
         <h3>Your profile settings:</h3>
@@ -51,9 +58,23 @@ function Settings({ userData }) {
         <select id="weeklyGoal">
           <option value="70">70 minutes</option>
         </select>
-        <Button buttonText="Log out" secondary />
+        
+        <button 
+         onClick = { () => getSettingData(userData).then(result =>{
+          if(result === "cookie deleted"){
+            console.log(result)
+            history.push('./login')
+          }
+         }).catch(console.log)
+        }
+
+        >
+        log out
+        
+        </button> 
+        
         <Navbar />
-      </React.Fragmenta>
+      </React.Fragment>
     )
   );
 }
