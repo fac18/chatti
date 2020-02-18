@@ -1,12 +1,14 @@
-import React from "react";
-import Button from "../button";
-import { ActivityTitle } from "../masterCss";
-import * as SC from "./ActivitySummary.style";
-import { ReactComponent as TimeIcon } from "../../assets/svgs/activity_time.svg";
-import { ReactComponent as AgesIcon } from "../../assets/svgs/activity_ages.svg";
-import { ReactComponent as ListeningIcon } from "../../assets/svgs/activity_listening.svg";
-import { ReactComponent as UnderstandingIcon } from "../../assets/svgs/activity_understanding.svg";
-import { Link } from "react-router-dom";
+import React from 'react'
+import Button from '../button'
+import { ActivityTitle } from '../masterCss'
+import * as SC from './ActivitySummary.style'
+import { ReactComponent as TimeIcon } from '../../assets/svgs/activity_time.svg'
+import { ReactComponent as AgesIcon } from '../../assets/svgs/activity_ages.svg'
+import { ReactComponent as ListeningIcon } from '../../assets/svgs/activity_listening.svg'
+import { ReactComponent as UnderstandingIcon } from '../../assets/svgs/activity_understanding.svg'
+import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.svg'
+import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
+import { Link } from 'react-router-dom'
 
 function ActivitySummary({ data }) {
   //data is all the fields from the db:
@@ -43,6 +45,18 @@ function ActivitySummary({ data }) {
               <p>Understanding</p>
             </div>
           )}
+          {data.speaking && (
+            <div className="row-container">
+              <SpeakingIcon />
+              <p>Speaking</p>
+            </div>
+          )}
+          {data.social && (
+            <div className="row-container">
+              <SocialIcon />
+              <p>Social Interaction</p>
+            </div>
+          )}
         </div>
         <img
           src={data.image_url}
@@ -52,14 +66,14 @@ function ActivitySummary({ data }) {
       </div>
       <Link
         to={{
-          pathname: "/activity",
-          data
+          pathname: '/activity',
+          data,
         }}
       >
         <Button buttonText="Let's go" />
       </Link>
     </SC.ActivitySummary>
-  );
+  )
 }
 
-export default ActivitySummary;
+export default ActivitySummary

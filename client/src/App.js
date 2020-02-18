@@ -1,26 +1,27 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import "./Cssreset.css";
-import "./App.css";
-import Login from "./components/Login/Login";
-import Homepage from "./components/Homepage/Homepage";
-import HomeLoggedIn from "./components/HomeLoggedIn/HomeLoggedIn";
-import RegisterContainer from "./components/RegisterContainer/RegisterContainer";
-import ActivityPage from "./components/ActivityPage/ActivityPage";
-import Favourites from "./components/FavouritesContainer/FavouritesContainer";
-import Progress from "./components/Progress/Progress";
-import AboutUs from "./components/AboutUs/AboutUs";
-import Settings from "./components/Settings/Settings";
-import getUserData from "./utils/getUserData";
+import React from 'react'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import './Cssreset.css'
+import './App.css'
+import Cookies from 'js-cookie'
+import Login from './components/Login/Login'
+import Homepage from './components/Homepage/Homepage'
+import HomeLoggedIn from './components/HomeLoggedIn/HomeLoggedIn'
+import RegisterContainer from './components/RegisterContainer/RegisterContainer'
+import ActivityPage from './components/ActivityPage/ActivityPage'
+import Favourites from './components/FavouritesContainer/FavouritesContainer'
+import Progress from './components/Progress/Progress'
+import AboutUs from './components/AboutUs/AboutUs'
+import Settings from './components/Settings/Settings'
+import getUserData from './utils/getUserData'
 
 function App() {
   // when user is logged in, keep details that are used throughout app here
   // to include: username, childs name, childs bday, childs gender
-  const [userData, setUserData] = React.useState(null);
+  const [userData, setUserData] = React.useState(null)
 
   React.useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+    console.log(userData)
+  }, [userData])
 
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
@@ -31,14 +32,23 @@ function App() {
         userEmail: result.email,
         childName: result.child_name,
         childBirthday: result.child_birthday,
-        childGender: result.child_gender
+        childGender: result.child_gender,
       })
-    );
-  }, []);
+    )
+  }, [])
 
   return (
     <Router>
-      <Route exact path="/" component={Homepage} />
+      <Route
+        exact
+        path="/"
+        render={() => {
+          const cookie = Cookies.get('user') ? Cookies.get('user') : null
+          //check if there is a user cookie (change key to something more unique?)
+          //is so, send to /home
+          return cookie ? <Redirect to="/home" /> : <Homepage />
+        }}
+      />
       <Route exact path="/aboutus" component={AboutUs} />
       <Route
         exact
@@ -66,7 +76,7 @@ function App() {
         render={() => <Settings userData={userData} />}
       />
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
