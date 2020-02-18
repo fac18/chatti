@@ -28,6 +28,7 @@ function App() {
     getUserData()
       .then(result =>
         setUserData({
+          userId: result.id,
           userName: result.name,
           userEmail: result.email,
           childName: result.child_name,
@@ -101,7 +102,7 @@ function App() {
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
           return cookie ? (
-            <ActivityPage currentActivity={currentActivity} />
+            <ActivityPage currentActivity={currentActivity} userData= {userData}/>
           ) : (
             <Redirect to="/" />
           )

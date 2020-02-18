@@ -58,7 +58,7 @@ const InsertUserData = async userData => {
 const getUserData = id => {
   return dbConnection
     .query(
-      'SELECT name, email, child_name, child_birthday, child_gender FROM users WHERE id = $1',
+      'SELECT id, name, email, child_name, child_birthday, child_gender FROM users WHERE id = $1',
       [id]
     )
     .then(result => result.rows[0])

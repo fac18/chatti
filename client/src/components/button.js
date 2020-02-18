@@ -55,7 +55,7 @@ const Button = props => {
       bottom={props.bottom}
       narrow={props.narrow}
       onClick={() => {
-        props.handleClick()
+        return props.handleClick ? props.handleClick() : null
       }}
     >
       {props.buttonText}
