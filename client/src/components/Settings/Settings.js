@@ -10,6 +10,14 @@ function Settings({ userData }) {
   //need to know userName, email, childs name, childs age, password length
   const history = useHistory();
   
+  const logout = () => {
+    getSettingData(userData).then(result =>{
+      if(result === "cookie deleted"){
+        console.log(result)
+        history.push('./login')
+      }
+     }).catch(console.log)
+  }
 
 
 
@@ -59,19 +67,13 @@ function Settings({ userData }) {
           <option value="70">70 minutes</option>
         </select>
         
-        <button 
-         onClick = { () => getSettingData(userData).then(result =>{
-          if(result === "cookie deleted"){
-            console.log(result)
-            history.push('./login')
-          }
-         }).catch(console.log)
-        }
-
+        <Button
+         handleClick = {logout}
+         buttonText = {'Logout'}
         >
         log out
         
-        </button> 
+        </Button> 
         
         <Navbar />
       </React.Fragment>
