@@ -53,12 +53,16 @@ const Button = props => {
     <GenericButton
       secondary={props.secondary}
       bottom={props.bottom}
+      onClick={()=>{
+        props.handleClick()
+      }}
       narrow={props.narrow}
       onClick={() => {
         return props.handleClick ? props.handleClick() : null
       }}
     >
       {props.buttonText}
+      
     </GenericButton>
   )
 }
