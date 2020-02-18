@@ -1,10 +1,9 @@
-import React, { useDebugValue } from "react";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import styled from "styled-components";
-import { Heading, ActivitySubHeading } from "../masterCss";
-import ActivitySummary from "../ActivitySummary/ActivitySummary";
-import getUserLibrary from "../../utils/getUserLibrary";
+import React, { useDebugValue } from 'react'
+import Header from '../Header/Header'
+import Navbar from '../Navbar/Navbar'
+import styled from 'styled-components'
+import { Heading, ActivitySubHeading } from '../masterCss'
+import ActivitySummary from '../ActivitySummary/ActivitySummary'
 
 const LoggedInActivity = styled.h3`
   font-family: Open Sans;
@@ -13,19 +12,11 @@ const LoggedInActivity = styled.h3`
   font-size: 20px;
   line-height: 27px;
   color: #163c9b;
-`;
+`
 
-function HomeLoggedIn({ userData }) {
-  const [userLibrary, setUserLibrary] = React.useState(null);
-
-  console.log(userData);
-  console.log(userLibrary);
-
-  React.useEffect(() => {
-    if (userData) {
-      getUserLibrary(userData.userEmail).then(result => setUserLibrary(result));
-    }
-  }, [userData]);
+function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
+  console.log(userData)
+  console.log(userLibrary)
 
   return (
     <>
@@ -40,21 +31,26 @@ function HomeLoggedIn({ userData }) {
 
           <ActivitySummary
             key={userLibrary[userLibrary.length - 1].id}
-            data={userLibrary[userLibrary.length - 1]}
+            activity={userLibrary[userLibrary.length - 1]}
+            setCurrentActivity={setCurrentActivity}
           />
 
           <ActivitySubHeading>More activities:</ActivitySubHeading>
           {/* ?? collapsible lists with activity summaries inside ?? */}
 
           {userLibrary.slice(0, -1).map(activity => (
-            <ActivitySummary key={activity.id} data={activity} />
+            <ActivitySummary
+              key={activity.id}
+              activity={activity}
+              setCurrentActivity={setCurrentActivity}
+            />
           ))}
 
           <Navbar />
         </>
       )}
     </>
-  );
+  )
 }
 
-export default HomeLoggedIn;
+export default HomeLoggedIn

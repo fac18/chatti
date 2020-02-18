@@ -1,13 +1,13 @@
 const postLogIn = async userdata => {
   const response = await fetch(`/api/login`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-type": "application/json",
-      Accept: "application/json"
+      'Content-type': 'application/json',
+      Accept: 'application/json',
     },
-    body: JSON.stringify(userdata)
-  });
-  return await response.text();
-};
+    body: JSON.stringify(userdata),
+  })
+  return await response.text()
+}
 
-export default postLogIn;
+export default postLogIn

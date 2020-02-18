@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react'
+import styled, { css } from 'styled-components'
 
 const GenericButton = styled.button`
   background: #ffc000;
@@ -46,7 +46,7 @@ const GenericButton = styled.button`
         css`
           width: 144px;
         `}
-`;
+`
 
 const Button = props => {
   return (
@@ -57,11 +57,14 @@ const Button = props => {
         props.handleClick()
       }}
       narrow={props.narrow}
+      onClick={() => {
+        props.handleClick()
+      }}
     >
       {props.buttonText}
       
     </GenericButton>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

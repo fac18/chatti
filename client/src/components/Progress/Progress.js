@@ -1,8 +1,8 @@
-import React from "react";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
+import React from 'react'
+import Header from '../Header/Header'
+import Navbar from '../Navbar/Navbar'
 
-function Progress() {
+function Progress({ userData }) {
   //need to know how many minutes totalled and number of activities (util)
 
   return (
@@ -17,7 +17,7 @@ function Progress() {
       {/* badges here */}
       <Navbar />
     </>
-  );
+  )
 }
 
-export default Progress;
+export default Progress
