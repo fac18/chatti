@@ -6,6 +6,7 @@ const {
   InsertUserData,
   getUserData,
   getUserId,
+  getUser,
 } = require('./database/queries/getData')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -75,6 +76,15 @@ router.get('/api/userdata', (req, res) => {
   const codedCookie = req.cookies.user
   const decodedCookie = jwt.verify(codedCookie, secret)
   getUserData(decodedCookie)
+    .then(result => {
+      res.json(result)
+    })
+    .catch(console.log)
+})
+
+router.post('/api/checkuser', (req, res) => {
+  const email = req.body.email
+  getUser(email)
     .then(result => {
       res.json(result)
     })

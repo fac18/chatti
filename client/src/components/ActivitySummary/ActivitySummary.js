@@ -8,11 +8,21 @@ import { ReactComponent as ListeningIcon } from '../../assets/svgs/activity_list
 import { ReactComponent as UnderstandingIcon } from '../../assets/svgs/activity_understanding.svg'
 import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.svg'
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 
-function ActivitySummary({ data }) {
+function ActivitySummary({ activity, setCurrentActivity }) {
   //data is all the fields from the db:
   //id, title, video_url, image_url, instructions, duration, lower_age_range, upper_age_range, listening_attention, understanding, speaking, social_interaction
+  const data = activity
+  const history = useHistory()
+
+  console.log(data)
+
+  const openActivity = () => {
+    setCurrentActivity(data)
+    history.push('/activity')
+  }
 
   return (
     <SC.ActivitySummary>
@@ -64,14 +74,7 @@ function ActivitySummary({ data }) {
           className="activity-preview"
         ></img>
       </div>
-      <Link
-        to={{
-          pathname: '/activity',
-          data,
-        }}
-      >
-        <Button buttonText="Let's go" />
-      </Link>
+      <Button buttonText="Let's go" handleClick={openActivity} />
     </SC.ActivitySummary>
   )
 }
