@@ -33,7 +33,7 @@ function App() {
         childBirthday: result.child_birthday,
         childGender: result.child_gender
       })
-    );
+    ).catch(console.log);
   }, []);
 
   return (
