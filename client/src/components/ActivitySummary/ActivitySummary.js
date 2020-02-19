@@ -17,8 +17,6 @@ function ActivitySummary({ activity, setCurrentActivity }) {
   const data = activity
   const history = useHistory()
 
-  console.log(data)
-
   const openActivity = () => {
     setCurrentActivity(data)
     history.push('/activity')
