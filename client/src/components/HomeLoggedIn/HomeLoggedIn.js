@@ -15,9 +15,6 @@ const LoggedInActivity = styled.h3`
 `
 
 function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
-  console.log(userData)
-  console.log(userLibrary)
-
   return (
     <>
       {userLibrary && (
@@ -37,14 +34,16 @@ function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
 
           <ActivitySubHeading>More activities:</ActivitySubHeading>
           {/* ?? collapsible lists with activity summaries inside ?? */}
-
-          {userLibrary.slice(0, -1).map(activity => (
-            <ActivitySummary
-              key={activity.id}
-              activity={activity}
-              setCurrentActivity={setCurrentActivity}
-            />
-          ))}
+          {userLibrary
+            .slice(0, -1)
+            .reverse()
+            .map(activity => (
+              <ActivitySummary
+                key={activity.id}
+                activity={activity}
+                setCurrentActivity={setCurrentActivity}
+              />
+            ))}
 
           <Navbar />
         </>

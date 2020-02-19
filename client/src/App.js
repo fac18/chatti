@@ -125,7 +125,11 @@ function App() {
         path="/progress"
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
-          return cookie ? <Progress userData={userData} /> : <Redirect to="/" />
+          return cookie ? (
+            <Progress userData={userData} userLibrary={userLibrary} />
+          ) : (
+            <Redirect to="/" />
+          )
         }}
       />
       <Route
