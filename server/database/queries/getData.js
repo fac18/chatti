@@ -79,6 +79,14 @@ const getUser = email => {
     })
 }
 
+const getFavourites = userId => {
+  return dbConnection
+    .query('SELECT * from content WHERE id IN ( SELECT content_id from favourites WHERE user_id = $1)', [userId])
+    .then(result => {
+     return result.rows; 
+    })
+}
+
 module.exports = {
   getUserLogin,
   getUserLibrary,
@@ -86,4 +94,5 @@ module.exports = {
   getUserData,
   getUserId,
   getUser,
+  getFavourites
 }

@@ -12,13 +12,18 @@ import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
 import VideoPopup from '../Popup/Popup'
 import postFavActivity from '../../utils/postFavActivity'
+import checkFavs from '../../utils/checkFavs';
 
 //props are passed via a router Link so are stored within the location property
-function ActivityPage({ currentActivity, userData }) {
+function ActivityPage({ currentActivity, userData, setFavourites }) {
   function addToFavourites() {
     const data = {id_activity: currentActivity.id, id_name:userData.userId};
     console.log('our data', data);
-    postFavActivity(data).then(console.log).catch(console.log);
+
+    postFavActivity(data)
+    .then(console.log)
+    .then(checkFavs(userData.userId).then(result => setFavourites(result)))
+    .catch(console.log);
   }
 
   console.log(currentActivity)
