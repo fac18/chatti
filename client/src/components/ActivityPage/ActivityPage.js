@@ -15,8 +15,8 @@ import postFavActivity from '../../utils/postFavActivity'
 import checkFavs from '../../utils/checkFavs';
 
 //props are passed via a router Link so are stored within the location property
-function ActivityPage({ currentActivity, userData, setFavourites }) {
-  function addToFavourites() {
+ function ActivityPage({ currentActivity, userData, setFavourites }) {
+   function addToFavourites() {
     const data = {id_activity: currentActivity.id, id_name:userData.userId};
     console.log('our data', data);
 
@@ -24,6 +24,7 @@ function ActivityPage({ currentActivity, userData, setFavourites }) {
     .then(console.log)
     .then(checkFavs(userData.userId).then(result => setFavourites(result)))
     .catch(console.log);
+   
   }
 
   console.log(currentActivity)

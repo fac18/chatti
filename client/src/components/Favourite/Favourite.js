@@ -3,6 +3,8 @@ import { ReactComponent as DeleteIcon } from "../../assets/svgs/delete_icon.svg"
 import * as SC from "./Favourite.style";
 import Button from "../button";
 
+
+
 function Favourite({activity}) {
   return (
     <SC.Favourite>
