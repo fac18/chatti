@@ -48,6 +48,9 @@ const ActivityContainer = styled.div`
   background-color: #f7f7f7;
   max-width: 1200px;
   margin: 1em auto 3em auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
 ` 
 
 const Error = styled(ErrorMessage)`

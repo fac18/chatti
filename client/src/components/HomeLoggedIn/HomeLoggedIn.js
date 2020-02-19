@@ -15,9 +15,6 @@ const LoggedInActivity = styled.h3`
 `
 
 function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
-  console.log(userData)
-  console.log(userLibrary)
-
   return (
     <>
       {userLibrary && (
@@ -29,11 +26,13 @@ function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
             <ActivitySubHeading>Your next activity:</ActivitySubHeading>
             {/* show the last activity in the array: is the most recent so should be last in array (??) */}
 
-            <ActivitySummary
-              key={userLibrary[userLibrary.length - 1].id}
-              activity={userLibrary[userLibrary.length - 1]}
-              setCurrentActivity={setCurrentActivity}
-            />
+          <ActivitySummary
+            key={userLibrary[userLibrary.length - 1].id}
+            activity={userLibrary[userLibrary.length - 1]}
+            setCurrentActivity={setCurrentActivity}
+          />
+
+        
 
             <ActivitySubHeading>More activities:</ActivitySubHeading>
             {/* ?? collapsible lists with activity summaries inside ?? */}

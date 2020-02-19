@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 const GenericButton = styled.button`
   background: #ffc000;
   box-shadow: 0px 4px 0px #ff8e00;
-  width: 270px;
+  width: 370px;
   border-radius: 12px;
   min-height: 40px;
   font-family: Lato;
