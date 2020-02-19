@@ -15,7 +15,6 @@ import Settings from './components/Settings/Settings'
 import AddContent from './components/AddContent/AddContent'
 import getUserData from './utils/getUserData'
 import getUserLibrary from './utils/getUserLibrary'
-import DeleteContent from './components/DeleteContent/DeleteContent'
 
 function App() {
   // when user is logged in, keep details that are used throughout app here

@@ -65,7 +65,7 @@ function ActivityPage({ currentActivity }) {
           )}
         </div>
       </section>
-      <p className="activity-description">{currentActivity.description}</p>
+      <p className="activity-description">{currentActivity.instructions}</p>
       <VideoPopup videoUrl={currentActivity.video_url} />
       <Button buttonText="Add to Favourites" secondary />
       {/* add review button - IGNORE? */}
