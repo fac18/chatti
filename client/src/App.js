@@ -16,19 +16,25 @@ import AddContent from './components/AddContent/AddContent'
 import getUserData from './utils/getUserData'
 import getUserLibrary from './utils/getUserLibrary'
 
+import checkFavs from './utils/checkFavs'
+import { Favourite } from './components/Favourite/Favourite.style'
+
 function App() {
   // when user is logged in, keep details that are used throughout app here
   // to include: username, childs name, childs bday, childs gender
   const [userData, setUserData] = React.useState(null)
   const [userLibrary, setUserLibrary] = React.useState(null)
   const [currentActivity, setCurrentActivity] = React.useState(null)
+  const [favouriteActivities, setFavsActivities] = React.useState(null)
 
+  console.log({ favouriteActivities })
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
   React.useEffect(() => {
     getUserData()
       .then(result =>
         setUserData({
+          userId: result.id,
           userName: result.name,
           userEmail: result.email,
           childName: result.child_name,
@@ -44,6 +50,14 @@ function App() {
     if (userData) {
       getUserLibrary(userData.userEmail)
         .then(result => setUserLibrary(result))
+        .catch(console.log)
+    }
+  }, [userData])
+
+  React.useEffect(() => {
+    if (userData) {
+      checkFavs(userData.userId)
+        .then(result => setFavsActivities(result))
         .catch(console.log)
     }
   }, [userData])
@@ -101,10 +115,11 @@ function App() {
         path="/activity"
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
-          return cookie && currentActivity && userData ? (
+          return cookie && currentActivity ? (
             <ActivityPage
               currentActivity={currentActivity}
               userData={userData}
+              setFavourites={setFavsActivities}
             />
           ) : (
             <Redirect to="/" />
@@ -117,7 +132,7 @@ function App() {
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
           return cookie ? (
-            <Favourites userData={userData} />
+            <Favourites favouriteActivities={favouriteActivities} />
           ) : (
             <Redirect to="/" />
           )

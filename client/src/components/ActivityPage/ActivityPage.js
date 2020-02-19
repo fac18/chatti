@@ -11,9 +11,12 @@ import { ReactComponent as UnderstandingIcon } from '../../assets/svgs/activity_
 import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.svg'
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
 import VideoPopup from '../Popup/Popup'
+import postFavActivity from '../../utils/postFavActivity'
+import checkFavs from '../../utils/checkFavs'
+
 import personaliseInstructions from '../../utils/personaliseInstructions'
 
-function ActivityPage({ userData, currentActivity }) {
+function ActivityPage({ userData, currentActivity, setFavourites }) {
   const [
     personalisedInstructions,
     setPersonalisedInstructions,
@@ -26,6 +29,16 @@ function ActivityPage({ userData, currentActivity }) {
       )
     }
   }, [userData, currentActivity])
+
+  function addToFavourites() {
+    const data = { id_activity: currentActivity.id, id_name: userData.userId }
+    console.log('our data', data)
+
+    postFavActivity(data)
+      .then(console.log)
+      .then(checkFavs(userData.userId).then(result => setFavourites(result)))
+      .catch(console.log)
+  }
 
   return (
     <>
