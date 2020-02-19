@@ -12,8 +12,10 @@ import Favourites from './components/FavouritesContainer/FavouritesContainer'
 import Progress from './components/Progress/Progress'
 import AboutUs from './components/AboutUs/AboutUs'
 import Settings from './components/Settings/Settings'
+import AddContent from './components/AddContent/AddContent'
 import getUserData from './utils/getUserData'
 import getUserLibrary from './utils/getUserLibrary'
+import DeleteContent from './components/DeleteContent/DeleteContent'
 
 function App() {
   // when user is logged in, keep details that are used throughout app here
@@ -133,6 +135,14 @@ function App() {
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
           return cookie ? <Settings userData={userData} /> : <Redirect to="/" />
+        }}
+      />
+      <Route
+        exact
+        path="/addcontent"
+        render={() => {
+          const cookie = Cookies.get('user') ? Cookies.get('user') : null
+          return cookie ? <AddContent /> : <Redirect to="/" />
         }}
       />
     </Router>
