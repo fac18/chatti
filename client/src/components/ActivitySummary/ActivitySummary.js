@@ -61,7 +61,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               <p>Speaking</p>
             </div>
           )}
-          {data.social && (
+          {data.social_interaction && (
             <div className="row-container">
               <SocialIcon />
               <p>Social Interaction</p>

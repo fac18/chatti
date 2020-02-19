@@ -57,7 +57,7 @@ function ActivityPage({ currentActivity }) {
               <p>Speaking</p>
             </div>
           )}
-          {currentActivity.social && (
+          {currentActivity.social_interaction && (
             <div className="row-container">
               <SocialIcon />
               <p>Social Interaction</p>
