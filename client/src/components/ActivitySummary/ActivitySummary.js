@@ -42,7 +42,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               Ages {data.lower_age_range}-{data.upper_age_range}
             </p>
           </div>
-          <div className="row-container">Skills</div>
+          <div className="row-container"><h4>Skills:</h4></div>
           {data.listening_attention && (
             <div className="row-container">
               <ListeningIcon />
