@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Header = styled.header`
   background-color: #163c9b;
@@ -15,7 +15,8 @@ const Header = styled.header`
 
   .svgTitle {
     overflow: visible;
+    width: 100%;
   }
-`;
+`
 
-export { Header };
+export { Header }

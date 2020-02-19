@@ -78,11 +78,13 @@ const AddContent = () => {
         </label>
         <br />
         <label>
-          Instructions
+          Instructions: please write (name) for the child's name,
+          (subjectpronoun) for he/she, (objectpronoun) for him/her, and
+          (possessivepronoun) for his/hers.
           <textarea
             type="text"
             name="instructions"
-            placeholder="E.g. Sit down with your child and....."
+            placeholder="E.g. Tell (name) to show you (possessivepronoun) toys. Ask (objectpronoun) to say which is the biggest"
             value={instructions}
             onChange={event => setInstructions(event.target.value)}
             required
