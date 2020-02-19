@@ -66,7 +66,7 @@ function ActivityPage({ currentActivity }) {
         </div>
       </section>
       <p className="activity-description">{currentActivity.description}</p>
-      <VideoPopup />
+      <VideoPopup videoUrl={currentActivity.video_url} />
       <Button buttonText="Add to Favourites" secondary />
       {/* add review button - IGNORE? */}
       {/* reviews component - IGNORE? */}
