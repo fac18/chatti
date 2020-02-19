@@ -79,8 +79,10 @@ import checkFavs from '../../utils/checkFavs';
         </div>
       </section>
       <p className="activity-description">{currentActivity.description}</p>
-      <VideoPopup />
-      <Button buttonText="Add to Favourites"  handleClick={addToFavourites} secondary />
+
+      <VideoPopup videoUrl={currentActivity.video_url} />
+      <Button buttonText="Add to Favourites" secondary />
+
       {/* add review button - IGNORE? */}
       {/* reviews component - IGNORE? */}
       <Navbar />
