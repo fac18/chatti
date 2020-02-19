@@ -4,6 +4,9 @@ import Navbar from "../Navbar/Navbar";
 import Button from "../button";
 import getSettingData from '../../utils/getSettingsData';
 import {useHistory,Link} from "react-router-dom";
+import * as SC from './settings.style';
+import {InputSubHeading} from '../masterCss'
+
 
 
 function Settings({ userData }) {
@@ -24,6 +27,7 @@ function Settings({ userData }) {
   return (
     userData && (
       <React.Fragment>
+       <SC.Setting>
         <Header buttons />
         <h2>{userData.userName}</h2>
         <h3>Your profile settings:</h3>
@@ -36,7 +40,7 @@ function Settings({ userData }) {
             </tr>
             <tr>
               <td>Your child's age</td>
-              <td>{userData.childAge}</td>
+              <td>5</td>
               <td>{/* edit icon */}</td>
             </tr>
             <tr>
@@ -53,19 +57,18 @@ function Settings({ userData }) {
         </table>
         <h3>Your notifications and target:</h3>
         <label for="notificationsFrequency">Notification frequency</label>
-        <select id="notificationsFrequency">
+        <SC.Select id="notificationsFrequency">
           <option value="daily">Daily</option>
-        </select>
-
+          </SC.Select>
         <label for="notificationsTime">Notification time</label>
-        <select id="notificationsTime">
+        <SC.Select id="notificationsTime">
           <option value="20:00:00">8:00pm</option>
-        </select>
+        </SC.Select>
 
         <label for="weeklyGoal">Weekly goal</label>
-        <select id="weeklyGoal">
+        <SC.Select id="weeklyGoal">
           <option value="70">70 minutes</option>
-        </select>
+        </SC.Select>
         
         <Button
          handleClick = {logout}
@@ -76,6 +79,7 @@ function Settings({ userData }) {
         </Button> 
         
         <Navbar />
+        </SC.Setting>
       </React.Fragment>
     )
   );
