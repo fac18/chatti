@@ -123,6 +123,7 @@ router.post('/api/activity', (req, res) => {
 router.post('/api/favourites', (req, res) => {
   const userId = req.body.userId
   getFavourites (userId).then(result => res.json(result)).catch(console.log)
+})
 
 router.post('/api/addcontent', (req, res) => {
   insertContent(req.body)
