@@ -11,9 +11,22 @@ import { ReactComponent as UnderstandingIcon } from '../../assets/svgs/activity_
 import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.svg'
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
 import VideoPopup from '../Popup/Popup'
+import postFavActivity from '../../utils/postFavActivity'
+import checkFavs from '../../utils/checkFavs';
 
 //props are passed via a router Link so are stored within the location property
-function ActivityPage({ currentActivity }) {
+ function ActivityPage({ currentActivity, userData, setFavourites }) {
+   function addToFavourites() {
+    const data = {id_activity: currentActivity.id, id_name:userData.userId};
+    console.log('our data', data);
+
+    postFavActivity(data)
+    .then(console.log)
+    .then(checkFavs(userData.userId).then(result => setFavourites(result)))
+    .catch(console.log);
+   
+  }
+
   console.log(currentActivity)
   return (
     <SC.ActivityPage>
@@ -61,13 +74,15 @@ function ActivityPage({ currentActivity }) {
             <div className="row-container">
               <SocialIcon />
               <p>Social Interaction</p>
-            </div>
+            </div> 
           )}
         </div>
       </section>
       <p className="activity-description">{currentActivity.description}</p>
+
       <VideoPopup videoUrl={currentActivity.video_url} />
       <Button buttonText="Add to Favourites" secondary />
+
       {/* add review button - IGNORE? */}
       {/* reviews component - IGNORE? */}
       <Navbar />
