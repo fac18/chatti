@@ -37,7 +37,7 @@ const GenericButton = styled.button`
     props.bottom &&
     css`
       position: fixed;
-      bottom: 8rem;
+      bottom: 2rem;
       left: 50%;
       margin-left: -135px;
     `}
