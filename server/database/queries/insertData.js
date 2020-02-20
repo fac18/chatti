@@ -5,6 +5,7 @@ const insertFavActivityData = async (id_name, id_activity) => {
     'INSERT INTO FAVOURITES (user_id, content_id) VALUES ($1, $2)',
     [id_name, id_activity]
   )
+  return await response
 }
 
 module.exports = { insertFavActivityData }

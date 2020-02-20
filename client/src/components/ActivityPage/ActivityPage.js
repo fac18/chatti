@@ -16,7 +16,12 @@ import checkFavs from '../../utils/checkFavs'
 
 import personaliseInstructions from '../../utils/personaliseInstructions'
 
-function ActivityPage({ userData, currentActivity, setFavourites }) {
+function ActivityPage({
+  userData,
+  currentActivity,
+  favouriteActivities,
+  setFavouriteActivities,
+}) {
   const [
     personalisedInstructions,
     setPersonalisedInstructions,
@@ -32,11 +37,11 @@ function ActivityPage({ userData, currentActivity, setFavourites }) {
 
   function addToFavourites() {
     const data = { id_activity: currentActivity.id, id_name: userData.userId }
-    console.log('our data', data)
-
     postFavActivity(data)
-      .then(console.log)
-      .then(checkFavs(userData.userId).then(result => setFavourites(result)))
+      .then(result => checkFavs(userData.userId))
+      .then(result => {
+        setFavouriteActivities(result)
+      })
       .catch(console.log)
   }
 
@@ -94,7 +99,15 @@ function ActivityPage({ userData, currentActivity, setFavourites }) {
           </section>
           <p className="activity-description">{personalisedInstructions}</p>
           <VideoPopup videoUrl={currentActivity.video_url} />
-          <Button buttonText="Add to Favourites" secondary />
+          <Button
+            buttonText={
+              favouriteActivities.some(item => item.id === currentActivity.id)
+                ? 'Remove from Favourites'
+                : 'Add to Favourites'
+            }
+            secondary
+            handleClick={addToFavourites}
+          />
           {/* add review button - IGNORE? */}
           {/* reviews component - IGNORE? */}
           <Navbar />

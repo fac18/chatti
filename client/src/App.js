@@ -25,7 +25,7 @@ function App() {
   const [userData, setUserData] = React.useState(null)
   const [userLibrary, setUserLibrary] = React.useState(null)
   const [currentActivity, setCurrentActivity] = React.useState(null)
-  const [favouriteActivities, setFavsActivities] = React.useState(null)
+  const [favouriteActivities, setFavouriteActivities] = React.useState(null)
 
   console.log({ favouriteActivities })
   //when app loads, make BE call to get user data state
@@ -57,7 +57,7 @@ function App() {
   React.useEffect(() => {
     if (userData) {
       checkFavs(userData.userId)
-        .then(result => setFavsActivities(result))
+        .then(result => setFavouriteActivities(result))
         .catch(console.log)
     }
   }, [userData])
@@ -119,7 +119,8 @@ function App() {
             <ActivityPage
               currentActivity={currentActivity}
               userData={userData}
-              setFavourites={setFavsActivities}
+              favouriteActivities={favouriteActivities}
+              setFavouriteActivities={setFavouriteActivities}
             />
           ) : (
             <Redirect to="/" />
