@@ -32,6 +32,11 @@ const Heading = styled.h1`
     css`
       color: #163c9b;
     `}
+    ${props =>
+      props.reg4 &&
+      css`
+        font-size: 34px;
+      `}
 `
 
 const ActivityTitle = styled.h2`
