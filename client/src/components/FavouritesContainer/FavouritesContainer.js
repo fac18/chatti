@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import Navbar from '../Navbar/Navbar'
 import Favourite from '../Favourite/Favourite'
 import { Heading } from '../masterCss'
+import { FavsContainer } from './favouritesconainer.styles'
 
 function FavouritesContainer({ favouriteActivities, setCurrentActivity }) {
   //need to know list of user favourites
@@ -14,15 +15,17 @@ function FavouritesContainer({ favouriteActivities, setCurrentActivity }) {
         <>
           <Header buttons />
           <Heading whiteBg>Your Favourites</Heading>
-          {favouriteActivities.map(activity => {
-            return (
-              <Favourite
-                key={activity.id}
-                activity={activity}
-                setCurrentActivity={setCurrentActivity}
-              />
-            )
-          })}
+          <FavsContainer>
+            {favouriteActivities.map(activity => {
+              return (
+                <Favourite
+                  key={activity.id}
+                  activity={activity}
+                  setCurrentActivity={setCurrentActivity}
+                />
+              )
+            })}
+            </FavsContainer>
           <Navbar />
         </>
       )}
