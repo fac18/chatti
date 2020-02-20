@@ -32,11 +32,11 @@ const Heading = styled.h1`
     css`
       color: #163c9b;
     `}
-    ${props =>
-      props.reg4 &&
-      css`
-        font-size: 34px;
-      `}
+  ${props =>
+    props.reg4 &&
+    css`
+      font-size: 34px;
+    `}
 `
 
 const ActivityTitle = styled.h2`
@@ -46,7 +46,7 @@ const ActivityTitle = styled.h2`
   font-size: 24px;
   line-height: 27px;
   color: #163c9b;
-  padding: 2em 0 1em 0em;
+  padding: 1em 0 1em 0em;
 `
 
 const ActivityContainer = styled.div`
