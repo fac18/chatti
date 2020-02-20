@@ -26,13 +26,11 @@ function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
             <ActivitySubHeading>Your next activity:</ActivitySubHeading>
             {/* show the last activity in the array: is the most recent so should be last in array (??) */}
 
-          <ActivitySummary
-            key={userLibrary[userLibrary.length - 1].id}
-            activity={userLibrary[userLibrary.length - 1]}
-            setCurrentActivity={setCurrentActivity}
-          />
-
-        
+            <ActivitySummary
+              key={userLibrary[userLibrary.length - 1].id}
+              activity={userLibrary[userLibrary.length - 1]}
+              setCurrentActivity={setCurrentActivity}
+            />
 
             <ActivitySubHeading>More activities:</ActivitySubHeading>
             {/* ?? collapsible lists with activity summaries inside ?? */}
@@ -44,7 +42,7 @@ function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
                 setCurrentActivity={setCurrentActivity}
               />
             ))}
-          </ActivityContainer>    
+          </ActivityContainer>
           <Navbar />
         </>
       )}

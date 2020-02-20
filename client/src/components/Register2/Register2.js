@@ -1,28 +1,27 @@
-import React from "react";
-import { FormBox, InputField, InputSubHeading, Error } from "../masterCss";
-import { Formik } from "formik";
-import Button from "../button";
+import React from 'react'
+import { FormBox, InputField, InputSubHeading, Error } from '../masterCss'
+import { Formik } from 'formik'
+import Button from '../button'
 
 function Register2({ setReg2 }) {
   return (
     <>
       <Formik
-        initialValues={{ child_name: "", child_birth: "", gender: "" }}
+        initialValues={{ child_name: '', child_birth: '', gender: '' }}
         validate={values => {
-          const errors = {};
+          const errors = {}
           if (!values.child_name) {
-            errors.child_name = "Child's name required";
+            errors.child_name = "Child's name required"
           } else if (!values.child_birth) {
-            errors.chiild_birth = "Child's birthday required";
+            errors.chiild_birth = "Child's birthday required"
           }
           // else if (!values.gender) {
           //   errors.gender = "Child's gender selection required"
           // }
-          return errors;
+          return errors
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
-          setReg2(values);
+          setReg2(values)
         }}
       >
         {({ isSubmitting }) => (
@@ -43,11 +42,9 @@ function Register2({ setReg2 }) {
               <Error name="child_birth" component="div" />
             </InputSubHeading>
 
-
             <InputSubHeading>
               What is your child's gender?
               <InputField component="select" name="gender">
-                
                 <option name="gender" type="text">
                   Male
                 </option>
@@ -60,23 +57,18 @@ function Register2({ setReg2 }) {
               </InputField>
               <Error name="gender" component="div"></Error>
             </InputSubHeading>
-            
-
-            
-
-            
 
             <Button
               type="submit"
               disabled={isSubmitting}
-              buttonText={"Continue"}
+              buttonText={'Continue'}
               bottom
             ></Button>
           </FormBox>
         )}
       </Formik>
     </>
-  );
+  )
 }
 
-export default Register2;
+export default Register2

@@ -8,11 +8,8 @@ import '../masterCss'
 export default function VideoPopup({ videoUrl }) {
   return (
     <Popup
-      trigger={
-        <VideoButton>
-          <button className="button">Watch video</button>
-        </VideoButton>
-      }
+      trigger={<VideoButton>Watch video</VideoButton>}
+      contentStyle={{ width: '600px', height: '400px' }}
       modal
     >
       {close => (

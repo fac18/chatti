@@ -4,7 +4,8 @@ import PlayerContainer from './player.style'
 
 export default function Player({ videoUrl }) {
   return (
-    <div className="player_container">
+    <PlayerContainer>
+      {/* <div className="player_container"> */}
       <ReactPlayer
         className="video-player"
         width="100%"
@@ -13,6 +14,7 @@ export default function Player({ videoUrl }) {
         playing
         controls
       />
-    </div>
+      {/* </div> */}
+    </PlayerContainer>
   )
 }

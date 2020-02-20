@@ -21,7 +21,7 @@ const getUserId = async userEmail => {
 const getUserLibrary = userEmail => {
   return dbConnection
     .query(
-      '(SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1 LIMIT 1))) INNER JOIN (SELECT content_id,AVG(stars) AS rating FROM reviews GROUP BY content_id) ON content_id;',
+      '(SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1 LIMIT 1)));',
       [userEmail]
     )
     .then(result => result.rows)

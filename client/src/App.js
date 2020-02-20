@@ -45,7 +45,6 @@ function App() {
   }, [])
 
   React.useEffect(() => {
-    console.log(userData)
     if (userData) {
       getUserLibrary(userData.userEmail)
         .then(result => setUserLibrary(result))

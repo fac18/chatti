@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Popup = styled.div`
   .modal {
     position: relative;
-    width: 80%;
+    width: 100%;
   }
   .modal > .header {
     width: 100%;

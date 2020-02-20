@@ -109,6 +109,51 @@ const FormContainer = styled.div`
   flex-direction: column;
 `
 
+const ProgressContainer = styled.div`
+  max-width: 1200px;
+  margin: 1em auto 8em auto;
+
+  h1 {
+    color: #163c9b;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 2em;
+    font-weight: 300;
+  }
+  h2 {
+    font-size: 4em;
+    font-weight: 200;
+    color: #163c9b;
+  }
+
+  .flex-display {
+    display: flex;
+    align-self: center;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .space-around {
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+
+  .progress-section {
+    background-color: #f5f8fd;
+    /* border: 1px solid #163c9b; */
+    border-radius: 10px;
+    padding: 1em 2em;
+    margin-bottom: 5px;
+    transition: 0.3s all ease-in-out;
+  }
+`
+
 export {
   InputField,
   ActivityTitle,
@@ -121,4 +166,5 @@ export {
   RecommendationParagraph,
   FormContainer,
   ActivityContainer,
+  ProgressContainer,
 }
