@@ -148,15 +148,31 @@ const ProgressContainer = styled.div`
 
   .progress-section{
     background-color: #F5F8FD;
-    /* border: 1px solid #163c9b; */
     border-radius: 10px;
     padding: 1em 2em;
     margin-bottom: 5px;
     transition: 0.3s all ease-in-out;
   }
+`;
 
+const CommunityContainer = styled.div`
+  max-width: 700px;
+  color: #163c9b;
+  margin: 0 auto 3em auto;
   
 
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    background-color: #F5F8FD;
+    border-radius: 10px;
+    padding: 1em 2em;
+  }
 `
 
 
@@ -173,7 +189,8 @@ export {
   RecommendationParagraph,
   FormContainer,
   ActivityContainer,
-  ProgressContainer
+  ProgressContainer,
+  CommunityContainer
   
 
 };

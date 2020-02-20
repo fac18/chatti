@@ -23,10 +23,12 @@ function Navbar() {
               <p>Favourites</p>
             </li>
           </SC.StyledLink>
+          <SC.StyledLink to="/community">
           <li>
             <CommunityButton />
             <p>Community</p>
           </li>
+          </SC.StyledLink>
           <SC.StyledLink to="/progress">
             <li>
               <ProgressButton />
