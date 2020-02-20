@@ -45,10 +45,12 @@ const InsertUserData = async userData => {
         ])
         .then(result => result.rows[0].id)
         .then(userId => {
-          dbConnection.query(
-            'INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3),($1,$4),($1,$5),($1,$6),($1,$7),($1,$8);',
-            [userId, 1, 5, 6, 7, 8, 9, 10]
-          )
+          dbConnection
+            .query(
+              'INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3),($1,$4),($1,$5),($1,$6),($1,$7),($1,$8);',
+              [userId, 1, 5, 6, 7, 8, 9, 10]
+            )
+            .catch(console.log)
         })
     })
     .catch(console.log)

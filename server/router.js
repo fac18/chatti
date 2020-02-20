@@ -60,7 +60,9 @@ router.post('/api/signup', (req, res) => {
     .hash(passwordtobehashed, 12)
     .then(result => {
       allData.password = result
-      InsertUserData(allData).catch(console.log)
+      InsertUserData(allData)
+        .then(res.status(201).send('signed up'))
+        .catch(console.log)
     })
     .catch(console.log)
 })
