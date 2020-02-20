@@ -130,7 +130,7 @@ const ProgressContainer = styled.div`
     color: #163c9b;
     font-size: 2.5em;
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em;
     font-weight: 400;
   }
   h3 {
