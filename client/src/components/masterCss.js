@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { Field, Form, ErrorMessage } from "formik";
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { Field, Form, ErrorMessage } from 'formik'
 
 const InputField = styled(Field)`
   background-color: #00000;
@@ -16,8 +16,8 @@ const InputField = styled(Field)`
   text-align: center;
   cursor: pointer;
   margin: 1rem auto;
-`;
- 
+`
+
 const Heading = styled.h1`
   font-family: Lato;
   font-style: normal;
@@ -32,7 +32,7 @@ const Heading = styled.h1`
     css`
       color: #163c9b;
     `}
-`;
+`
 
 const ActivityTitle = styled.h2`
   font-family: Lato;
@@ -42,7 +42,7 @@ const ActivityTitle = styled.h2`
   line-height: 27px;
   color: #163c9b;
   padding: 2em 0 1em 0em;
-`;
+`
 
 const ActivityContainer = styled.div`
   background-color: #f7f7f7;
@@ -51,23 +51,23 @@ const ActivityContainer = styled.div`
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
-` 
+`
 
 const Error = styled(ErrorMessage)`
   color: red;
   padding: 0 5em 2em 5em;
-`;
+`
 
 const GeneralText = styled.p`
-display: inline;
-font-family: font-family: Lato;
-font-style: normal;
-font-weight: normal;
-font-size: 22px;
-line-height: 29px;
-text-align: center;
-color: #FFFFFF;
-`;
+  display: inline;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+`
 
 const InputSubHeading = styled.label`
   display: flex;
@@ -79,7 +79,7 @@ const InputSubHeading = styled.label`
   line-height: 19px;
   text-align: center;
   color: #ffffff;
-`;
+`
 
 const ActivitySubHeading = styled.h4`
   font-family: Lato;
@@ -96,44 +96,39 @@ const ActivitySubHeading = styled.h4`
       text-align: center;
       border-top: 1px solid #163c9b;
       border-bottom: 1px solid #163c9b;
-
-      
     `}
-  `;
-   
-
+`
 
 const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
-
-`;
+`
 
 const RecommendationParagraph = styled.p`
   font-size: 1.4em;
   text-align: center;
   color: white;
   padding: 2em;
-  background-color: #3B60BD;
-`;
+  background-color: #3b60bd;
+`
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const ProgressContainer = styled.div`
   max-width: 1200px;
   margin: 1em auto 8em auto;
-  
-  h1{
+
+  h1 {
     color: #163c9b;
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1em;
     font-weight: 400;
   }
-  h3{
+  h3 {
     font-size: 2em;
     font-weight: 300;
   }
@@ -141,10 +136,9 @@ const ProgressContainer = styled.div`
     font-size: 4em;
     font-weight: 200;
     color: #163c9b;
-
   }
 
-  .flex-display{
+  .flex-display {
     display: flex;
     align-self: center;
   }
@@ -158,20 +152,19 @@ const ProgressContainer = styled.div`
     margin-top: 1em;
   }
 
-  .progress-section{
-    background-color: #F5F8FD;
+  .progress-section {
+    background-color: #f5f8fd;
     border-radius: 10px;
     padding: 1em 2em;
     margin-bottom: 5px;
     transition: 0.3s all ease-in-out;
   }
-`;
+`
 
 const CommunityContainer = styled.div`
   max-width: 700px;
   color: #163c9b;
   margin: 0 auto 3em auto;
-  
 
   h1 {
     margin-top: 1em;
@@ -181,13 +174,11 @@ const CommunityContainer = styled.div`
 
   p {
     text-align: center;
-    background-color: #F5F8FD;
+    background-color: #f5f8fd;
     border-radius: 10px;
     padding: 1em 2em;
   }
 `
-
-
 
 export {
   InputField,
@@ -202,7 +193,5 @@ export {
   FormContainer,
   ActivityContainer,
   ProgressContainer,
-  CommunityContainer
-  
-
-};
+  CommunityContainer,
+}

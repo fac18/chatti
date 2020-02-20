@@ -1,6 +1,6 @@
-import React,{useEffect} from "react";
-import Header from "../Header/Header";
-import {Link} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import Header from '../Header/Header'
+import { Link } from 'react-router-dom'
 import {
   InputField,
   GeneralText,
@@ -9,14 +9,11 @@ import {
   Error,
   RecommendationParagraph,
   FormContainer,
-  
-} from "../masterCss";
-import Button from "../button";
-import { Formik, ErrorMessage, Field, Form } from "formik";
-import InsertUserData from "../../utils/postFormData";
-import postFormData from "../../utils/postFormData";
-
-
+} from '../masterCss'
+import Button from '../button'
+import { Formik, ErrorMessage, Field, Form } from 'formik'
+import InsertUserData from '../../utils/postFormData'
+import postFormData from '../../utils/postFormData'
 
 function Register3({ setReg3 }) {
   return (
@@ -24,14 +21,12 @@ function Register3({ setReg3 }) {
       <RecommendationParagraph>
         We recommend that you aim For 10 minutes of chatti activity everyday
       </RecommendationParagraph>
-      
 
-      
       <Formik
         initialValues={{
           how_often: 'daily',
           new_ideas_time: '6pm',
-          weekly_goal: '80 minutes'
+          weekly_goal: '80 minutes',
         }}
         // validate={values => {
         //   const errors={}
@@ -46,8 +41,7 @@ function Register3({ setReg3 }) {
 
         // }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
-          setReg3(values);
+          setReg3(values)
         }}
       >
         {({ isSubmitting }) => (
@@ -55,11 +49,10 @@ function Register3({ setReg3 }) {
             <InputSubHeading>
               How often do you want to get new ideas?
               <InputField component="select" name="how_often">
-               
                 <option name="how_often" type="text">
                   daily
                 </option>
-                
+
                 <option name="how_often" type="text">
                   weekly
                 </option>
@@ -76,7 +69,7 @@ function Register3({ setReg3 }) {
             <InputSubHeading>
               What time do you want to get new ideas?
               <InputField component="select" name="new_ideas_time">
-              <option name="new_ideas_time" type="text">
+                <option name="new_ideas_time" type="text">
                   8pm
                 </option>
                 <option name="new_ideas_time" type="text">
@@ -112,7 +105,7 @@ function Register3({ setReg3 }) {
                 <option name="weekly_goal" type="text">
                   80 minutes
                 </option>
-                
+
                 <option name="weekly_goal" type="text">
                   30 minutes
                 </option>
@@ -129,14 +122,18 @@ function Register3({ setReg3 }) {
             </InputSubHeading>
 
             <Button type="submit" type="button" buttonText="Continue"></Button>
-            
-            <Button type="submit" type="button" buttonText="accept recommended settings" disabled={isSubmitting}></Button>
-           
+
+            <Button
+              type="submit"
+              type="button"
+              buttonText="accept recommended settings"
+              disabled={isSubmitting}
+            ></Button>
           </Form>
         )}
       </Formik>
     </FormContainer>
-  );
+  )
 }
 
-export default Register3;
+export default Register3
