@@ -120,7 +120,7 @@ router.post('/api/favourites', (req, res) => {
 router.post('/api/deletefavourites', (req, res) => {
   const contentId = req.body.id_activity
   const userId = req.body.id_name
-  console.log('i have arrived')
+  
   deleteFavourite(userId, contentId)
     .then(result => {
       return res.json(result)

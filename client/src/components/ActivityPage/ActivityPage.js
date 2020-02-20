@@ -44,7 +44,7 @@ function ActivityPage({
       .then(result => checkFavs(userData.userId))
       .then(result => {
         setFavouriteActivities(result)
-        console.log('working bro')
+        
       })
       .catch(console.log)
 
