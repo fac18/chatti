@@ -5,7 +5,7 @@ display:flex;
 justify-content:center;
 background-color: #163c9b;
 padding: 1em;
-
+height: 3em;
 
 `
 
