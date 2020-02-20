@@ -25,55 +25,63 @@ function ActivitySummary({ activity, setCurrentActivity }) {
   return (
     <SC.ActivitySummary>
       <div className="activity-main-container">
-      <div className="top-container">
-        <ActivityTitle>{data.title}</ActivityTitle>
-        <p>**** 5.0</p>
-      </div>
-      <div className="centre-container">
-        <div className="details-container">
-          <div className="row-container">
-            <TimeIcon />
-            <p>{data.duration} mins</p>
-          </div>
-          <div className="row-container">
-            <AgesIcon />
-            <p>
-              Ages {data.lower_age_range}-{data.upper_age_range}
-            </p>
-          </div>
-          <div className="row-container"><h4>Skills:</h4></div>
-          {data.listening_attention && (
-            <div className="row-container">
-              <ListeningIcon />
-              <p>Listening/Attention</p>
-            </div>
-          )}
-          {data.understanding && (
-            <div className="row-container">
-              <UnderstandingIcon />
-              <p>Understanding</p>
-            </div>
-          )}
-          {data.speaking && (
-            <div className="row-container">
-              <SpeakingIcon />
-              <p>Speaking</p>
-            </div>
-          )}
-          {data.social_interaction && (
-            <div className="row-container">
-              <SocialIcon />
-              <p>Social Interaction</p>
-            </div>
-          )}
+        <div className="top-container">
+          <ActivityTitle>{data.title}</ActivityTitle>
+          <p>**** 5.0</p>
         </div>
-        <img
-          src={data.image_url}
-          alt="activity preview"
-          className="activity-preview"
-        ></img>
-      </div>
-      <Button className="ctaButton" buttonText="Let's go" handleClick={openActivity} />
+        <div className="centre-container">
+          <div className="details-container">
+            <div className="row-container">
+              <TimeIcon />
+              <p>{data.duration} mins</p>
+            </div>
+            <div className="row-container">
+              <AgesIcon />
+              <p>
+                Ages {data.lower_age_range}-{data.upper_age_range}
+              </p>
+            </div>
+            <div className="row-container">
+              <h4>Skills:</h4>
+            </div>
+            {data.listening_attention && (
+              <div className="row-container">
+                <ListeningIcon />
+                <p>Listening/Attention</p>
+              </div>
+            )}
+            {data.understanding && (
+              <div className="row-container">
+                <UnderstandingIcon />
+                <p>Understanding</p>
+              </div>
+            )}
+            {data.speaking && (
+              <div className="row-container">
+                <SpeakingIcon />
+                <p>Speaking</p>
+              </div>
+            )}
+            {data.social_interaction && (
+              <div className="row-container">
+                <SocialIcon />
+                <p>Social Interaction</p>
+              </div>
+            )}
+          </div>
+          <div className="activity-image-container">
+            <img
+              src={data.image_url}
+              alt="activity preview"
+              className="activity-preview"
+            ></img>
+          </div>
+        </div>
+        <Button
+          className="ctaButton"
+          buttonText="Let's go"
+          handleClick={openActivity}
+        />
       </div>
     </SC.ActivitySummary>
   )
