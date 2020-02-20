@@ -119,7 +119,7 @@ const ProgressContainer = styled.div`
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1em;
-    font-weight: 300;
+    font-weight: 400;
   }
   h3{
     font-size: 2em;
@@ -132,6 +132,20 @@ const ProgressContainer = styled.div`
 
   }
 
+  .flex-display{
+    display: flex;
+    align-self: center;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .space-around {
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+
   .progress-section{
     background-color: #F5F8FD;
     /* border: 1px solid #163c9b; */
@@ -140,6 +154,9 @@ const ProgressContainer = styled.div`
     margin-bottom: 5px;
     transition: 0.3s all ease-in-out;
   }
+
+  
+
 `
 
 
