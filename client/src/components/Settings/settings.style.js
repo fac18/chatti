@@ -1,10 +1,16 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
+
 
 const Setting = styled.section`
 display:flex;
 flex-direction:column;
 color: #163c9b;
 margin: 1em auto 4em auto;
+max-width:1000px;
+`
+
+const Notification = styled.section`
+margin-top: 3em;
 
 `
 const Select = styled.select `
@@ -32,15 +38,34 @@ const SettingsLabel = styled.label `
   text-align: center;
   `
 
-const TableWrapper = styled.section `
-display:flex;
-flex-direction: column 
-wrap: nowrap;
-justify-content: space-evenly;
-`
+// const TableWrapper = styled.section `
+// display:flex;
+// flex-direction: row; 
+// wrap: nowrap;
+// justify-content: space-evenly;
+// `
 const Row = styled.td `
 padding-right: 50px
-`
-  
+${props =>
+    props.Row2 &&
+    css`
+      padding-left:50px
 
-export {Setting,Select,SettingsLabel,TableWrapper,Row}
+      
+    `}
+`
+const SettingsHeader = styled.h2`
+  color: #163c9b;
+  padding-top: 1em;
+  width: 100%;
+  text-align:center;
+  font-size: 25px;
+  `
+  
+  const SettingText = styled.div`
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  `
+
+export {Setting,Select,SettingsLabel,Row,SettingsHeader,Notification,SettingText}

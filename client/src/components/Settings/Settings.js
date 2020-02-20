@@ -33,34 +33,39 @@ function Settings({ userData }) {
       <React.Fragment>
        <SC.Setting>
         <Header buttons />
-        <h2>{userData.userName}</h2>
+        <SC.SettingsHeader>{userData.userName}</SC.SettingsHeader>
         <ActivitySubHeading SettingsSub>Your profile settings:</ActivitySubHeading>
-        <SC.TableWrapper>
-        <table>
-          <tbody>
-            <tr>
-              <SC.Row>Your child's name</SC.Row>
-              <td>{userData.childName}</td>
-              
-            </tr>
-            <tr>
-              <SC.Row>Your child's age</SC.Row>
-              <td>5</td>
-              
-            </tr>
-            <tr>
-              <SC.Row>Your email</SC.Row>
-              <td>{userData.userEmail}</td>
-              
-            </tr>
-            <tr>
-              <SC.Row>Your password</SC.Row>
-              <td>arsenal123</td>
-              
-            </tr>
-          </tbody>
-        </table>
-        </SC.TableWrapper>
+        <div>
+         <SC.SettingText>
+          <p>
+            Your child's name
+          </p>
+          <p>{userData.childName}</p>
+          </SC.SettingText>
+          
+          <SC.SettingText>
+          <p>
+            Your child's age
+          </p>
+          <p>5</p>
+          </SC.SettingText>
+          
+          <SC.SettingText>
+          <p>
+            Your email address
+          </p>
+
+          <p>{userData.userEmail}</p>
+          </SC.SettingText>
+
+
+          
+          
+          
+          
+          
+       
+        </div>
         
         <ActivitySubHeading SettingsSub>Your notifications and target:</ActivitySubHeading>
         <SC.SettingsLabel for="notificationsFrequency">Notification frequency</SC.SettingsLabel>
@@ -78,12 +83,14 @@ function Settings({ userData }) {
         </SC.Select>
         
         <Button
+         narrow
          handleClick = {logout}
          buttonText = {'Logout'}
         >
         log out
         
         </Button> 
+        
         
         <Navbar />
         </SC.Setting>

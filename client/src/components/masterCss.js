@@ -93,6 +93,10 @@ const ActivitySubHeading = styled.h4`
     props.SettingsSub &&
     css`
       font-size: 22px;
+      text-align: center;
+      border-top: 1px solid #163c9b;
+      border-bottom: 1px solid #163c9b;
+
       
     `}
   `;

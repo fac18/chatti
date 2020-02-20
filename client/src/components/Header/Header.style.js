@@ -1,9 +1,10 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const Header = styled.header`
   background-color: #163c9b;
   padding: 1em;
   width: 100%;
+  
   div {
     text-align: center;
     margin: 0;
