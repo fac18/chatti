@@ -8,7 +8,7 @@ const {
   getUserId,
   getUser,
   getFavourites,
-  deleteFavourite
+  deleteFavourite,
 } = require('./database/queries/getData')
 
 const { insertFavActivityData } = require('./database/queries/insertData')
@@ -60,21 +60,7 @@ router.post('/api/signup', (req, res) => {
     .hash(passwordtobehashed, 12)
     .then(result => {
       allData.password = result
-      InsertUserData(allData)
-        .then(result => {
-          console.log(result)
-          //should add some handling here to check insert was successful
-          getUserId(newUserEmail)
-            .then(result => {
-              const token = jwt.sign(result, secret)
-              res
-                .status(201)
-                .cookie('user', token, { maxAge: 1000 * 60 * 60 * 24 })
-                .send('cookie exists')
-            })
-            .catch(console.log)
-        })
-        .catch(console.log)
+      InsertUserData(allData).catch(console.log)
     })
     .catch(console.log)
 })
@@ -129,18 +115,16 @@ router.post('/api/favourites', (req, res) => {
     .catch(console.log)
 })
 
-router.post('/api/deletefavourites', (req,res)=>{
- const contentId = req.body.id_activity
- const userId = req.body.id_name
- console.log("i have arrived")
- deleteFavourite(userId, contentId).then(result =>{
-  return res.json(result)
- }).catch(console.log)
-
-
+router.post('/api/deletefavourites', (req, res) => {
+  const contentId = req.body.id_activity
+  const userId = req.body.id_name
+  console.log('i have arrived')
+  deleteFavourite(userId, contentId)
+    .then(result => {
+      return res.json(result)
+    })
+    .catch(console.log)
 })
-
-
 
 router.post('/api/addcontent', (req, res) => {
   insertContent(req.body)

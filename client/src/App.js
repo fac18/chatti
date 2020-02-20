@@ -132,7 +132,10 @@ function App() {
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
           return cookie ? (
-            <Favourites favouriteActivities={favouriteActivities} />
+            <Favourites
+              favouriteActivities={favouriteActivities}
+              setCurrentActivity={setCurrentActivity}
+            />
           ) : (
             <Redirect to="/" />
           )

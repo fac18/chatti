@@ -1,22 +1,30 @@
 import React from 'react'
-import { ReactComponent as DeleteIcon } from '../../assets/svgs/delete_icon.svg'
 import * as SC from './Favourite.style'
 import Button from '../button'
+import { useHistory } from 'react-router-dom'
 
-function Favourite({ activity }) {
+function Favourite({ activity, setCurrentActivity }) {
+  const data = activity
+  const history = useHistory()
+
+  const openActivity = () => {
+    setCurrentActivity(data)
+    history.push('/activity')
+  }
   return (
     <SC.Favourite>
-      <img
-        className="activity-preview"
-        src={activity.image_url}
-        alt="activity preview image"
-      ></img>
+      <div className="activity-preview-container">
+        <img
+          className="activity-preview"
+          src={activity.image_url}
+          alt="activity preview image"
+        ></img>
+      </div>
       <div className="right-container">
         <div className="top-container">
           <h3>{activity.title}</h3>
-          <DeleteIcon />
         </div>
-        <Button narrow buttonText="Play again" />
+        <Button narrow buttonText="Play again" handleClick={openActivity} />
       </div>
     </SC.Favourite>
   )
