@@ -94,7 +94,7 @@ const getFavourites = userId => {
 }
 
 const deleteFavourite = (userId, content_id) => {
-  console.log(userId, content_id)
+  
   return dbConnection
     .query('DELETE from favourites WHERE user_id = $1 AND content_id = $2', [
       userId,
