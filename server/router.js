@@ -83,6 +83,8 @@ router.get('/api/userdata', (req, res) => {
         res.json(result)
       })
       .catch(console.log)
+  } else {
+    res.json({ id: null })
   }
 })
 
@@ -120,7 +122,7 @@ router.post('/api/favourites', (req, res) => {
 router.post('/api/deletefavourites', (req, res) => {
   const contentId = req.body.id_activity
   const userId = req.body.id_name
-  
+
   deleteFavourite(userId, contentId)
     .then(result => {
       return res.json(result)

@@ -32,16 +32,18 @@ function App() {
   //it will only send if user has valid token
   React.useEffect(() => {
     getUserData()
-      .then(result =>
-        setUserData({
-          userId: result.id,
-          userName: result.name,
-          userEmail: result.email,
-          childName: result.child_name,
-          childBirthday: result.child_birthday,
-          childGender: result.child_gender,
-        })
-      )
+      .then(result => {
+        if (result.id !== null) {
+          setUserData({
+            userId: result.id,
+            userName: result.name,
+            userEmail: result.email,
+            childName: result.child_name,
+            childBirthday: result.child_birthday,
+            childGender: result.child_gender,
+          })
+        }
+      })
       .catch(console.log)
   }, [])
 
