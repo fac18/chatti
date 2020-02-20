@@ -134,11 +134,11 @@ const ProgressContainer = styled.div`
     font-weight: 400;
   }
   h3 {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 300;
   }
   h2 {
-    font-size: 4em;
+    font-size: 1em;
     font-weight: 200;
     color: #163c9b;
   }
@@ -161,7 +161,7 @@ const ProgressContainer = styled.div`
     background-color: #f5f8fd;
     border-radius: 10px;
     padding: 1em 2em;
-    margin-bottom: 5px;
+    margin-bottom: 0em 1em 1em;
     transition: 0.3s all ease-in-out;
   }
 `
