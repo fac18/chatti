@@ -7,7 +7,7 @@ const {
   getUserData,
   getUserId,
   getUser,
-  getFavourites
+  getFavourites,
 } = require('./database/queries/getData')
 
 const { insertFavActivityData } = require('./database/queries/insertData')
@@ -113,23 +113,25 @@ router.post('/api/userlibrary', (req, res) => {
     .catch(console.log)
 })
 
-
 router.post('/api/activity', (req, res) => {
   const nameId = req.body.id_name
   const activityId = req.body.id_activity
-  insertFavActivityData(nameId, activityId).catch(console.log)
+  insertFavActivityData(nameId, activityId)
+    .then(result => res.json(result))
+    .catch(console.log)
 })
 
 router.post('/api/favourites', (req, res) => {
   const userId = req.body.userId
-  getFavourites (userId).then(result => res.json(result)).catch(console.log)
+  getFavourites(userId)
+    .then(result => res.json(result))
+    .catch(console.log)
 })
 
 router.post('/api/addcontent', (req, res) => {
   insertContent(req.body)
     .then(console.log)
     .catch(console.log)
-
 })
 
 // The "catchall" handler: for any request that doesn't
