@@ -5,14 +5,11 @@ const Setting = styled.section`
 display:flex;
 flex-direction:column;
 color: #163c9b;
-margin: 1em auto 4em auto;
-max-width:1000px;
+margin: 1em auto 5em auto;
+max-width: 1500px;
 `
 
-const Notification = styled.section`
-margin-top: 3em;
 
-`
 const Select = styled.select `
   background-color: #00000;
   box-shadow: inset 0px 4px 0px rgba(22, 60, 155, 0.71);
@@ -38,22 +35,8 @@ const SettingsLabel = styled.label `
   text-align: center;
   `
 
-// const TableWrapper = styled.section `
-// display:flex;
-// flex-direction: row; 
-// wrap: nowrap;
-// justify-content: space-evenly;
-// `
-const Row = styled.td `
-padding-right: 50px
-${props =>
-    props.Row2 &&
-    css`
-      padding-left:50px
 
-      
-    `}
-`
+
 const SettingsHeader = styled.h2`
   color: #163c9b;
   padding-top: 1em;
@@ -66,6 +49,8 @@ const SettingsHeader = styled.h2`
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 2em 5em;
+  
   `
 
-export {Setting,Select,SettingsLabel,Row,SettingsHeader,Notification,SettingText}
+export {Setting,Select,SettingsLabel,SettingsHeader,SettingText}

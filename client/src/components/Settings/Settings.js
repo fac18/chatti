@@ -56,6 +56,7 @@ function Settings({ userData }) {
           </p>
 
           <p>{userData.userEmail}</p>
+          
           </SC.SettingText>
 
 
