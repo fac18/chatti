@@ -9,7 +9,7 @@ export default function VideoPopup({ videoUrl }) {
   return (
     <Popup
       trigger={<VideoButton>Watch video</VideoButton>}
-      contentStyle={{ width: '600px', height: '400px' }}
+      contentStyle={{ width: '400px', height: '300px' }}
       modal
     >
       {close => (
@@ -25,7 +25,7 @@ export default function VideoPopup({ videoUrl }) {
             <div className="content">
               <Player videoUrl={videoUrl} />
             </div>
-            <div className="actions"></div>
+            {/* <div className="actions"></div> */}
           </div>
         </PopupVideo>
       )}

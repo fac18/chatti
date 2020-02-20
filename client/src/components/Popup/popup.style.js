@@ -4,7 +4,10 @@ const Popup = styled.div`
   .modal {
     position: relative;
     width: 100%;
+    display: flex;
+    padding-top: 20px;
   }
+
   .modal > .header {
     width: 100%;
     border-bottom: 1px solid gray;
