@@ -3,7 +3,7 @@ import Register1 from '../Register1/Register1'
 import Register2 from '../Register2/Register2'
 import Register3 from '../Register3/Register3'
 import Register4 from '../Register4/Register4'
-import headerRegistration from '../HeaderRegistration/headerRegistration'
+import HeaderRegistration from '../HeaderRegistration/headerRegistration'
 
 import Header from '../Header/Header'
 import * as SC from './RegisterContainer.style'
@@ -30,7 +30,7 @@ function RegisterContainer({ userData, setUserData }) {
 
   return (
     <SC.RegisterContainer>
-      <headerRegistration />
+      <HeaderRegistration />
       <SC.Divider />
       {reg2 ? <ProgressBar3 /> : reg1 ? <ProgressBar2 /> : <ProgressBar1 />}
       <SC.Divider />

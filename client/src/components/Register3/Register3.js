@@ -119,16 +119,16 @@ function Register3({ setReg3 }) {
               <Error name="weekly_goal" component="div">
                 Please select weekly goal
               </Error>
+              <Button type="submit" type="button" buttonText="Continue"></Button>
+  
+              <Button
+                type="submit"
+                type="button"
+                buttonText="Accept recommended settings"
+                disabled={isSubmitting}
+              ></Button>
             </InputSubHeading>
 
-            <Button type="submit" type="button" buttonText="Continue"></Button>
-
-            <Button
-              type="submit"
-              type="button"
-              buttonText="accept recommended settings"
-              disabled={isSubmitting}
-            ></Button>
           </Form>
         )}
       </Formik>
