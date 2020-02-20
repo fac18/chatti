@@ -27,9 +27,7 @@ function App() {
   const [userLibrary, setUserLibrary] = React.useState(null)
   const [currentActivity, setCurrentActivity] = React.useState(null)
   const [favouriteActivities, setFavouriteActivities] = React.useState(null)
-  
 
-  
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
   React.useEffect(() => {
@@ -48,7 +46,6 @@ function App() {
   }, [])
 
   React.useEffect(() => {
-    console.log(userData)
     if (userData) {
       getUserLibrary(userData.userEmail)
         .then(result => setUserLibrary(result))
@@ -63,8 +60,6 @@ function App() {
         .catch(console.log)
     }
   }, [userData])
-
-  
 
   return (
     <Router>
@@ -125,7 +120,6 @@ function App() {
               userData={userData}
               favouriteActivities={favouriteActivities}
               setFavouriteActivities={setFavouriteActivities}
-              
             />
           ) : (
             <Redirect to="/" />

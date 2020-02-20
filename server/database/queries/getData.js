@@ -21,7 +21,7 @@ const getUserId = async userEmail => {
 const getUserLibrary = userEmail => {
   return dbConnection
     .query(
-      'SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1 LIMIT 1));',
+      '(SELECT * FROM content WHERE id IN (SELECT content_id FROM user_libraries WHERE user_id = (SELECT id FROM users WHERE email = $1 LIMIT 1)));',
       [userEmail]
     )
     .then(result => result.rows)
@@ -29,7 +29,7 @@ const getUserLibrary = userEmail => {
 
 //inserts new user data into database
 //gets id of new user (auto assigned by db)
-//adds content items 1,5,6 to user library so they already have some material to see
+//adds content items the existing content to user library so they already have some material to see
 const InsertUserData = async userData => {
   const response = await dbConnection
     .query(
@@ -46,7 +46,7 @@ const InsertUserData = async userData => {
         .then(userId => {
           dbConnection.query(
             'INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3);',
-            [userId, 1, 5, 6]
+            [userId, 1, 5, 6, 7, 8, 9, 10]
           )
         })
     })
@@ -81,21 +81,25 @@ const getUser = email => {
 
 const getFavourites = userId => {
   return dbConnection
-    .query('SELECT * from content WHERE id IN ( SELECT content_id from favourites WHERE user_id = $1)', [userId])
+    .query(
+      'SELECT * from content WHERE id IN ( SELECT content_id from favourites WHERE user_id = $1)',
+      [userId]
+    )
     .then(result => {
-     return result.rows; 
+      return result.rows
     })
 }
 
 const deleteFavourite = (userId, content_id) => {
-  console.log(userId ,content_id)
+  console.log(userId, content_id)
   return dbConnection
-  .query('DELETE from favourites WHERE user_id = $1 AND content_id = $2', [userId,content_id])
-  .then(result => {
-    return result;
-  })
-
-
+    .query('DELETE from favourites WHERE user_id = $1 AND content_id = $2', [
+      userId,
+      content_id,
+    ])
+    .then(result => {
+      return result
+    })
 }
 
 module.exports = {
@@ -106,5 +110,5 @@ module.exports = {
   getUserId,
   getUser,
   getFavourites,
-  deleteFavourite
+  deleteFavourite,
 }

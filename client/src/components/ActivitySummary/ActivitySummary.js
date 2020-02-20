@@ -8,8 +8,8 @@ import { ReactComponent as ListeningIcon } from '../../assets/svgs/activity_list
 import { ReactComponent as UnderstandingIcon } from '../../assets/svgs/activity_understanding.svg'
 import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.svg'
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
-// import { Link } from 'react-router-dom'
 import { Redirect, useHistory } from 'react-router-dom'
+import './ActivitySummary.css'
 
 function ActivitySummary({ activity, setCurrentActivity }) {
   //data is all the fields from the db:
@@ -22,12 +22,31 @@ function ActivitySummary({ activity, setCurrentActivity }) {
     history.push('/activity')
   }
 
+  const [starPercentageRounded, setStarPercentageRounded] = React.useState(null)
+
+  React.useEffect(() => {
+    const starPercentage = (3.6 / 5) * 100
+    setStarPercentageRounded(`${Math.round(starPercentage / 10) * 10}%`)
+  }, [activity])
+
   return (
     <SC.ActivitySummary>
       <div className="activity-main-container">
         <div className="top-container">
           <ActivityTitle>{data.title}</ActivityTitle>
-          <p>**** 5.0</p>
+
+          <div className="rating">
+            <div className="rating-outer">
+              <div
+                className="rating-inner"
+                style={{
+                  width: starPercentageRounded,
+                }}
+              ></div>
+              <span>4.5</span>
+            </div>
+          </div>
+
         </div>
         <div className="centre-container">
           <div className="details-container">
@@ -69,6 +88,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               </div>
             )}
           </div>
+
           <div className="activity-image-container">
             <img
               src={data.image_url}
@@ -76,6 +96,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               className="activity-preview"
             ></img>
           </div>
+
         </div>
         <Button
           className="ctaButton"
