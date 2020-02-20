@@ -23,4 +23,25 @@ const Select = styled.select `
   margin: 1rem auto;
 `
 
-export {Setting,Select}
+const SettingsLabel = styled.label `
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  `
+
+  const SettingTable = styled.div `
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+`
+
+const TableWrapper = styled.div `
+display:flex;
+flex-direction: row;
+
+`
+
+export {Setting,Select,SettingsLabel,TableWrapper}

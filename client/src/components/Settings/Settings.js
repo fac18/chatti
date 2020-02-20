@@ -5,11 +5,15 @@ import Button from "../button";
 import getSettingData from '../../utils/getSettingsData';
 import {useHistory,Link} from "react-router-dom";
 import * as SC from './settings.style';
-import {InputSubHeading} from '../masterCss'
+import {ActivitySubHeading} from '../masterCss'
+
+
 
 
 
 function Settings({ userData }) {
+
+  
   //need to know userName, email, childs name, childs age, password length
   const history = useHistory();
   
@@ -30,7 +34,8 @@ function Settings({ userData }) {
        <SC.Setting>
         <Header buttons />
         <h2>{userData.userName}</h2>
-        <h3>Your profile settings:</h3>
+        <ActivitySubHeading SettingsSub>Your profile settings:</ActivitySubHeading>
+        
         <table>
           <tbody>
             <tr>
@@ -55,17 +60,18 @@ function Settings({ userData }) {
             </tr>
           </tbody>
         </table>
-        <h3>Your notifications and target:</h3>
-        <label for="notificationsFrequency">Notification frequency</label>
+        
+        <ActivitySubHeading>Your notifications and target:</ActivitySubHeading>
+        <SC.SettingsLabel for="notificationsFrequency">Notification frequency</SC.SettingsLabel>
         <SC.Select id="notificationsFrequency">
           <option value="daily">Daily</option>
           </SC.Select>
-        <label for="notificationsTime">Notification time</label>
+        <SC.SettingsLabel for="notificationsTime">Notification time</SC.SettingsLabel>
         <SC.Select id="notificationsTime">
           <option value="20:00:00">8:00pm</option>
         </SC.Select>
 
-        <label for="weeklyGoal">Weekly goal</label>
+        <SC.SettingsLabel for="weeklyGoal">Weekly goal</SC.SettingsLabel>
         <SC.Select id="weeklyGoal">
           <option value="70">70 minutes</option>
         </SC.Select>

@@ -81,7 +81,13 @@ const ActivitySubHeading = styled.h4`
   text-align: left;
   color: #163c9b;
   padding: 1rem;
-`;
+  ${props =>
+    props.SettingsSub &&
+    css`
+      font-size: 16px;
+      
+    `}
+  `;
 
 const FormBox = styled(Form)`
   display: flex;
