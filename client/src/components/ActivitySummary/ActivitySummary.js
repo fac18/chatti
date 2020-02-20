@@ -34,6 +34,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
       <div className="activity-main-container">
         <div className="top-container">
           <ActivityTitle>{data.title}</ActivityTitle>
+
           <div className="rating">
             <div className="rating-outer">
               <div
@@ -45,6 +46,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               <span>4.5</span>
             </div>
           </div>
+
         </div>
         <div className="centre-container">
           <div className="details-container">
@@ -86,11 +88,15 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               </div>
             )}
           </div>
-          <img
-            src={data.image_url}
-            alt="activity preview"
-            className="activity-preview"
-          ></img>
+
+          <div className="activity-image-container">
+            <img
+              src={data.image_url}
+              alt="activity preview"
+              className="activity-preview"
+            ></img>
+          </div>
+
         </div>
         <Button
           className="ctaButton"
