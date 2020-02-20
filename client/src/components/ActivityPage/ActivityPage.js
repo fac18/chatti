@@ -111,16 +111,18 @@ function ActivityPage({
             </div>
           </section>
           <p className="activity-description">{personalisedInstructions}</p>
-          <VideoPopup videoUrl={currentActivity.video_url} />
-          <Button
-            buttonText={
-              favouriteActivities.some(item => item.id === currentActivity.id)
-                ? 'Remove from Favourites'
-                : 'Add to Favourites'
-            }
-            secondary
-            handleClick={handleFavourite}
-          />
+          <div className="centered-buttons">
+            <VideoPopup videoUrl={currentActivity.video_url} />
+            <Button
+              buttonText={
+                favouriteActivities.some(item => item.id === currentActivity.id)
+                  ? 'Remove from Favourites'
+                  : 'Add to Favourites'
+              }
+              secondary
+              handleClick={handleFavourite}
+            />
+          </div>
           {/* add review button - IGNORE? */}
           {/* reviews component - IGNORE? */}
           <Navbar />

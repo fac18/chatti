@@ -27,6 +27,12 @@ const ActivityPage = styled.section`
     padding: 1rem;
     font-size: 14px;
   }
+
+  .centered-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export { ActivityPage };
