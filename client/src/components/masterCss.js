@@ -16,8 +16,8 @@ const InputField = styled(Field)`
   text-align: center;
   cursor: pointer;
   margin: 1rem auto;
-`;
- 
+`
+
 const Heading = styled.h1`
   font-family: Lato;
   font-style: normal;
@@ -89,9 +89,6 @@ const ActivitySubHeading = styled.h4`
   text-align: left;
   color: #163c9b;
   padding: 1em 0 1em 1em;
-<<<<<<< HEAD
-`
-=======
   ${props =>
     props.SettingsSub &&
     css`
@@ -99,13 +96,8 @@ const ActivitySubHeading = styled.h4`
       text-align: center;
       border-top: 1px solid #163c9b;
       border-bottom: 1px solid #163c9b;
-
-      
     `}
-  `;
-   
-
->>>>>>> master
+`
 
 const FormBox = styled(Form)`
   display: flex;
@@ -123,33 +115,20 @@ const RecommendationParagraph = styled.p`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
 `
-=======
-`;
->>>>>>> master
 
 const ProgressContainer = styled.div`
   max-width: 1200px;
   margin: 1em auto 8em auto;
-<<<<<<< HEAD
 
   h1 {
-=======
-  
-  h1{
->>>>>>> master
     color: #163c9b;
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 1em;
     font-weight: 400;
   }
-<<<<<<< HEAD
   h3 {
-=======
-  h3{
->>>>>>> master
     font-size: 2em;
     font-weight: 300;
   }
@@ -157,16 +136,9 @@ const ProgressContainer = styled.div`
     font-size: 4em;
     font-weight: 200;
     color: #163c9b;
-<<<<<<< HEAD
   }
 
   .flex-display {
-=======
-
-  }
-
-  .flex-display{
->>>>>>> master
     display: flex;
     align-self: center;
   }
@@ -180,29 +152,19 @@ const ProgressContainer = styled.div`
     margin-top: 1em;
   }
 
-<<<<<<< HEAD
   .progress-section {
     background-color: #f5f8fd;
-    /* border: 1px solid #163c9b; */
-=======
-  .progress-section{
-    background-color: #F5F8FD;
->>>>>>> master
     border-radius: 10px;
     padding: 1em 2em;
     margin-bottom: 5px;
     transition: 0.3s all ease-in-out;
   }
-<<<<<<< HEAD
 `
-=======
-`;
 
 const CommunityContainer = styled.div`
   max-width: 700px;
   color: #163c9b;
   margin: 0 auto 3em auto;
-  
 
   h1 {
     margin-top: 1em;
@@ -212,14 +174,11 @@ const CommunityContainer = styled.div`
 
   p {
     text-align: center;
-    background-color: #F5F8FD;
+    background-color: #f5f8fd;
     border-radius: 10px;
     padding: 1em 2em;
   }
 `
-
-
->>>>>>> master
 
 export {
   InputField,
@@ -234,11 +193,5 @@ export {
   FormContainer,
   ActivityContainer,
   ProgressContainer,
-<<<<<<< HEAD
+  CommunityContainer,
 }
-=======
-  CommunityContainer
-  
-
-};
->>>>>>> master
