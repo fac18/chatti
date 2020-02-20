@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Favourite from './Favourite'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+
+const history = createMemoryHistory()
 
 it('Favourite component renders without problems', () => {
   const activity = {
@@ -20,5 +24,10 @@ it('Favourite component renders without problems', () => {
   }
 
   const div = document.createElement('div')
-  ReactDOM.render(<Favourite activity={activity} />, div)
+  ReactDOM.render(
+    <Router history={history}>
+      <Favourite activity={activity} />
+    </Router>,
+    div
+  )
 })

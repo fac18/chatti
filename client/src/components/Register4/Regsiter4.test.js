@@ -8,7 +8,7 @@ test('includes Great! header', () => {
   const history = createMemoryHistory()
   const { getByText } = render(
     <Router history={history}>
-      <Register4 userData={{ userName: 'Georgia', childName: 'Freddie' }} />
+      <Register4 names={{ userName: 'Georgia', childName: 'Freddie' }} />
     </Router>
   )
   const headerElement = getByText(/Great!/i)
