@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { Heading, ActivitySubHeading, ActivityContainer } from '../masterCss'
 import ActivitySummary from '../ActivitySummary/ActivitySummary'
 
-
 const LoggedInActivity = styled.h3`
   font-family: Open Sans;
   font-style: normal;
@@ -16,11 +15,11 @@ const LoggedInActivity = styled.h3`
 `
 
 function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
+  console.log(userLibrary)
   return (
     <>
       {userLibrary && (
         <>
-        
           <Header buttons />
 
           <Heading whiteBg>Welcome {userData.userName}</Heading>
@@ -46,7 +45,6 @@ function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
             ))}
           </ActivityContainer>
           <Navbar />
-          
         </>
       )}
     </>

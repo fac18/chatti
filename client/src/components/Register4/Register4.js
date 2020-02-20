@@ -1,27 +1,22 @@
-import React from "react";
-import Header from "../Header/Header";
-import { Link } from "react-router-dom";
-import Button from "../button";
+import React from 'react'
+import Header from '../Header/Header'
+import { Link } from 'react-router-dom'
+import Button from '../button'
 import styled from 'styled-components'
-import {ReactComponent as SmileyFace} from '../../assets/svgs/smiley_face.svg'
-import {GeneralText} from '../masterCss'
+import { ReactComponent as SmileyFace } from '../../assets/svgs/smiley_face.svg'
+import { GeneralText } from '../masterCss'
 
-
-
-
-function Register4({ userData }) {
+function Register4({ names }) {
   return (
     <>
-      {userData && (
+      {names && (
         <>
           <Header />
           <h3>Great!</h3>
-          <SmileyFace/>
+          <SmileyFace />
           <GeneralText>
-            Welcome {userData.userName} and {userData.childName}
-            
+            Welcome {names.userName} and {names.childName}
           </GeneralText>
-
 
           <Link to="/login">
             <Button
@@ -33,7 +28,7 @@ function Register4({ userData }) {
         </>
       )}
     </>
-  );
+  )
 }
 
-export default Register4;
+export default Register4

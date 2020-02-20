@@ -30,6 +30,7 @@ const getUserLibrary = userEmail => {
 //inserts new user data into database
 //gets id of new user (auto assigned by db)
 //adds content items the existing content to user library so they already have some material to see
+//this would need changing to incorporate automatic adding of new content etc
 const InsertUserData = async userData => {
   const response = await dbConnection
     .query(
@@ -45,7 +46,7 @@ const InsertUserData = async userData => {
         .then(result => result.rows[0].id)
         .then(userId => {
           dbConnection.query(
-            'INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3);',
+            'INSERT INTO user_libraries (user_id, content_id) VALUES ($1,$2),($1,$3),($1,$4),($1,$5),($1,$6),($1,$7),($1,$8);',
             [userId, 1, 5, 6, 7, 8, 9, 10]
           )
         })
