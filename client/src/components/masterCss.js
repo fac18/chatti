@@ -38,11 +38,20 @@ const ActivityTitle = styled.h2`
   font-family: Lato;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 27px;
   color: #163c9b;
-  padding: 1rem;
+  padding: 2em 0 1em 0em;
 `;
+
+const ActivityContainer = styled.div`
+  background-color: #f7f7f7;
+  max-width: 1200px;
+  margin: 1em auto 3em auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+` 
 
 const Error = styled(ErrorMessage)`
   color: red;
@@ -75,12 +84,11 @@ const InputSubHeading = styled.label`
 const ActivitySubHeading = styled.h4`
   font-family: Lato;
   font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
+  font-size: 32px;
   line-height: 19px;
   text-align: left;
   color: #163c9b;
-  padding: 1rem;
+  padding: 1em 0 1em 1em;
 `;
 
 const FormBox = styled(Form)`
@@ -117,6 +125,7 @@ export {
   Error,
   RecommendationParagraph,
   FormContainer,
+  ActivityContainer
   
 
 };
