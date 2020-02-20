@@ -15,12 +15,14 @@ import postFavActivity from '../../utils/postFavActivity'
 import checkFavs from '../../utils/checkFavs'
 
 import personaliseInstructions from '../../utils/personaliseInstructions'
+import deleteFav from '../../utils/deleteFav'
 
 function ActivityPage({
   userData,
   currentActivity,
   favouriteActivities,
   setFavouriteActivities,
+  
 }) {
   const [
     personalisedInstructions,
@@ -35,16 +37,27 @@ function ActivityPage({
     }
   }, [userData, currentActivity])
 
-  function addToFavourites() {
+  function handleFavourite() {
     const data = { id_activity: currentActivity.id, id_name: userData.userId }
-    postFavActivity(data)
+    if(favouriteActivities.some(item => item.id === currentActivity.id)){
+      deleteFav(data)
       .then(result => checkFavs(userData.userId))
       .then(result => {
         setFavouriteActivities(result)
+        console.log('working bro')
       })
       .catch(console.log)
-  }
 
+    } else {
+      postFavActivity(data)
+      .then(result => checkFavs(userData.userId))
+      .then(result => {
+        setFavouriteActivities(result)
+      }).catch(console.log)
+      
+  }
+    }
+    
   return (
     <>
       {personalisedInstructions && (
@@ -106,7 +119,7 @@ function ActivityPage({
                 : 'Add to Favourites'
             }
             secondary
-            handleClick={addToFavourites}
+            handleClick={handleFavourite}
           />
           {/* add review button - IGNORE? */}
           {/* reviews component - IGNORE? */}
