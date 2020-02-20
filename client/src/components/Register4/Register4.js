@@ -27,7 +27,7 @@ function Register4({ names }) {
               bottom
               type="submit"
               type="button"
-              buttonText="go to log in page"
+              buttonText="Log into your profile"
             ></Button>
           </Link>
         </>
