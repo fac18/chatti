@@ -5,6 +5,8 @@ import { ReactComponent as SettingsButton } from "../../assets/svgs/settings_cog
 import * as SC from "./Header.style";
 import { Link } from "react-router-dom";
 
+
+
 function Header({ buttons }) {
   return (
     <SC.Header>
@@ -15,7 +17,9 @@ function Header({ buttons }) {
           </Link>
         )}
         <Link to="/home">
+          
           <Logo className="svgTitle" />
+          
         </Link>
 
         {buttons && (
