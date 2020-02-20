@@ -4,6 +4,7 @@ import { ReactComponent as BackButton } from "../../assets/svgs/arrow_go_back.sv
 import { ReactComponent as SettingsButton } from "../../assets/svgs/settings_cog.svg";
 import * as SC from "./Header.style";
 import { Link } from "react-router-dom";
+import { Heading } from "../masterCss";
 
 
 
