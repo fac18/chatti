@@ -8,6 +8,7 @@ const {
   getUserId,
   getUser,
   getFavourites,
+  deleteFavourite
 } = require('./database/queries/getData')
 
 const { insertFavActivityData } = require('./database/queries/insertData')
@@ -127,6 +128,19 @@ router.post('/api/favourites', (req, res) => {
     .then(result => res.json(result))
     .catch(console.log)
 })
+
+router.post('/api/deletefavourites', (req,res)=>{
+ const contentId = req.body.id_activity
+ const userId = req.body.id_name
+ console.log("i have arrived")
+ deleteFavourite(userId, contentId).then(result =>{
+  return res.json(result)
+ }).catch(console.log)
+
+
+})
+
+
 
 router.post('/api/addcontent', (req, res) => {
   insertContent(req.body)
