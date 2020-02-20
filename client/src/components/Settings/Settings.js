@@ -35,33 +35,34 @@ function Settings({ userData }) {
         <Header buttons />
         <h2>{userData.userName}</h2>
         <ActivitySubHeading SettingsSub>Your profile settings:</ActivitySubHeading>
-        
+        <SC.TableWrapper>
         <table>
           <tbody>
             <tr>
-              <td>Your child's name</td>
+              <SC.Row>Your child's name</SC.Row>
               <td>{userData.childName}</td>
-              <td>{/* edit icon */}</td>
+              
             </tr>
             <tr>
-              <td>Your child's age</td>
+              <SC.Row>Your child's age</SC.Row>
               <td>5</td>
-              <td>{/* edit icon */}</td>
+              
             </tr>
             <tr>
-              <td>Your email</td>
+              <SC.Row>Your email</SC.Row>
               <td>{userData.userEmail}</td>
-              <td>{/* edit icon */}</td>
+              
             </tr>
             <tr>
-              <td>Your password</td>
-              <td>{/* password length in *s? */}</td>
-              <td>{/* edit icon */}</td>
+              <SC.Row>Your password</SC.Row>
+              <td>arsenal123</td>
+              
             </tr>
           </tbody>
         </table>
+        </SC.TableWrapper>
         
-        <ActivitySubHeading>Your notifications and target:</ActivitySubHeading>
+        <ActivitySubHeading SettingsSub>Your notifications and target:</ActivitySubHeading>
         <SC.SettingsLabel for="notificationsFrequency">Notification frequency</SC.SettingsLabel>
         <SC.Select id="notificationsFrequency">
           <option value="daily">Daily</option>

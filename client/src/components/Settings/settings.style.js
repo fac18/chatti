@@ -4,7 +4,7 @@ const Setting = styled.section`
 display:flex;
 flex-direction:column;
 color: #163c9b;
-margin: 1em auto 5em auto;
+margin: 1em auto 4em auto;
 
 `
 const Select = styled.select `
@@ -32,16 +32,15 @@ const SettingsLabel = styled.label `
   text-align: center;
   `
 
-  const SettingTable = styled.div `
-  display:flex;
-  flex-direction:row;
-  justify-content: space-evenly;
-`
-
-const TableWrapper = styled.div `
+const TableWrapper = styled.section `
 display:flex;
-flex-direction: row;
-
+flex-direction: column 
+wrap: nowrap;
+justify-content: space-evenly;
 `
+const Row = styled.td `
+padding-right: 50px
+`
+  
 
-export {Setting,Select,SettingsLabel,TableWrapper}
+export {Setting,Select,SettingsLabel,TableWrapper,Row}

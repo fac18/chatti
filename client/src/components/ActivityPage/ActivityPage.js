@@ -12,81 +12,108 @@ import { ReactComponent as SocialIcon } from '../../assets/svgs/activity_social.
 import { ReactComponent as SpeakingIcon } from '../../assets/svgs/activity_speaking.svg'
 import VideoPopup from '../Popup/Popup'
 import postFavActivity from '../../utils/postFavActivity'
-import checkFavs from '../../utils/checkFavs';
+import checkFavs from '../../utils/checkFavs'
 
-//props are passed via a router Link so are stored within the location property
- function ActivityPage({ currentActivity, userData, setFavourites }) {
-   function addToFavourites() {
-    const data = {id_activity: currentActivity.id, id_name:userData.userId};
-    console.log('our data', data);
+import personaliseInstructions from '../../utils/personaliseInstructions'
 
+function ActivityPage({
+  userData,
+  currentActivity,
+  favouriteActivities,
+  setFavouriteActivities,
+}) {
+  const [
+    personalisedInstructions,
+    setPersonalisedInstructions,
+  ] = React.useState(null)
+
+  React.useEffect(() => {
+    if (currentActivity && userData) {
+      setPersonalisedInstructions(
+        personaliseInstructions(currentActivity.instructions, userData)
+      )
+    }
+  }, [userData, currentActivity])
+
+  function addToFavourites() {
+    const data = { id_activity: currentActivity.id, id_name: userData.userId }
     postFavActivity(data)
-    .then(console.log)
-    .then(checkFavs(userData.userId).then(result => setFavourites(result)))
-    .catch(console.log);
-   
+      .then(result => checkFavs(userData.userId))
+      .then(result => {
+        setFavouriteActivities(result)
+      })
+      .catch(console.log)
   }
 
-  console.log(currentActivity)
   return (
-    <SC.ActivityPage>
-      <Header buttons />
-      <ActivityTitle>{currentActivity.title}</ActivityTitle>
-      {/* activity rating */}
-      <section className="summary-container">
-        <img
-          src={currentActivity.image_url}
-          alt="activity preview"
-          className="activity-preview"
-        ></img>
-        <div className="details-container">
-          <div className="row-container">
-            <TimeIcon />
-            <p>{currentActivity.duration} mins</p>
-          </div>
-          <div className="row-container">
-            <AgesIcon />
-            <p>
-              Ages {currentActivity.lower_age_range}-
-              {currentActivity.upper_age_range}
-            </p>
-          </div>
-          <div className="row-container">Skills</div>
-          {currentActivity.listening_attention && (
-            <div className="row-container">
-              <ListeningIcon />
-              <p>Listening/Attention</p>
+    <>
+      {personalisedInstructions && (
+        <SC.ActivityPage>
+          <Header buttons />
+          <ActivityTitle>{currentActivity.title}</ActivityTitle>
+          {/* activity rating */}
+          <section className="summary-container">
+            <img
+              src={currentActivity.image_url}
+              alt="activity preview"
+              className="activity-preview"
+            ></img>
+            <div className="details-container">
+              <div className="row-container">
+                <TimeIcon />
+                <p>{currentActivity.duration} mins</p>
+              </div>
+              <div className="row-container">
+                <AgesIcon />
+                <p>
+                  Ages {currentActivity.lower_age_range}-
+                  {currentActivity.upper_age_range}
+                </p>
+              </div>
+              <div className="row-container">Skills</div>
+              {currentActivity.listening_attention && (
+                <div className="row-container">
+                  <ListeningIcon />
+                  <p>Listening/Attention</p>
+                </div>
+              )}
+              {currentActivity.understanding && (
+                <div className="row-container">
+                  <UnderstandingIcon />
+                  <p>Understanding</p>
+                </div>
+              )}
+              {currentActivity.speaking && (
+                <div className="row-container">
+                  <SpeakingIcon />
+                  <p>Speaking</p>
+                </div>
+              )}
+              {currentActivity.social_interaction && (
+                <div className="row-container">
+                  <SocialIcon />
+                  <p>Social Interaction</p>
+                </div>
+              )}
             </div>
-          )}
-          {currentActivity.understanding && (
-            <div className="row-container">
-              <UnderstandingIcon />
-              <p>Understanding</p>
-            </div>
-          )}
-          {currentActivity.speaking && (
-            <div className="row-container">
-              <SpeakingIcon />
-              <p>Speaking</p>
-            </div>
-          )}
-          {currentActivity.social && (
-            <div className="row-container">
-              <SocialIcon />
-              <p>Social Interaction</p>
-            </div> 
-          )}
-        </div>
-      </section>
-      <p className="activity-description">{currentActivity.description}</p>
-
-      <VideoPopup videoUrl={currentActivity.video_url} />
-      <Button buttonText="Add to Favourites" secondary />
-
-      {/* add review button - IGNORE? */}
-      {/* reviews component - IGNORE? */}
-      <Navbar />
-    </SC.ActivityPage>
+          </section>
+          <p className="activity-description">{personalisedInstructions}</p>
+          <VideoPopup videoUrl={currentActivity.video_url} />
+          <Button
+            buttonText={
+              favouriteActivities.some(item => item.id === currentActivity.id)
+                ? 'Remove from Favourites'
+                : 'Add to Favourites'
+            }
+            secondary
+            handleClick={addToFavourites}
+          />
+          {/* add review button - IGNORE? */}
+          {/* reviews component - IGNORE? */}
+          <Navbar />
+        </SC.ActivityPage>
+      )}
+    </>
   )
 }
 

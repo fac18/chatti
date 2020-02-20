@@ -17,8 +17,6 @@ function ActivitySummary({ activity, setCurrentActivity }) {
   const data = activity
   const history = useHistory()
 
-  console.log(data)
-
   const openActivity = () => {
     setCurrentActivity(data)
     history.push('/activity')
@@ -26,6 +24,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
 
   return (
     <SC.ActivitySummary>
+      <div className="activity-main-container">
       <div className="top-container">
         <ActivityTitle>{data.title}</ActivityTitle>
         <p>**** 5.0</p>
@@ -42,7 +41,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               Ages {data.lower_age_range}-{data.upper_age_range}
             </p>
           </div>
-          <div className="row-container">Skills</div>
+          <div className="row-container"><h4>Skills:</h4></div>
           {data.listening_attention && (
             <div className="row-container">
               <ListeningIcon />
@@ -61,7 +60,7 @@ function ActivitySummary({ activity, setCurrentActivity }) {
               <p>Speaking</p>
             </div>
           )}
-          {data.social && (
+          {data.social_interaction && (
             <div className="row-container">
               <SocialIcon />
               <p>Social Interaction</p>
@@ -74,7 +73,8 @@ function ActivitySummary({ activity, setCurrentActivity }) {
           className="activity-preview"
         ></img>
       </div>
-      <Button buttonText="Let's go" handleClick={openActivity} />
+      <Button className="ctaButton" buttonText="Let's go" handleClick={openActivity} />
+      </div>
     </SC.ActivitySummary>
   )
 }

@@ -19,18 +19,15 @@ import getUserLibrary from './utils/getUserLibrary'
 import checkFavs from './utils/checkFavs'
 import { Favourite } from './components/Favourite/Favourite.style'
 
-
-
 function App() {
   // when user is logged in, keep details that are used throughout app here
   // to include: username, childs name, childs bday, childs gender
   const [userData, setUserData] = React.useState(null)
   const [userLibrary, setUserLibrary] = React.useState(null)
   const [currentActivity, setCurrentActivity] = React.useState(null)
-  const [favouriteActivities, setFavsActivities] = React.useState(null)
+  const [favouriteActivities, setFavouriteActivities] = React.useState(null)
 
-
-  console.log({favouriteActivities})
+  console.log({ favouriteActivities })
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
   React.useEffect(() => {
@@ -58,10 +55,10 @@ function App() {
   }, [userData])
 
   React.useEffect(() => {
-    if(userData) {
+    if (userData) {
       checkFavs(userData.userId)
-      .then(result => setFavsActivities(result))
-      .catch(console.log)
+        .then(result => setFavouriteActivities(result))
+        .catch(console.log)
     }
   }, [userData])
 
@@ -122,7 +119,8 @@ function App() {
             <ActivityPage
               currentActivity={currentActivity}
               userData={userData}
-              setFavourites = {setFavsActivities}
+              favouriteActivities={favouriteActivities}
+              setFavouriteActivities={setFavouriteActivities}
             />
           ) : (
             <Redirect to="/" />
@@ -146,7 +144,11 @@ function App() {
         path="/progress"
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
-          return cookie ? <Progress userData={userData} /> : <Redirect to="/" />
+          return cookie ? (
+            <Progress userData={userData} userLibrary={userLibrary} />
+          ) : (
+            <Redirect to="/" />
+          )
         }}
       />
       <Route
