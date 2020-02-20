@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Header/Header";
+import HeaderRegistration from "../HeaderRegistration/headerRegistration";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { InputField, Heading, InputSubHeading, FormBox } from "../masterCss";
 import Button from "../button";
@@ -12,7 +12,7 @@ const Login = ({ setUserData }) => {
   const history = useHistory();
   return (
     <SC.Login>
-      <Header />
+      <HeaderRegistration />
       <div>
         <SC.Divider />
         <Heading>Log in to your profile</Heading>
