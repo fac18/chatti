@@ -160,8 +160,8 @@ const ProgressContainer = styled.div`
   .progress-section {
     background-color: #f5f8fd;
     border-radius: 10px;
-    padding: 1em 2em;
-    margin-bottom: 0em 1em 1em;
+    padding: 1em;
+    margin-bottom: 1em;
     transition: 0.3s all ease-in-out;
   }
 `
