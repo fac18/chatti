@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { Field, Form, ErrorMessage } from "formik";
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { Field, Form, ErrorMessage } from 'formik'
 
 const InputField = styled(Field)`
   background-color: #00000;
@@ -16,7 +16,7 @@ const InputField = styled(Field)`
   text-align: center;
   cursor: pointer;
   margin: 1rem auto;
-`;
+`
 
 const Heading = styled.h1`
   font-family: Lato;
@@ -32,7 +32,7 @@ const Heading = styled.h1`
     css`
       color: #163c9b;
     `}
-`;
+`
 
 const ActivityTitle = styled.h2`
   font-family: Lato;
@@ -42,7 +42,7 @@ const ActivityTitle = styled.h2`
   line-height: 27px;
   color: #163c9b;
   padding: 2em 0 1em 0em;
-`;
+`
 
 const ActivityContainer = styled.div`
   background-color: #f7f7f7;
@@ -51,23 +51,23 @@ const ActivityContainer = styled.div`
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
-` 
+`
 
 const Error = styled(ErrorMessage)`
   color: red;
   padding: 0 5em 2em 5em;
-`;
+`
 
 const GeneralText = styled.p`
-display: inline;
-font-family: font-family: Lato;
-font-style: normal;
-font-weight: normal;
-font-size: 22px;
-line-height: 29px;
-text-align: center;
-color: #FFFFFF;
-`;
+  display: inline;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+`
 
 const InputSubHeading = styled.label`
   display: flex;
@@ -79,7 +79,7 @@ const InputSubHeading = styled.label`
   line-height: 19px;
   text-align: center;
   color: #ffffff;
-`;
+`
 
 const ActivitySubHeading = styled.h4`
   font-family: Lato;
@@ -89,30 +89,25 @@ const ActivitySubHeading = styled.h4`
   text-align: left;
   color: #163c9b;
   padding: 1em 0 1em 1em;
-`;
+`
 
 const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
-
-`;
+`
 
 const RecommendationParagraph = styled.p`
   font-size: 1.4em;
   text-align: center;
   color: white;
   padding: 2em;
-  background-color: #3B60BD;
-`;
-
-const FormContainer = styled.div`
- display: flex;
- flex-direction: column;
+  background-color: #3b60bd;
 `
 
-
-
-
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export {
   InputField,
@@ -125,7 +120,5 @@ export {
   Error,
   RecommendationParagraph,
   FormContainer,
-  ActivityContainer
-  
-
-};
+  ActivityContainer,
+}

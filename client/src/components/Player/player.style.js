@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const PlayerContainer = styled.div`
   .player {
-    width: 500px;height: 360px;
-    }
-`;
+    width: 500px;
+    height: 360px;
+  }
+`
 
-export default PlayerContainer;
+export default PlayerContainer

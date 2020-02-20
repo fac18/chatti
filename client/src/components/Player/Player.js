@@ -11,6 +11,7 @@ export default function Player({ videoUrl }) {
         height="auto"
         url={videoUrl}
         playing
+        controls
       />
     </div>
   )

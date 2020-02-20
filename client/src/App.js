@@ -27,7 +27,6 @@ function App() {
   const [currentActivity, setCurrentActivity] = React.useState(null)
   const [favouriteActivities, setFavouriteActivities] = React.useState(null)
 
-  console.log({ favouriteActivities })
   //when app loads, make BE call to get user data state
   //it will only send if user has valid token
   React.useEffect(() => {
