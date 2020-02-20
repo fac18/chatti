@@ -10,6 +10,7 @@ import RegisterContainer from './components/RegisterContainer/RegisterContainer'
 import ActivityPage from './components/ActivityPage/ActivityPage'
 import Favourites from './components/FavouritesContainer/FavouritesContainer'
 import Progress from './components/Progress/Progress'
+import Community from './components/Community/Community'
 import AboutUs from './components/AboutUs/AboutUs'
 import Settings from './components/Settings/Settings'
 import AddContent from './components/AddContent/AddContent'
@@ -163,6 +164,18 @@ function App() {
         render={() => {
           const cookie = Cookies.get('user') ? Cookies.get('user') : null
           return cookie ? <AddContent /> : <Redirect to="/" />
+        }}
+      />
+      <Route
+        exact
+        path="/community"
+        render={() => {
+          const cookie = Cookies.get('user') ? Cookies.get('user') : null
+          return cookie ? (
+            <Community userData={userData} userLibrary={userLibrary} />
+          ) : (
+            <Redirect to="/" />
+          )
         }}
       />
     </Router>
