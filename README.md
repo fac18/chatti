@@ -1,21 +1,22 @@
-# chatti
+# Chatti
 
 ![travis](https://travis-ci.com/fac18/chatti.svg?branch=master)
-[![codecov](https://codecov.io/gh/fac18/chatti/branch/master/graph/badge.svg)](https://codecov.io/gh/fac18/chatti)
 
 <img src="https://imgur.com/xGUSSRl.jpg" alt="database schema" width="300px">
 
 ### Overview
 
-Chatti is an app that helps busy parents engage in quality time with their young children.  The app suggests fun, quick activities to do, which are targeted at children's early stages development goals.
+Chatti is an app that helps busy parents engage in quality time with their young children.  The app suggests fun, quick activities to do, which are targeted at children's early stages development goals.  The aim of the app is to close the developmental gap that exists between children starting school aged 4/5, as the significance of early years development means that this gap can persist for life.
+
+Chatti is the brainchild of Jenny Malpass, starting from her experience on the Year Here programme.
 
 
-### 👋Team
+### 👋Dev Team
 We are GAP!....
 
-* Gillian: DevOps
-* Ayub: UX/UI
-* Pat: QA
+* [Gillian](https://github.com/yeo-yeo): DevOps
+* [Ayub](https://github.com/Ayub3): UX/UI
+* [Pat](https://github.com/pat-cki): QA
 
 
 ### 🏁Getting Started 
@@ -27,10 +28,10 @@ We are GAP!....
 5. run `npm run start:all` to simultaneously boot up the server and react app
 
 ### 💻Tech Stack
-The app is built with:
+The app is built with:\
 React, including React router, styled components and Formik form library\
 Express\
-Bcrypt and JWT for authentication joy\
+Bcrypt and JWT for authentication\
 PostgreSQL (see database schema below)\
 Heroku\
 Videos and image URLs are hosted externally (e.g. Youtube and Imgur), and their URLs are stored in the database
@@ -63,11 +64,10 @@ We were able to accomplish a lot of setup in our first build sprint, including:
 
 In the second build sprint we pulled together many pieces, including:
 * retrieving and rendering activities from database
+* adding video player
 * styling
-* adding favourites
+* adding to/removing from favourites
 
-Team GAP looking serious:\
-<img src="https://imgur.com/kZdLSpa.jpg" alt="team gap" width="500px">
 
 ### ⏳Unmet goals
 
@@ -78,4 +78,15 @@ Unfortunately there were some original parts of our MVP which had to be taken ou
 * Ability to update user's profile settings (the page is visibile but not interactive)
 * Filtering activities list e.g. by type, age range
 
-We were probably too ambitious in what we chose to be our original MVP, especially given the technical difficulty of some of these elements.  We were also managing at a reduced capacity of 3 team members vs our expected 4.
+In hindsight we were too ambitious in what we chose to be our original MVP, especially given the technical difficulty of some of these elements.  We were also managing at a reduced capacity of 3 team members vs our expected 4.
+
+### Suggested Future Development Goals
+
+* The unmet goals, as above
+* Setting up the community section
+* Improve robustness of structure to avoid errors
+* Set up GUI access to insert/update/delete content from database
+* External consulting on security of authorisation
+
+### License
+Released under the MIT license
