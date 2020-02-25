@@ -15,7 +15,6 @@ const LoggedInActivity = styled.h3`
 `
 
 function HomeLoggedIn({ userData, userLibrary, setCurrentActivity }) {
-  console.log(userLibrary)
   return (
     <>
       {userLibrary && (
