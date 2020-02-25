@@ -59,6 +59,7 @@ We were able to accomplish a lot of setup in our first build sprint, including:
 * Create an account and login
 * Basic layout of all components, some with hard-coded data
 * React component testing
+* Researching and using libraries, such as Formik and React-player.
 
 ### 🏃Second Build Sprint
 
