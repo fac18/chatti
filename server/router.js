@@ -124,9 +124,7 @@ router.post('/api/deletefavourites', (req, res) => {
   const userId = req.body.id_name
 
   deleteFavourite(userId, contentId)
-    .then(result => {
-      return res.json(result)
-    })
+    .then(result => res.json(result))
     .catch(console.log)
 })
 
