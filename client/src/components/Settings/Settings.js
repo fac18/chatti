@@ -26,7 +26,6 @@ function Settings({ userData }) {
     getSettingData(userData)
       .then(result => {
         if (result === 'cookie deleted') {
-          console.log(result)
           history.push('./')
         }
       })
